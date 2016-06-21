@@ -1,0 +1,451 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cosmicfish_pylib.utilities &mdash; CosmicFish python library documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/CosmicFish_FavIcon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="CosmicFish python library documentation" href="index.html"/>
+        <link rel="next" title="cosmicfish_pylib.utilities.num_to_mant_exp" href="_summaries/cosmicfish_pylib.utilities.num_to_mant_exp.html"/>
+        <link rel="prev" title="cosmicfish_pylib.fisher_plot_analysis" href="cosmicfish_pylib_fisher_plot_analysis.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> CosmicFish
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference external" href="example.html#://">Examples and tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_apps.html">Applications</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_colors.html">cosmicfish_pylib.colors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_fisher_derived.html">cosmicfish_pylib.fisher_derived</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_fisher_matrix.html">cosmicfish_pylib.fisher_matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_fisher_operations.html">cosmicfish_pylib.fisher_operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_fisher_plot_settings.html">cosmicfish_pylib.fisher_plot_settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_fisher_plot.html">cosmicfish_pylib.fisher_plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_fisher_plot_analysis.html">cosmicfish_pylib.fisher_plot_analysis</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">cosmicfish_pylib.utilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="_summaries/cosmicfish_pylib.utilities.num_to_mant_exp.html">cosmicfish_pylib.utilities.num_to_mant_exp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_summaries/cosmicfish_pylib.utilities.mant_exp_to_num.html">cosmicfish_pylib.utilities.mant_exp_to_num</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_summaries/cosmicfish_pylib.utilities.nice_number.html">cosmicfish_pylib.utilities.nice_number</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_summaries/cosmicfish_pylib.utilities.significant_digits.html">cosmicfish_pylib.utilities.significant_digits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_summaries/cosmicfish_pylib.utilities.confidence_coefficient.html">cosmicfish_pylib.utilities.confidence_coefficient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_summaries/cosmicfish_pylib.utilities.print_table.html">cosmicfish_pylib.utilities.print_table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_summaries/cosmicfish_pylib.utilities.make_list.html">cosmicfish_pylib.utilities.make_list</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_todo.html">cosmicfish_pylib list of todos</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">CosmicFish</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>cosmicfish_pylib.utilities</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="_sources/cosmicfish_pylib_utilities.txt" rel="nofollow"> View page source</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cosmicfish-pylib-utilities">
+<h1>cosmicfish_pylib.utilities<a class="headerlink" href="#cosmicfish-pylib-utilities" title="Permalink to this headline">¶</a></h1>
+<p>A collection of small utilities.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="_summaries/cosmicfish_pylib.utilities.num_to_mant_exp.html#cosmicfish_pylib.utilities.num_to_mant_exp" title="cosmicfish_pylib.utilities.num_to_mant_exp"><code class="xref py py-obj docutils literal"><span class="pre">num_to_mant_exp</span></code></a></td>
+<td>This function returns the (base 10) exponent and mantissa of a number.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="_summaries/cosmicfish_pylib.utilities.mant_exp_to_num.html#cosmicfish_pylib.utilities.mant_exp_to_num" title="cosmicfish_pylib.utilities.mant_exp_to_num"><code class="xref py py-obj docutils literal"><span class="pre">mant_exp_to_num</span></code></a></td>
+<td>This function returns a float built with the given (base 10) mantissa and exponent.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="_summaries/cosmicfish_pylib.utilities.nice_number.html#cosmicfish_pylib.utilities.nice_number" title="cosmicfish_pylib.utilities.nice_number"><code class="xref py py-obj docutils literal"><span class="pre">nice_number</span></code></a></td>
+<td>This function returns a nice number built with num.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="_summaries/cosmicfish_pylib.utilities.significant_digits.html#cosmicfish_pylib.utilities.significant_digits" title="cosmicfish_pylib.utilities.significant_digits"><code class="xref py py-obj docutils literal"><span class="pre">significant_digits</span></code></a></td>
+<td>This function returns the number in num_err at the precision of error.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="_summaries/cosmicfish_pylib.utilities.confidence_coefficient.html#cosmicfish_pylib.utilities.confidence_coefficient" title="cosmicfish_pylib.utilities.confidence_coefficient"><code class="xref py py-obj docutils literal"><span class="pre">confidence_coefficient</span></code></a></td>
+<td>This function returns the number of sigmas given a confidence level.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="_summaries/cosmicfish_pylib.utilities.print_table.html#cosmicfish_pylib.utilities.print_table" title="cosmicfish_pylib.utilities.print_table"><code class="xref py py-obj docutils literal"><span class="pre">print_table</span></code></a></td>
+<td>This function prints on the screen a nicely formatted table.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="_summaries/cosmicfish_pylib.utilities.make_list.html#cosmicfish_pylib.utilities.make_list" title="cosmicfish_pylib.utilities.make_list"><code class="xref py py-obj docutils literal"><span class="pre">make_list</span></code></a></td>
+<td>Checks if elements is a list.</td>
+</tr>
+</tbody>
+</table>
+<span class="target" id="module-utilities"></span><dl class="function">
+<dt>
+<code class="descclassname">cosmicfish_pylib.utilities.</code><code class="descname">CosmicFish_write_header</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/utilities.html#CosmicFish_write_header"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>This function prints to screen the CosmicFish header. 
+To be called at the beginning of the applications.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> &#8211; string that contains the name of the program. This will be printed
+along the CosmicFish header.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">cosmicfish_pylib.utilities.</code><code class="descname">confidence_coefficient</code><span class="sig-paren">(</span><em>confidence_level</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/utilities.html#confidence_coefficient"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>This function returns the number of sigmas given a confidence level.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>confidence_level</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">float</span></code></a>) &#8211; desired confidence level. Between 0 and 1.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the coefficient (number of sigmas) for the desired confidence level.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">float</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">cosmicfish_pylib.utilities.</code><code class="descname">grouper</code><span class="sig-paren">(</span><em>n</em>, <em>iterable</em>, <em>fillvalue=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/utilities.html#grouper"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>This small function regroups a list in sub lists of n elements</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>n</strong> &#8211; an element or a list of elements</li>
+<li><strong>iterable</strong> &#8211; input list</li>
+<li><strong>fillvalue</strong> &#8211; value to put to fill if no element is present</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a list of list containing grouped elements</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)">list</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">cosmicfish_pylib.utilities.</code><code class="descname">make_list</code><span class="sig-paren">(</span><em>elements</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/utilities.html#make_list"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Checks if elements is a list. 
+If yes returns elements without modifying it.
+If not creates and return a list with elements inside.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>elements</strong> &#8211; an element or a list of elements</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list containing elements if elements is not a list, elements otherwise.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)">list</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">cosmicfish_pylib.utilities.</code><code class="descname">mant_exp_to_num</code><span class="sig-paren">(</span><em>mant_exp</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/utilities.html#mant_exp_to_num"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>This function returns a float built with the given (base 10) mantissa and exponent.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mant_exp</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) &#8211; (mantissa, exponent) a tuple of two <a class="reference external" href="http://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">int</span></code></a> with the mantissa and the exponent of the input number.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">output number built as mantissa*10**exponent.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">float</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">cosmicfish_pylib.utilities.</code><code class="descname">nice_number</code><span class="sig-paren">(</span><em>num</em>, <em>mode=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/utilities.html#nice_number"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>This function returns a nice number built with num. This is useful to build the axes of a plot.
+The nice number is built by taking the first digit of the number.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>num</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">float</span></code></a> or <a class="reference external" href="http://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">int</span></code></a>) &#8211; input number</li>
+<li><strong>mode</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">int</span></code></a>) &#8211; <p>(optional) operation to use to build the nice number</p>
+<div class="line-block">
+<div class="line">0 &#8211; use ceil</div>
+<div class="line">1 &#8211; use round</div>
+<div class="line">2 &#8211; use floor</div>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a nice number!</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">float</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">cosmicfish_pylib.utilities.</code><code class="descname">num_to_mant_exp</code><span class="sig-paren">(</span><em>num</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/utilities.html#num_to_mant_exp"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>This function returns the (base 10) exponent and mantissa of a number.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>num</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">int</span></code></a> or <a class="reference external" href="http://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">float</span></code></a>) &#8211; input number.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">tuple (mantissa, exponent) of <a class="reference external" href="http://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">int</span></code></a> containing the mantissa and the exponent of the input number.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)">tuple</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">cosmicfish_pylib.utilities.</code><code class="descname">print_table</code><span class="sig-paren">(</span><em>table</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/utilities.html#print_table"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>This function prints on the screen a nicely formatted table.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>table</strong> &#8211; a 2D list that should be printed on the screen.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">cosmicfish_pylib.utilities.</code><code class="descname">significant_digits</code><span class="sig-paren">(</span><em>num_err</em>, <em>mode=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/utilities.html#significant_digits"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>This function returns the number in num_err at the precision of error.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>num_err</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) &#8211; (number, error) input number and error in a tuple.</li>
+<li><strong>mode</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">int</span></code></a>) &#8211; <p>(optional) operation to use to build the number</p>
+<div class="line-block">
+<div class="line">0 &#8211; use ceil</div>
+<div class="line">1 &#8211; use round</div>
+<div class="line">2 &#8211; use floor</div>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a number with all the significant digits according to error</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">float</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="_summaries/cosmicfish_pylib.utilities.num_to_mant_exp.html" class="btn btn-neutral float-right" title="cosmicfish_pylib.utilities.num_to_mant_exp" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cosmicfish_pylib_fisher_plot_analysis.html" class="btn btn-neutral" title="cosmicfish_pylib.fisher_plot_analysis" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, the CosmicFish authors.
+      Last updated on Jun 21, 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

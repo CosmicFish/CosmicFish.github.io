@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="no-js oldie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+
+   <!--- basic page needs
+   ================================================== -->
+   <meta charset="utf-8">
+	<title>CosmicFish</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+   <!-- mobile specific metas
+   ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+ 	<!-- CSS
+   ================================================== -->
+   <link rel="stylesheet" href="css/base.css">
+   <link rel="stylesheet" href="css/main.css">
+   <link rel="stylesheet" href="css/vendor.css">
+
+   <!-- script
+   ================================================== -->
+	<script src="js/modernizr.js"></script>
+
+   <!-- favicons
+	================================================== -->
+	<link rel="icon" type="image/png" href="favicon.png">
+
+</head>
+
+<body id="top">
+
+	<!-- header
+   ================================================== -->
+   <header>
+
+   	<div class="row">
+
+   		<div class="logo">
+	         <a href="index.html">CosmicFish</a>
+	      </div>
+
+	   	<nav id="main-nav-wrap">
+				<ul class="main-navigation">
+					<li class="current"><a class="smoothscroll"  href="#intro" title="">Home</a></li>
+					<li><a class="smoothscroll"  href="#overview" title="">Overview</a></li>
+					<li><a class="smoothscroll"  href="#features" title="">Features</a></li>
+					<li><a class="smoothscroll"  href="#download" title="">Download</a></li>
+                    <li><a class="smoothscroll"  href="#documentation" title="">Documentation</a></li>
+                    <li><a class="smoothscroll"  href="#footer" title="">Contact us</a></li>
+				</ul>
+			</nav>
+
+			<a class="menu-toggle" href="#"><span>Menu</span></a>
+
+   	</div>
+
+   </header> <!-- /header -->
+
+	<!-- intro section
+   ================================================== -->
+   <section id="intro">
+
+   	<div class="shadow-overlay"></div>
+
+   	<div class="intro-content">
+   		<div class="row">
+
+   			<div class="col-twelve">
+
+	   			<!-- <div class='video-link'>
+	   				<a href="#video-popup"><img src="images/play-button.png" alt=""></a>
+	   			</div>-->
+
+                <h1>CosmicFish</h1>
+	   			<h5>Looking into future cosmology</h5>
+                
+                <h4>by <a href="http://people.sissa.it/~mraveri/" style="color:white" >M. Raveri</a>, M. Martinelli, <a href="http://icosmology.info" style="color:white" >G.B. Zhao</a> and Yuting Wang </h4>
+
+	   			<a class="button stroke smoothscroll" href="#overview" title="">Learn More</a>
+
+	   		</div>
+
+   		</div>
+   	</div>
+
+   </section> <!-- /intro -->
+
+
+   <!-- Overview Section
+   ================================================== -->
+   <section id="overview">
+
+   	<div class="row section-intro">
+   		<div class="col-twelve with-bottom-line">
+        	<h1>Overview</h1>
+   			<p class="lead">CosmicFish is a modern library for cosmological forecasts.
+            The code can be used to obtain expected bounds on cosmological parameters for a wide range of models and observables.</p>
+   		</div>
+   	</div>
+
+   	<div class="row overview-content">
+   		<div class="left-side">
+
+   			<div class="item" data-item="1">
+
+   				<h5>Model</h5>
+
+   				<p>Select the cosmological model that you want to study. Choose between all models in <a href="http://camb.info" target="_blank">CAMB</a>, <a href="http://wwwhome.lorentz.leidenuniv.nl/~hu/codes/" target="_blank">EFTCAMB</a> and <a href="http://aliojjati.github.io/MGCAMB/" target="_blank" >MGCAMB</a> to explore the standard cosmological model and extensions of that.</p>
+
+   			</div>
+
+   			<div class="item" data-item="3">
+
+                <h5>Create</h5>
+
+                <p>Run the code to produce the Fisher matrix.</p>
+
+   			</div>
+
+   		</div> <!-- /left-side -->
+
+   		<div class="right-side">
+
+   			<div class="item" data-item="2">
+
+                <h5>Design</h5>
+
+                <p>Select the type of experiments that you want to study choosing within a wide range of possible cosmological observables. Then design the experimental specifications. </p>
+
+   			</div>
+
+
+   			<div class="item" data-item="4">
+
+                <h5>Analyse</h5>
+                
+                <p>Perform statistical analyses of the Fisher matrices and plot results.</p>
+
+   			</div>
+
+   		</div> <!-- /right-side -->
+
+   		<div class="image-part"></div>
+
+   	</div> <!-- /overview-content -->
+
+   </section> <!-- /overview-->
+
+
+   <!-- features Section
+   ================================================== -->
+	<section id="features">
+
+		<div class="row section-intro">
+   		<div class="col-twelve with-bottom-line">
+
+   			<h1>Features</h1>
+
+   			<p class="lead">The core of the CosmicFish code consists of two libraries. The first one is a Fortran library that takes care of producing the Fisher matrices. The second part consists of a Python library designed to perform operations on Fisher matrices, once they are produced. This also contains a full set of plotting utilities.</p>
+
+   		</div>
+   	</div>
+
+   	<div class="row features-content">
+
+   		<div class="features-list block-1-3 block-s-1-2 block-tab-full group">
+
+	      	<div class="bgrid feature">
+
+	      		<span class="icon"><i class="ion-android-color-palette"></i></span>
+
+	            <div class="service-content">
+
+	            	 <h3 class="h05">Huge model coverage</h3>
+
+		            <p>Choose among all the models included in <a href="http://camb.info" target="_blank">CAMB</a>, <a href="http://wwwhome.lorentz.leidenuniv.nl/~hu/codes/" target="_blank">EFTCAMB</a> and <a href="http://aliojjati.github.io/MGCAMB/" target="_blank" >MGCAMB</a>. If that is not enough interface easily your own Boltzmann solver.
+	         		</p>
+
+	         	</div>
+
+				</div> <!-- /bgrid -->
+
+				<div class="bgrid feature">
+
+					<span class="icon"><i class="ion-eye"></i></span>
+
+	            <div class="service-content">
+	            	<h3 class="h05">Many different observables</h3>
+
+                      <ul style="list-style-type:none">
+                          <li>Cosmic Microwave Backround</li>
+                          <li>Weak Lensing tomography</li>
+                          <li>Galaxy Clustering</li>
+                          <li>Supernovae</li>
+                          <li>Redshift drift</li>
+                          <li>...more coming soon</li>
+                      </ul>
+
+	            </div>
+
+			   </div> <!-- /bgrid -->
+
+			   <div class="bgrid feature">
+
+			   	<span class="icon"><i class="ion-battery-charging"></i></span>
+
+	            <div class="service-content">
+	            	<h3 class="h05">Performance and accuracy</h3>
+
+		            <p>Both libraries constituting the CosmicFish code are based on state of the art, optimized, core algorithms including precise derivatives calculators, spectral protection of Fisher matrices against degenerate, unconstrained, parameters, to name a few.
+	        			</p>
+
+
+	            </div>
+
+			   </div> <!-- /bgrid -->
+
+				<div class="bgrid feature">
+
+					<span class="icon"><i class="ion-earth"></i></span>
+
+	            <div class="service-content">
+	            	<h3 class="h05">Collaborative development</h3>
+
+		            <p>The CosmicFish source code is available on GitHub and we welcome contributions from everyone. Follow the link to access the latest features (mostly still to be validated) and improvement. Join the developers and include your favourite models or observables.
+	         		</p>
+
+
+	            </div>
+
+				</div> <!-- /bgrid -->
+
+			   <div class="bgrid feature">
+
+			   	<span class="icon"><i class="icon-layers"></i></span>
+
+	            <div class="service-content">
+	            	<h3 class="h05">Easy To Customize</h3>
+
+		            <p>Thanks to an exaustive documentation and clean code the CosmicFish library is easy to customize. New applications can be easily developed following the already existing ones.
+                       A flexible package system allows for as much customization as possible. Produce your own analysis and plotting pipelines following the default python apps.
+                       </p>
+
+
+	            </div>
+
+			   </div> <!-- /bgrid -->
+
+			   <div class="bgrid feature">
+
+			   	<span class="icon"><i class="icon-file"></i></span>
+
+	            <div class="service-content">
+	            	 <h3 class="h05">Clean Code</h3>
+
+                        <p>The two libraries tha constitute the CosmicFish code are clearly written and documented. The code comes with two unit testing suites that are responsible for checking all the building blocks of the two libraries. The two libraries are supplied with a thorough automatic documentation that explain the interfaces and the purposes of all the functions in both codes.
+	        			</p>
+
+	            </div>
+
+			   </div> <!-- /bgrid -->
+
+	      </div> <!-- features-list -->
+
+   	</div> <!-- features-content -->
+
+	</section> <!-- /features -->
+
+
+	<!-- download
+   ================================================== -->
+
+   <section id="download">
+
+   	<div class="row section-intro">
+   		<div class="col-twelve with-bottom-line">
+
+   			<h1>Download</h1>
+            
+   			<p class="lead">Get your hands on the CosmicFish code! <br> Please read the README for the installation procedure.</p>
+            
+   		</div>
+   	</div>
+
+   	<div class="row download-content">
+
+         <div class="download-tables block-1-2 group">
+
+            <div class="bgrid">
+
+            	<div class="dload-block">
+
+            		<div class="top-part">
+	            		<h3 class="plan-title">Developers version</h3>
+	            	</div>
+
+	               <div class="bottom-part">
+
+	            		<ul class="features">
+		                  <li>Latest features and latest bugs. Updated very often. </li>
+		               </ul>
+
+		               <a class="button large" href="https://github.com/CosmicFish/CosmicFish">Download</a>
+
+	            	</div>
+
+            	</div>
+
+			   </div> <!-- /dload-block -->
+
+            <div class="bgrid">
+
+            	<div class="dload-block primary">
+
+            		<div class="top-part" data-info="recommended">
+	            		<h3 class="plan-title">Stable version</h3>
+	            	</div>
+
+	               <div class="bottom-part">
+
+	            		<ul class="features">
+                            <li>Validated and tested features. Updated on a regular long time scale.</li>
+		               </ul>
+                        
+		               <a class="button large" href="./files/cosmicfish.tar.gz">Download</a>
+
+	            	</div>
+
+            	</div>
+
+			  </div> <!-- /dload-block -->
+
+           <div class="bgrid">
+
+               <div class="dload-block">
+
+            		<div class="top-part">
+	            		<h3 class="plan-title">Validation package</h3>
+	            	</div>
+
+						<div class="bottom-part">
+
+	            		<ul class="features">
+		                  <li>Package used to validate the code.</li>
+		               </ul>
+
+		               <a class="button large" href="https://github.com/CosmicFish/CosmicFishValidation">Download</a>
+
+	            	</div>
+
+            	</div>
+
+			   </div> <!-- /dload-block -->
+
+			   <div class="bgrid">
+
+               <div class="dload-block">
+
+            		<div class="top-part">
+
+	            		<h3 class="plan-title">Information Gain package</h3>
+
+	            	</div>
+
+						<div class="bottom-part">
+
+	            		<ul class="features">
+                            <li>Package used for the CosmicFish release paper:</li>
+		               </ul>
+
+		               <a class="button large" href="https://github.com/CosmicFish/CosmicFishIG">Download</a>
+
+	            	</div>
+
+            	</div>
+
+			   </div> <!-- /dload-block -->
+
+         </div> <!-- /download-tables -->
+
+      </div> <!-- /download-content -->
+
+   </section> <!-- /download -->
+
+
+   <!-- Testimonials Section
+   ================================================== -->
+   <section id="testimonials">
+
+   	<div class="row">
+   		<div class="col-twelve">
+   			<h2 class="h01">Some papers using the CosmicFish code.</h2>
+   		</div>
+   	</div>
+
+      <div class="row flex-container">
+
+         <div id="testimonial-slider" class="flexslider">
+
+            <ul class="slides">
+
+               <li>
+               	<div class="testimonial-author">
+
+                        <div class="author-info">
+                    		Information Gain in Cosmology: <BR> From the Discovery of Expansion to Future Surveys
+                            <span class="position">Marco Raveri, Matteo Martinelli, Gong-Bo Zhao and Yuting Wang, <a href="https://arxiv.org/abs/1606.06273" target="_blank" >arxiv:1606.06273</a> </span>
+                        </div>
+                  </div>
+
+                  <p>
+                  Facing the advent of the next generation cosmological surveys we present a method to forecast knowledge gain on cosmological models. We propose this as a well defined and general tool to quantify the performance of different experiments in relation to different theoretical models. In particular, the assessment of experimental performance will benefit enormously from the fact that this method is invariant under re-parametrization of the model. We apply this to future surveys and compare expected knowledge advancements to the most relevant experiments performed over the history of modern cosmology. When considering the standard cosmological model, we show that it will rapidly reach knowledge saturation in the near future and forthcoming improvements will not match the past ones. On the contrary, we find that new observations have the potential for unprecedented knowledge jumps when extensions of the standard scenario are considered.
+                  </p>
+             	</li> <!-- /slide -->
+
+            </ul> <!-- /slides -->
+
+         </div> <!-- /testimonial-slider -->
+
+      </div> <!-- /flex-container -->
+
+   </section> <!-- /testimonials -->
+   
+   <!-- Documentation
+    ================================================== -->
+   <section id="documentation">
+       
+       <div class="row section-intro">
+           <div class="col-twelve with-bottom-line">
+               
+               <h1>Documentation</h1>
+               
+               <p class="lead">The CosmicFish library is thoroughly documented. <br> Two automatic documentations are provided for both the Fortran and Python part of the code. <br>
+               <a href="documentation/CosmicFish/index.html">Click here for the documentation of the CosmicFish Fortran library</a>. <br>
+               <a href="documentation/CosmicFishPyLib/index.html">Click here for the documentation of the CosmicFish Python library</a>. <br>
+               Also check out the Python Library <a href="documentation/CosmicFishPyLib/example.html">example page</a>! </p>
+               
+           </div>
+       </div>
+           
+           <div class="row section-intro">
+               <div class="col-twelve with-bottom-line">
+                   
+                   <h5>Faq</h5>
+                   <h1>Questions and Answers.</h1>
+                   
+                   <p class="lead">For any other problem just <a class="smoothscroll"  href="#footer" title="">contact us</a> or ask some question in the CosmicFish <a href="https://groups.google.com/forum/#!forum/cosmicfish" target="_blank">discussion group</a>! <br> Here we collect some of the most frequently asked questions.</p>
+                   
+               </div>
+           </div>
+
+
+<div class="row faq-content">
+    
+    <div class="q-and-a block-1-2 block-tab-full group">
+        
+        <div class="bgrid">
+            
+            <h3>Why there is no FAQ now?</h3>
+            
+            <p>Because the code has just been released!</p>
+            
+        </div>
+        
+    </div> <!-- /q-and-a -->
+    
+</div> <!-- /faq-content -->
+
+       
+       
+   </section> <!-- /documentation -->
+
+
+   <!-- Acknowledgments
+   ================================================== -->
+   <section id="cta">
+
+   	<div class="row cta-content">
+
+   		<div class="col-twelve">
+            
+            <h1 class="h01">References</h1>
+            
+            <p class="lead">If you use the CosmicFish package to produce some scientific results, please refer the papers:<br>
+      <a href="https://arxiv.org/abs/1606.06273" target="_blank" style="color:white" >Information Gain in Cosmology: From the Discovery of Expansion to Future Surveys</a><br>
+
+       	<a href="https://arxiv.org/abs/1606.06268" target="_blank" style="color:white" >CosmicFish Implementation Notes V1.0</a><br> </p>
+            
+            <p class="lead">If the results were obtained with the CosmicFish code built with <a href="http://camb.info" target="_blank" style="color:white">CAMB</a>, <a href="http://wwwhome.lorentz.leidenuniv.nl/~hu/codes/" target="_blank" style="color:white">EFTCAMB</a> or <a href="http://aliojjati.github.io/MGCAMB/" target="_blank" style="color:white" >MGCAMB</a> in addition to the previous references please cite the standard references for these codes as well.</p>
+
+   			<h1 class="h01">Acknowledgments</h1>
+
+   			<p class="lead">We are grateful to Ana Achúcarro, Carlo Baccigalupi, Erminia Calabrese, Stefano Camera, Luigi Danese, Giulio Fabbian, Noemi Frusciante, Bin Hu, Valeria Pettorino, Levon Pogosian, Giuseppe Puglisi and Alessandra Silvestri for useful and helpful discussions on the subject. We are indebted to Luca Heltai for help with numerical algorithms.</p>
+
+   		</div>
+
+   	</div> <!-- /Acknowledgments-content -->
+
+   </section> <!-- /Acknowledgments -->
+
+
+   <!-- footer
+   ================================================== -->
+   <footer id="footer">
+
+   	<div class="footer-main">
+
+   		<div class="row">
+
+	      	<div class="col-four tab-full mob-full footer-info">
+
+                <h4>Contact us</h4>
+                <p> If you have questions or comments, please contact us at <a href="mailto:cosmicfishdev@gmail.com">cosmicfishdev@gmail.com</a> or
+                <a href="mailto:mraveri@sissa.it">mraveri@sissa.it</a>, <a href="mailto:martinelli@lorentz.leidenuniv.nl">m.martinelli@thphys.uni-heidelberg.de</a>, <a href="mailto:gbzhao@nao.cas.cn">gbzhao@nao.cas.cn</a> or <a href="mailto:ytwang@nao.cas.cn">ytwang@nao.cas.cn</a>.
+                </p>
+
+		      </div> <!-- /footer-info -->
+
+
+	      	<div class="col-four tab-1-3 mob-full footer-subscribe">
+
+	      		<h4>Subscribe</h4>
+
+	      		<p>Keep yourself updated about CosmicFish. Subscribe to our mailing list.</p>
+
+	      		<div class="subscribe-form">
+
+	      			<form id="mc-form" class="group" novalidate="true">
+
+							<input type="email" value="" name="dEmail" class="email" id="mc-email" placeholder="type email &amp; hit enter" required="">
+
+			   			<input type="submit" name="subscribe" >
+
+		   				<label for="mc-email" class="subscribe-message"></label>
+
+						</form>
+
+	      		</div>
+
+	      	</div> <!-- /subscribe -->
+
+	      </div> <!-- /row -->
+
+   	</div> <!-- /footer-main -->
+
+
+      <div class="footer-bottom">
+
+      </div>
+
+   </footer>
+
+   <div id="preloader">
+    	<div id="loader"></div>
+   </div>
+
+   <!-- Java Script
+   ================================================== -->
+   <script src="js/jquery-1.11.3.min.js"></script>
+   <script src="js/jquery-migrate-1.2.1.min.js"></script>
+   <script src="js/plugins.js"></script>
+   <script src="js/main.js"></script>
+
+</body>
+
+</html>

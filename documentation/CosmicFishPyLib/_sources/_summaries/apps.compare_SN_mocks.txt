@@ -1,0 +1,22 @@
+apps.compare_SN_mocks
+=====================
+
+.. automodule:: apps.compare_SN_mocks
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      Rectangle
+   
+   
+
+   
+   
+   

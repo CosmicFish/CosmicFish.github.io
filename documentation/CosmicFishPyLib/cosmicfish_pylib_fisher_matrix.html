@@ -1,0 +1,652 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cosmicfish_pylib.fisher_matrix &mdash; CosmicFish python library documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/CosmicFish_FavIcon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="CosmicFish python library documentation" href="index.html"/>
+        <link rel="next" title="cosmicfish_pylib.fisher_operations" href="cosmicfish_pylib_fisher_operations.html"/>
+        <link rel="prev" title="cosmicfish_pylib.fisher_derived" href="cosmicfish_pylib_fisher_derived.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> CosmicFish
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference external" href="example.html#://">Examples and tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_apps.html">Applications</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_colors.html">cosmicfish_pylib.colors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_fisher_derived.html">cosmicfish_pylib.fisher_derived</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">cosmicfish_pylib.fisher_matrix</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_fisher_operations.html">cosmicfish_pylib.fisher_operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_fisher_plot_settings.html">cosmicfish_pylib.fisher_plot_settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_fisher_plot.html">cosmicfish_pylib.fisher_plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_fisher_plot_analysis.html">cosmicfish_pylib.fisher_plot_analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_utilities.html">cosmicfish_pylib.utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_todo.html">cosmicfish_pylib list of todos</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">CosmicFish</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>cosmicfish_pylib.fisher_matrix</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="_sources/cosmicfish_pylib_fisher_matrix.txt" rel="nofollow"> View page source</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cosmicfish-pylib-fisher-matrix">
+<h1>cosmicfish_pylib.fisher_matrix<a class="headerlink" href="#cosmicfish-pylib-fisher-matrix" title="Permalink to this headline">¶</a></h1>
+<p>Module that contains the fisher_matrix class and the operations defined on it.
+The idea is that of creating a Fisher matrix safely, with all operations being
+well defined and safe-guarded once the input matrix is accepted as a Fisher matrix.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+</tbody>
+</table>
+<span class="target" id="module-cosmicfish_pylib.fisher_matrix"></span><span class="target" id="module-fisher_matrix"></span><dl class="class">
+<dt id="cosmicfish_pylib.fisher_matrix.fisher_matrix">
+<em class="property">class </em><code class="descclassname">cosmicfish_pylib.fisher_matrix.</code><code class="descname">fisher_matrix</code><span class="sig-paren">(</span><em>fisher_matrix=None</em>, <em>param_names=None</em>, <em>param_names_latex=None</em>, <em>fiducial=None</em>, <em>file_name=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_matrix.html#fisher_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_matrix.fisher_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class contains the relevant code to define a fisher matrix
+and basic operations on it.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fisher_cutoff</strong> &#8211; cutoff for the spectrum of the Fisher matrix. Parameter of the class. Starts at 10**(-9) but, if needed, is fixed during computations.</li>
+<li><strong>fisher_spectrum</strong> &#8211; maximum condition number allowed for the Fisher matrix. Worse constrained modes that go above this value will be flattened to this value.</li>
+<li><a class="reference internal" href="#module-fisher_matrix" title="fisher_matrix: Module that contains the fisher_matrix class and the operations defined on it. The idea is that of creating a Fisher matrix safely, with all operations being well defined and safe-guarded once the input matrix is accepted as a Fisher matrix. (Unix)"><strong>fisher_matrix</strong></a> &#8211; numpy array with the fisher matrix. Passed to the constructor of by file.</li>
+<li><strong>path</strong> &#8211; absolute path of the input Fisher matrix. Computed at initialization if passing a file or just an empty string.</li>
+<li><strong>name</strong> &#8211; name of the input Fisher matrix. Computed at initialization if passing a file or just an empty string.</li>
+<li><strong>indir</strong> &#8211; absoulte path of the directory of the input Fisher matrix. Computed at initialization if passing a file or just an empty string.</li>
+<li><strong>num_params</strong> &#8211; number of parameters of the input Fisher matrix. Computed at initialization.</li>
+<li><strong>fisher_eigenvalues</strong> &#8211; eigenvalues of the input Fisher matrix. Computed at initialization or by the PCA function.</li>
+<li><strong>fisher_eigenvectors</strong> &#8211; eigenvectors of the input Fisher matrix. Computed at initialization or by the PCA function.</li>
+<li><strong>fisher_matrix_inv</strong> &#8211; inverse of the input Fisher matrix. Computed at initialization or by inverse_fisher_matrix.</li>
+<li><strong>param_names</strong> &#8211; name of the parameters of the input Fisher matrix. Passed to the constructor of by file.</li>
+<li><strong>param_names_latex</strong> &#8211; LaTeX name of the parameters of the Fisher matrix. Passed to the constructor of by file.</li>
+<li><strong>param_fiducial</strong> &#8211; numpy array with the values of the fiducial parameters. Passed to the constructor of by file.</li>
+<li><strong>param_names_dict</strong> &#8211; a dictionary that maps parameter names to numbers and vice versa.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_matrix.fisher_matrix.__add__">
+<code class="descname">__add__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_matrix.html#fisher_matrix.__add__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_matrix.fisher_matrix.__add__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Addition operator (+). Safeguarded agains adding Fisher matrices with different parameters 
+and different fiducials.
+The addition will add parameters with the same name and append parameters with different names.
+Notice that if a parameter is in one of the two Fisher matrices but not in the other it will be
+assumed independent from the other.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_matrix.fisher_matrix.__eq__">
+<code class="descname">__eq__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_matrix.html#fisher_matrix.__eq__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_matrix.fisher_matrix.__eq__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Equality check operator (==). Ensures equality in all properties of the Fisher matrix.
+Notice that also name, path and indir are checked.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_matrix.fisher_matrix.__ne__">
+<code class="descname">__ne__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_matrix.html#fisher_matrix.__ne__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_matrix.fisher_matrix.__ne__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Non-equality operator (!=). Simply implemented as the inverse of the equality operator.</p>
+</dd></dl>
+
+<p><strong>fisher_matrix class constructor</strong>. The constructor will read from file the Fisher matrix if it is initialized
+with the name of a file (and the file exists). Otherwise it will read the matrix and the
+parameter names as passed by the user.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fisher_matrix</strong> (2D <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> or <code class="xref py py-class docutils literal"><span class="pre">numpy.array</span></code>) &#8211; array containing the input Fisher matrix. You can initialize a Fisher matrix
+passing a matrix or by filename.</li>
+<li><strong>param_names</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; names of the parameters of the Fisher matrix. If initialized from file it will
+read them if a file file_name.paramnames is found. If a file is found and param_names are given to
+the constructor the latter will be used. If param_names is None when itialized from
+python it will just use some defaults names (p1, p2,...).</li>
+<li><strong>param_names_latex</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; LaTeX names of the parameters of the Fisher matrix. If initialized from file it will
+read them if a file file_name.paramnames is found. If a file is found and param_names_latex are given to
+the constructor the latter will be used. If it is none when itialized from
+python it will just use some defaults names (p1, p2,...).</li>
+<li><strong>fiducial</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <a class="reference external" href="http://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">float</span></code></a> or <code class="xref py py-class docutils literal"><span class="pre">numpy.array</span></code>) &#8211; values of the fiducial parameters. If initialized from file it will have the value found in .paramnames.
+If not found on a file it will be zero. Passing it to the constructor overwrites the values.</li>
+<li><strong>file_name</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; name of the file (and path) of the input Fisher matrix.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_matrix.fisher_matrix.PCA">
+<code class="descname">PCA</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_matrix.html#fisher_matrix.PCA"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_matrix.fisher_matrix.PCA" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function performs the principal component analysis of the Fisher matrix returning its eigenvalues and its eigenvectors.
+As of now it just works just as a wrapper for numpy.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> with (eigenvalues, eigenvectors) as <code class="xref py py-class docutils literal"><span class="pre">numpy.array</span></code>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">numpy.array</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_matrix.fisher_matrix.determinant">
+<code class="descname">determinant</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_matrix.html#fisher_matrix.determinant"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_matrix.fisher_matrix.determinant" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function returns the determinant of the Fisher matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference external" href="http://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">float</span></code></a> with the determinant of the Fisher matrix.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_matrix.fisher_matrix.get_confidence_bounds">
+<code class="descname">get_confidence_bounds</code><span class="sig-paren">(</span><em>confidence_level=0.68</em>, <em>cache=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_matrix.html#fisher_matrix.get_confidence_bounds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_matrix.fisher_matrix.get_confidence_bounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the marginal 1D confidence bounds on the Fisher parameters</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>confidence_level</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">float</span></code></a> in [0,1]) &#8211; (optional) C.L. of the bounds. Default 68%.</li>
+<li><strong>cache</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; (optional) wether to use cached results or compute everything again</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_matrix.fisher_matrix.get_fiducial">
+<code class="descname">get_fiducial</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_matrix.html#fisher_matrix.get_fiducial"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_matrix.fisher_matrix.get_fiducial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the fiducial of the parameter called name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; input name or list of names of the parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the fiducial or a list of fiducials corresponding to the parameter names.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">float</span></code></a> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <a class="reference external" href="http://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">float</span></code></a>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_matrix.fisher_matrix.get_fisher_eigenvalues">
+<code class="descname">get_fisher_eigenvalues</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_matrix.html#fisher_matrix.get_fisher_eigenvalues"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_matrix.fisher_matrix.get_fisher_eigenvalues" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the eigenvalues of the Fisher matrix as a numpy array.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_matrix.fisher_matrix.get_fisher_eigenvectors">
+<code class="descname">get_fisher_eigenvectors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_matrix.html#fisher_matrix.get_fisher_eigenvectors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_matrix.fisher_matrix.get_fisher_eigenvectors" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the eigenvectors of the Fisher matrix.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_matrix.fisher_matrix.get_fisher_inverse">
+<code class="descname">get_fisher_inverse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_matrix.html#fisher_matrix.get_fisher_inverse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_matrix.fisher_matrix.get_fisher_inverse" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the inverse of the Fisher matrix.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_matrix.fisher_matrix.get_fisher_matrix">
+<code class="descname">get_fisher_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_matrix.html#fisher_matrix.get_fisher_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_matrix.fisher_matrix.get_fisher_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the fisher matrix as a numpy array.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_matrix.fisher_matrix.get_param_fiducial">
+<code class="descname">get_param_fiducial</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_matrix.html#fisher_matrix.get_param_fiducial"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_matrix.fisher_matrix.get_param_fiducial" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the fiducial values of the parameters of the Fisher matrix.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_matrix.fisher_matrix.get_param_index">
+<code class="descname">get_param_index</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_matrix.html#fisher_matrix.get_param_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_matrix.fisher_matrix.get_param_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the index of a parameter as specified by his name. Notice that indices starts at 0.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; input name or list of names of the parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the index of the parameter or a list of numbers.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">int</span></code></a> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <a class="reference external" href="http://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">int</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_matrix.fisher_matrix.get_param_name">
+<code class="descname">get_param_name</code><span class="sig-paren">(</span><em>number</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_matrix.html#fisher_matrix.get_param_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_matrix.fisher_matrix.get_param_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the name of the parameter corresponding to the given number.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">int</span></code></a> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <a class="reference external" href="http://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">int</span></code></a>) &#8211; number of the parameter or list of numbers. Notice that parameters are numbered starting from 1.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the name or a list of names of the parameters.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_matrix.fisher_matrix.get_param_name_latex">
+<code class="descname">get_param_name_latex</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_matrix.html#fisher_matrix.get_param_name_latex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_matrix.fisher_matrix.get_param_name_latex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the Latex name of the parameter called name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; input name or list of names of the parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the Latex name or a list of Latex names corresponding to the parameter names.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_matrix.fisher_matrix.get_param_names">
+<code class="descname">get_param_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_matrix.html#fisher_matrix.get_param_names"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_matrix.fisher_matrix.get_param_names" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the parameter names of the Fisher matrix.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_matrix.fisher_matrix.get_param_names_latex">
+<code class="descname">get_param_names_latex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_matrix.html#fisher_matrix.get_param_names_latex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_matrix.fisher_matrix.get_param_names_latex" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the parameter names, in LaTeX format of the Fisher matrix.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_matrix.fisher_matrix.get_param_number">
+<code class="descname">get_param_number</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_matrix.html#fisher_matrix.get_param_number"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_matrix.fisher_matrix.get_param_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of a parameter as specified by his name. 
+Notice this differs from get_param_index becasue number = index+1.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; input name or list of names of the parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the index of the parameter or a list of numbers.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">int</span></code></a> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <a class="reference external" href="http://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">int</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_matrix.fisher_matrix.inverse_fisher_matrix">
+<code class="descname">inverse_fisher_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_matrix.html#fisher_matrix.inverse_fisher_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_matrix.fisher_matrix.inverse_fisher_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invert the Fisher matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a matrix containing the inverse of the Fisher matrix.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">numpy.array</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_matrix.fisher_matrix.load_paramnames_from_file">
+<code class="descname">load_paramnames_from_file</code><span class="sig-paren">(</span><em>file_name=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_matrix.html#fisher_matrix.load_paramnames_from_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_matrix.fisher_matrix.load_paramnames_from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the paramnames array from a file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file_name</strong> &#8211; (optional) file name and path of the parameter names file.
+If file_name is None this reads the file self.name+.paramnames.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_matrix.fisher_matrix.protect_degenerate">
+<code class="descname">protect_degenerate</code><span class="sig-paren">(</span><em>cache=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_matrix.html#fisher_matrix.protect_degenerate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_matrix.fisher_matrix.protect_degenerate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Protects the Fisher matrix against degeneracies. Modifies the spectrum to ensure that
+the absolute value of the eigenvalues is bounded. This will make the Fisher matrix
+strictly positive definite. It will modify the magnitude of the worst constrained 
+parameter combinations without modifying the degeneracies directions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cache</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; (optional) wether to use cached results or compute everything again</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_matrix.fisher_matrix.set_fiducial">
+<code class="descname">set_fiducial</code><span class="sig-paren">(</span><em>fiducial</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_matrix.html#fisher_matrix.set_fiducial"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_matrix.fisher_matrix.set_fiducial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function sets a new fiducial substituting the old one.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fiducial</strong> &#8211; list containing the new fiducial.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_matrix.fisher_matrix.set_fisher_matrix">
+<code class="descname">set_fisher_matrix</code><span class="sig-paren">(</span><em>fisher_matrix</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_matrix.html#fisher_matrix.set_fisher_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_matrix.fisher_matrix.set_fisher_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function sets a new fisher matrix substituting the old one. Notice that 
+this will reset parameter names, latex parameter names and fiducial values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fisher_matrix</strong> (<code class="xref py py-class docutils literal"><span class="pre">numpy.array</span></code>) &#8211; <code class="xref py py-class docutils literal"><span class="pre">numpy.array</span></code> containing the input Fisher matrix.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_matrix.fisher_matrix.set_param_names">
+<code class="descname">set_param_names</code><span class="sig-paren">(</span><em>param_names</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_matrix.html#fisher_matrix.set_param_names"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_matrix.fisher_matrix.set_param_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function sets a new list of param names substituting the old one. Notice that 
+latex parameter names will be reset.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>param_names</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; list containing the new parameter names.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_matrix.fisher_matrix.set_param_names_latex">
+<code class="descname">set_param_names_latex</code><span class="sig-paren">(</span><em>param_names_latex</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_matrix.html#fisher_matrix.set_param_names_latex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_matrix.fisher_matrix.set_param_names_latex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function sets a new list of LaTeX param names substituting the old one.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>param_names_latex</strong> &#8211; list containing the new LaTeX parameter names.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cosmicfish_pylib_fisher_operations.html" class="btn btn-neutral float-right" title="cosmicfish_pylib.fisher_operations" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cosmicfish_pylib_fisher_derived.html" class="btn btn-neutral" title="cosmicfish_pylib.fisher_derived" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, the CosmicFish authors.
+      Last updated on Jun 21, 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

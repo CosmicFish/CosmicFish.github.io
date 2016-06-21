@@ -1,0 +1,264 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>apps.compare_SN_mocks &mdash; CosmicFish python library documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/CosmicFish_FavIcon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="CosmicFish python library documentation" href="../index.html"/>
+        <link rel="up" title="Applications" href="../cosmicfish_pylib_apps.html"/>
+        <link rel="next" title="apps.plot_1D" href="apps.plot_1D.html"/>
+        <link rel="prev" title="apps.compare_cls_cov" href="apps.compare_cls_cov.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> CosmicFish
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference external" href="example.html#://">Examples and tutorial</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../cosmicfish_pylib_apps.html">Applications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="apps.compare_cls_cov.html">apps.compare_cls_cov</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">apps.compare_SN_mocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apps.plot_1D.html">apps.plot_1D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apps.plot_2D.html">apps.plot_2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apps.plot_tri.html">apps.plot_tri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apps.bounds.html">apps.bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apps.full_analysis.html">apps.full_analysis</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cosmicfish_pylib_colors.html">cosmicfish_pylib.colors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cosmicfish_pylib_fisher_derived.html">cosmicfish_pylib.fisher_derived</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cosmicfish_pylib_fisher_matrix.html">cosmicfish_pylib.fisher_matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cosmicfish_pylib_fisher_operations.html">cosmicfish_pylib.fisher_operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cosmicfish_pylib_fisher_plot_settings.html">cosmicfish_pylib.fisher_plot_settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cosmicfish_pylib_fisher_plot.html">cosmicfish_pylib.fisher_plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cosmicfish_pylib_fisher_plot_analysis.html">cosmicfish_pylib.fisher_plot_analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cosmicfish_pylib_utilities.html">cosmicfish_pylib.utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cosmicfish_todo.html">cosmicfish_pylib list of todos</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">CosmicFish</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+        <li><a href="../cosmicfish_pylib_apps.html">Applications</a> &raquo;</li>
+      
+    <li>apps.compare_SN_mocks</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="../_sources/_summaries/apps.compare_SN_mocks.txt" rel="nofollow"> View page source</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-apps.compare_SN_mocks">
+<span id="apps-compare-sn-mocks"></span><h1>apps.compare_SN_mocks<a class="headerlink" href="#module-apps.compare_SN_mocks" title="Permalink to this headline">¶</a></h1>
+<p>Simple Python code to plot a set of SN mocks.</p>
+<p>The CosmicFish SN Fisher matrix calculator outputs SN Mock data sets files and this Python
+script plots them.</p>
+<p>The ouput will be a pdf file with the plot.</p>
+<p>Invoking the help option <code class="docutils literal"><span class="pre">compare_SN_mocks.py</span> <span class="pre">-h</span></code> will result in:</p>
+<div class="highlight-python"><div class="highlight"><pre>usage: compare_SN_mocks.py [-h] [-o OUTROOT] [-v] [-q] files [files ...]
+
+SN mock plotter
+
+positional arguments:
+  files                 a list of files with SN mocks
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -o OUTROOT, --outroot OUTROOT
+                        path and name of the output file
+  -v, --version         show program&#39;s version number and exit
+  -q, --quiet           decides wether something gets printed to screen or not
+</pre></div>
+</div>
+<p>Developed by Marco Raveri (<a class="reference external" href="mailto:mraveri&#37;&#52;&#48;sissa&#46;it">mraveri<span>&#64;</span>sissa<span>&#46;</span>it</a>) for the CosmicFish code.</p>
+<p class="rubric">Classes</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+</tbody>
+</table>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="apps.plot_1D.html" class="btn btn-neutral float-right" title="apps.plot_1D" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="apps.compare_cls_cov.html" class="btn btn-neutral" title="apps.compare_cls_cov" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, the CosmicFish authors.
+      Last updated on Jun 21, 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+cosmicfish_pylib.utilities.make_list
+====================================
+
+.. currentmodule:: cosmicfish_pylib.utilities
+
+.. autofunction:: make_list

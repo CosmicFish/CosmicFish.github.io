@@ -1,0 +1,42 @@
+cosmicfish_pylib.colors.bash_colors
+===================================
+
+.. currentmodule:: cosmicfish_pylib.colors
+
+.. autoclass:: bash_colors
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~bash_colors.__init__
+      ~bash_colors.blue
+      ~bash_colors.bold
+      ~bash_colors.fail
+      ~bash_colors.green
+      ~bash_colors.header
+      ~bash_colors.underline
+      ~bash_colors.warning
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~bash_colors.BOLD
+      ~bash_colors.ENDC
+      ~bash_colors.FAIL
+      ~bash_colors.HEADER
+      ~bash_colors.OKBLUE
+      ~bash_colors.OKGREEN
+      ~bash_colors.UNDERLINE
+      ~bash_colors.WARNING
+   
+   

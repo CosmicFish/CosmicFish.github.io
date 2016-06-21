@@ -1,0 +1,611 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cosmicfish_pylib.fisher_plot &mdash; CosmicFish python library documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/CosmicFish_FavIcon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="CosmicFish python library documentation" href="index.html"/>
+        <link rel="next" title="cosmicfish_pylib.fisher_plot_analysis" href="cosmicfish_pylib_fisher_plot_analysis.html"/>
+        <link rel="prev" title="cosmicfish_pylib.fisher_plot_settings" href="cosmicfish_pylib_fisher_plot_settings.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> CosmicFish
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference external" href="example.html#://">Examples and tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_apps.html">Applications</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_colors.html">cosmicfish_pylib.colors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_fisher_derived.html">cosmicfish_pylib.fisher_derived</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_fisher_matrix.html">cosmicfish_pylib.fisher_matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_fisher_operations.html">cosmicfish_pylib.fisher_operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_fisher_plot_settings.html">cosmicfish_pylib.fisher_plot_settings</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">cosmicfish_pylib.fisher_plot</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_fisher_plot_analysis.html">cosmicfish_pylib.fisher_plot_analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_utilities.html">cosmicfish_pylib.utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_todo.html">cosmicfish_pylib list of todos</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">CosmicFish</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>cosmicfish_pylib.fisher_plot</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="_sources/cosmicfish_pylib_fisher_plot.txt" rel="nofollow"> View page source</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cosmicfish-pylib-fisher-plot">
+<h1>cosmicfish_pylib.fisher_plot<a class="headerlink" href="#cosmicfish-pylib-fisher-plot" title="Permalink to this headline">¶</a></h1>
+<p>Module that contains a set of plotting tools.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+</tbody>
+</table>
+<span class="target" id="module-cosmicfish_pylib.fisher_plot"></span><span class="target" id="module-fisher_plot"></span><dl class="class">
+<dt id="cosmicfish_pylib.fisher_plot.CosmicFishPlotter">
+<em class="property">class </em><code class="descclassname">cosmicfish_pylib.fisher_plot.</code><code class="descname">CosmicFishPlotter</code><span class="sig-paren">(</span><em>settings=None</em>, <em>fishers=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot.html#CosmicFishPlotter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot.CosmicFishPlotter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main class for making plots from one or more Fisher matrices. All the functions create
+matplotlib objects that can later be accessed and modified.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>plot_fishers</strong> &#8211; <a class="reference internal" href="cosmicfish_pylib_fisher_plot_analysis.html#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis" title="cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis"><code class="xref py py-class docutils literal"><span class="pre">cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis</span></code></a> containing the list of Fisher matrices that are being plotted.</li>
+<li><strong>plot_settings</strong> &#8211; <a class="reference internal" href="cosmicfish_pylib_fisher_plot_settings.html#cosmicfish_pylib.fisher_plot_settings.CosmicFish_PlotSettings" title="cosmicfish_pylib.fisher_plot_settings.CosmicFish_PlotSettings"><code class="xref py py-class docutils literal"><span class="pre">cosmicfish_pylib.fisher_plot_settings.CosmicFish_PlotSettings</span></code></a> containing the plot settings that are used if not overwritten when plotting.</li>
+<li><strong>figure</strong> &#8211; <a class="reference external" href="http://matplotlib.sourceforge.net/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v1.5.1)"><code class="xref py py-class docutils literal"><span class="pre">matplotlib.figure.Figure</span></code></a> main figure object.</li>
+<li><strong>legend</strong> &#8211; <a class="reference external" href="http://matplotlib.sourceforge.net/api/legend_api.html#matplotlib.legend.Legend" title="(in Matplotlib v1.5.1)"><code class="xref py py-class docutils literal"><span class="pre">matplotlib.legend.Legend</span></code></a> legend object.</li>
+<li><strong>title</strong> &#8211; <a class="reference external" href="http://matplotlib.sourceforge.net/api/text_api.html#matplotlib.text.Text" title="(in Matplotlib v1.5.1)"><code class="xref py py-class docutils literal"><span class="pre">matplotlib.text.Text</span></code></a> title object.</li>
+<li><strong>plot_grid</strong> &#8211; <a class="reference external" href="http://matplotlib.sourceforge.net/api/gridspec_api.html#matplotlib.gridspec.GridSpec" title="(in Matplotlib v1.5.1)"><code class="xref py py-class docutils literal"><span class="pre">matplotlib.gridspec.GridSpec</span></code></a> grid with the subplots. Created at initialization as empty and then arranged by plotting functions.</li>
+<li><strong>plot_dict</strong> &#8211; <a class="reference external" href="http://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">dict</span></code></a> dictionary containing the mapping of parameters and subplots <code class="xref py py-class docutils literal"><span class="pre">matplotlib.axes._subplots.AxesSubplot</span></code>.</li>
+<li><strong>plot_number</strong> &#8211; <a class="reference external" href="http://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">int</span></code></a> number of plots.</li>
+<li><strong>bind_line_colors</strong> &#8211; <a class="reference external" href="http://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">dict</span></code></a> dictionary mapping the names of the Fisher matrices to line colors. This is used to ensure consistency of settings and Fishers across plots.</li>
+<li><strong>bind_solid_colors</strong> &#8211; <a class="reference external" href="http://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">dict</span></code></a> dictionary mapping the names of the Fisher matrices to solid colors. This is used to ensure consistency of settings and Fishers across plots.</li>
+<li><strong>bind_labels</strong> &#8211; <a class="reference external" href="http://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">dict</span></code></a> dictionary mapping the names of the Fisher matrices to labels. This is used to ensure consistency of settings and Fishers across plots.</li>
+<li><strong>bind_linestyle</strong> &#8211; <a class="reference external" href="http://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">dict</span></code></a> dictionary mapping the names of the Fisher matrices to line styles. This is used to ensure consistency of settings and Fishers across plots.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>CosmicFishPlotter class constructor</strong>. The constructor will create the plotting
+objects based on the passed settings and Fisher matrices.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>settings</strong> (<a class="reference internal" href="cosmicfish_pylib_fisher_plot_settings.html#cosmicfish_pylib.fisher_plot_settings.CosmicFish_PlotSettings" title="cosmicfish_pylib.fisher_plot_settings.CosmicFish_PlotSettings"><code class="xref py py-class docutils literal"><span class="pre">cosmicfish_pylib.fisher_plot_settings.CosmicFish_PlotSettings</span></code></a> or <a class="reference external" href="http://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">dict</span></code></a>) &#8211; an instance of CosmicFish_PlotSettings or a dictionary containing the plot settings.</li>
+<li><strong>fishers</strong> (<a class="reference internal" href="cosmicfish_pylib_fisher_plot_analysis.html#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis" title="cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis"><code class="xref py py-class docutils literal"><span class="pre">cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis</span></code></a>) &#8211; an instance of fisher_plot.analysis.CosmicFish_FisherAnalysis containing a series of
+fisher matrices.</li>
+<li><strong>kwargs</strong> &#8211; these contain the possibility of passing additional options or other options that would
+override the ones in settings.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_plot.CosmicFishPlotter.bind_plot_settings_to_names">
+<code class="descname">bind_plot_settings_to_names</code><span class="sig-paren">(</span><em>names=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot.html#CosmicFishPlotter.bind_plot_settings_to_names"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot.CosmicFishPlotter.bind_plot_settings_to_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function binds settings to names using the default if something else is not 
+supplied as a keyword argument.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>names</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; a name of a fisher matrix or a list of names of fisher matrices to bind to settings. If None does all.</li>
+<li><strong>kwargs</strong> &#8211; optional keyword settings to bind to names.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_plot.CosmicFishPlotter.close_plot">
+<code class="descname">close_plot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot.html#CosmicFishPlotter.close_plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot.CosmicFishPlotter.close_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Closes the plot erasing everything that happened before.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_plot.CosmicFishPlotter.export">
+<code class="descname">export</code><span class="sig-paren">(</span><em>filename</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot.html#CosmicFishPlotter.export"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot.CosmicFishPlotter.export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export the plot to file. Almost just a wrapper to <code class="xref py py-class docutils literal"><span class="pre">matplotlib.savefig</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>filename</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; filename and path of the output file.</li>
+<li><strong>kwargs</strong> &#8211; optional keyword arguments directly fed to plt.savefig.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_plot.CosmicFishPlotter.figure_1D">
+<code class="descname">figure_1D</code><span class="sig-paren">(</span><em>subplot</em>, <em>param</em>, <em>names</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot.html#CosmicFishPlotter.figure_1D"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot.CosmicFishPlotter.figure_1D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a 1D gaussian plot of one parameter and with all the Fisher in names.
+Notice this is NOT one of the main plotting functions but rather used by other
+functions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>subplot</strong> (<code class="xref py py-class docutils literal"><span class="pre">matplotlib.axes._subplots.AxesSubplot</span></code>) &#8211; a subplot. The plot will be done here.</li>
+<li><strong>param</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; the name of the parameter to plot.</li>
+<li><strong>names</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; a name of a Fisher matrix or a list of names of Fisher matrices. If None does none.</li>
+<li><strong>kwargs</strong> &#8211; optional keyword settings.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_plot.CosmicFishPlotter.figure_2D">
+<code class="descname">figure_2D</code><span class="sig-paren">(</span><em>subplot</em>, <em>param1</em>, <em>param2</em>, <em>names</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot.html#CosmicFishPlotter.figure_2D"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot.CosmicFishPlotter.figure_2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a 2D gaussian ellipse plot of param1 and param2 and with all the Fisher in names.
+Notice this is NOT one of the main plotting functions but rather used by other
+functions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>subplot</strong> (<code class="xref py py-class docutils literal"><span class="pre">matplotlib.axes._subplots.AxesSubplot</span></code>) &#8211; a subplot. The plot will be done here.</li>
+<li><strong>param1</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; the name of the first parameter of the plot.</li>
+<li><strong>param2</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; the name of the second parameter of the plot.</li>
+<li><strong>names</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; a name of a Fisher matrix or a list of names of Fisher matrices. If None does none.</li>
+<li><strong>kwargs</strong> &#8211; optional keyword settings.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_plot.CosmicFishPlotter.get_dimensions_plot_obj">
+<code class="descname">get_dimensions_plot_obj</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot.html#CosmicFishPlotter.get_dimensions_plot_obj"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot.CosmicFishPlotter.get_dimensions_plot_obj" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function computes the sizes in inches of all the objects in the figure to 
+allow the computation of the figure spacings and disposition.
+Considers only the objects already present in the figure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a dictionary with all the spacings.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">dict</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_plot.CosmicFishPlotter.new_plot">
+<code class="descname">new_plot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot.html#CosmicFishPlotter.new_plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot.CosmicFishPlotter.new_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new plot erasing everything that happened before.
+No need to call close_plot if you want to do another plot.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_plot.CosmicFishPlotter.plot1D">
+<code class="descname">plot1D</code><span class="sig-paren">(</span><em>params=None</em>, <em>names=None</em>, <em>title=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot.html#CosmicFishPlotter.plot1D"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot.CosmicFishPlotter.plot1D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main 1D plotting function. This takes a set of parameter names, a set of fisher
+names and produces a figure with 1D plots.
+Uses settings in plot_settings but the resulting figure (figure) can be edited
+just like all matplotlib.pyplot figures. Optionally a title can be supplied and
+any kind of settings can be passed by kwargs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>params</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; a name of a parameter or a list of parameter names. If None does all.</li>
+<li><strong>names</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; a name of a fisher matrix or a list of names of fisher matrices. If None does all.</li>
+<li><strong>title</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; the optional title for the plot.</li>
+<li><strong>kwargs</strong> &#8211; optional keyword settings.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_plot.CosmicFishPlotter.plot2D">
+<code class="descname">plot2D</code><span class="sig-paren">(</span><em>params=None</em>, <em>names=None</em>, <em>title=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot.html#CosmicFishPlotter.plot2D"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot.CosmicFishPlotter.plot2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main 2D plotting function. This takes a set of parameter names couples, a set of fisher
+names and produces a figure with 2D plots.
+Uses settings in plot_settings but the resulting figure (figure) can be edited
+just like all matplotlib.pyplot figures. Optionally a title can be supplied and
+any kind of settings can be passed by kwargs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>params</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; a couple of names of a parameter or a list of parameter names couples. If None does all.</li>
+<li><strong>names</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; a name of a fisher matrix or a list of names of fisher matrices. If None does all.</li>
+<li><strong>title</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; the optional title for the plot.</li>
+<li><strong>kwargs</strong> &#8211; optional keyword settings.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_plot.CosmicFishPlotter.plot3D">
+<code class="descname">plot3D</code><span class="sig-paren">(</span><em>params=None</em>, <em>names=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot.html#CosmicFishPlotter.plot3D"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot.CosmicFishPlotter.plot3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main 3D plotting function. This takes a set of parameter names triplets, a set of fisher
+names and produces a figure with 3D plots.
+Uses settings in plot_settings but the resulting figure (figure) can be edited
+just like all matplotlib.pyplot figures. Optionally a title can be supplied and
+any kind of settings can be passed by kwargs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>params</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; a triplet of names of a parameter or a list of parameter names triplets. If None does all.</li>
+<li><strong>names</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; a name of a fisher matrix or a list of names of fisher matrices. If None does all.</li>
+<li><strong>title</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; the optional title for the plot.</li>
+<li><strong>kwargs</strong> &#8211; optional keyword settings.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_plot.CosmicFishPlotter.plot_mixed">
+<code class="descname">plot_mixed</code><span class="sig-paren">(</span><em>params=None</em>, <em>names=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot.html#CosmicFishPlotter.plot_mixed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot.CosmicFishPlotter.plot_mixed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does mixed plot. This takes a set of parameter names, a set of fisher
+names and produces a figure with combined plots.
+Uses settings in plot_settings but the resulting figure (figure) can be edited
+just like all matplotlib.pyplot figures. Optionally a title can be supplied and
+any kind of settings can be passed by kwargs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>params</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; a name of a parameter or a list of parameter names. If None does nothing.</li>
+<li><strong>names</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; a name of a fisher matrix or a list of names of fisher matrices. If None does all.</li>
+<li><strong>title</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; the optional title for the plot.</li>
+<li><strong>kwargs</strong> &#8211; optional keyword settings.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_plot.CosmicFishPlotter.plot_tri">
+<code class="descname">plot_tri</code><span class="sig-paren">(</span><em>params=None</em>, <em>names=None</em>, <em>title=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot.html#CosmicFishPlotter.plot_tri"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot.CosmicFishPlotter.plot_tri" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main triangle plotting function. This takes a set of parameter names, a set of fisher
+names and produces a figure with triangular plots.
+Uses settings in plot_settings but the resulting figure (figure) can be edited
+just like all matplotlib.pyplot figures. Optionally a title can be supplied and
+any kind of settings can be passed by kwargs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>params</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; a list of names of a parameter. If None does all.</li>
+<li><strong>names</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; a name of a fisher matrix or a list of names of fisher matrices. If None does all.</li>
+<li><strong>title</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; the optional title for the plot.</li>
+<li><strong>kwargs</strong> &#8211; optional keyword settings.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_plot.CosmicFishPlotter.set_legend">
+<code class="descname">set_legend</code><span class="sig-paren">(</span><em>names=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot.html#CosmicFishPlotter.set_legend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot.CosmicFishPlotter.set_legend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the legend of the plot.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>names</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; a name of a fisher matrix or a list of names of fisher matrices. If None does all.</li>
+<li><strong>kwargs</strong> &#8211; optional keyword settings.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_plot.CosmicFishPlotter.set_plot_dimensions">
+<code class="descname">set_plot_dimensions</code><span class="sig-paren">(</span><em>num_col</em>, <em>num_rows</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot.html#CosmicFishPlotter.set_plot_dimensions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot.CosmicFishPlotter.set_plot_dimensions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the dimensions of the plot based on the settings passed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>num_col</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">int</span></code></a>) &#8211; number of colums in the plot grid.</li>
+<li><strong>num_rows</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">int</span></code></a>) &#8211; number of rows in the plot grid.</li>
+<li><strong>kwargs</strong> &#8211; optional keyword settings</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_plot.CosmicFishPlotter.set_title">
+<code class="descname">set_title</code><span class="sig-paren">(</span><em>title=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot.html#CosmicFishPlotter.set_title"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot.CosmicFishPlotter.set_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the title of the plot.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>names</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; a name of a fisher matrix or a list of names of fisher matrices. If None does all.</li>
+<li><strong>kwargs</strong> &#8211; optional keyword settings.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_plot.CosmicFishPlotter.set_triplot_dimensions">
+<code class="descname">set_triplot_dimensions</code><span class="sig-paren">(</span><em>num_col</em>, <em>num_rows</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot.html#CosmicFishPlotter.set_triplot_dimensions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot.CosmicFishPlotter.set_triplot_dimensions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the dimensions of the triangular plot based on the settings passed.
+This is different from the other dimension setter because triplots need some
+personalization.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>num_col</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">int</span></code></a>) &#8211; number of colums in the plot grid.</li>
+<li><strong>num_rows</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">int</span></code></a>) &#8211; number of rows in the plot grid.</li>
+<li><strong>kwargs</strong> &#8211; optional keyword settings</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_plot.CosmicFishPlotter.setting_setter">
+<code class="descname">setting_setter</code><span class="sig-paren">(</span><em>key</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot.html#CosmicFishPlotter.setting_setter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot.CosmicFishPlotter.setting_setter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Small utility to check wether a specific setting is in plot_settings or is passed
+as a keyword argument (in kwargs).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>key</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; input setting keyword</li>
+<li><strong>kwargs</strong> &#8211; keyword arguments to check</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the value of the setting. If the setting is present in kwargs then the value in there
+otherwise the value in <code class="xref py py-class docutils literal"><span class="pre">cosmicfish_pylib.fisher_plot.CosmicFishPlotter.plot_settings</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cosmicfish_pylib_fisher_plot_analysis.html" class="btn btn-neutral float-right" title="cosmicfish_pylib.fisher_plot_analysis" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cosmicfish_pylib_fisher_plot_settings.html" class="btn btn-neutral" title="cosmicfish_pylib.fisher_plot_settings" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, the CosmicFish authors.
+      Last updated on Jun 21, 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

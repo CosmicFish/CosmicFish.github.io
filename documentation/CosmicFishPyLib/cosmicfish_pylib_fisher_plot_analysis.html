@@ -1,0 +1,546 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cosmicfish_pylib.fisher_plot_analysis &mdash; CosmicFish python library documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/CosmicFish_FavIcon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="CosmicFish python library documentation" href="index.html"/>
+        <link rel="next" title="cosmicfish_pylib.utilities" href="cosmicfish_pylib_utilities.html"/>
+        <link rel="prev" title="cosmicfish_pylib.fisher_plot" href="cosmicfish_pylib_fisher_plot.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> CosmicFish
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference external" href="example.html#://">Examples and tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_apps.html">Applications</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_colors.html">cosmicfish_pylib.colors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_fisher_derived.html">cosmicfish_pylib.fisher_derived</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_fisher_matrix.html">cosmicfish_pylib.fisher_matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_fisher_operations.html">cosmicfish_pylib.fisher_operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_fisher_plot_settings.html">cosmicfish_pylib.fisher_plot_settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_fisher_plot.html">cosmicfish_pylib.fisher_plot</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">cosmicfish_pylib.fisher_plot_analysis</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_utilities.html">cosmicfish_pylib.utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_todo.html">cosmicfish_pylib list of todos</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">CosmicFish</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>cosmicfish_pylib.fisher_plot_analysis</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="_sources/cosmicfish_pylib_fisher_plot_analysis.txt" rel="nofollow"> View page source</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cosmicfish-pylib-fisher-plot-analysis">
+<h1>cosmicfish_pylib.fisher_plot_analysis<a class="headerlink" href="#cosmicfish-pylib-fisher-plot-analysis" title="Permalink to this headline">¶</a></h1>
+<p>Module that contains a set of tools to perform the analysis of a set of Fisher matrices.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+</tbody>
+</table>
+<span class="target" id="module-cosmicfish_pylib.fisher_plot_analysis"></span><span class="target" id="module-fisher_plot_analysis"></span><dl class="class">
+<dt id="cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis">
+<em class="property">class </em><code class="descclassname">cosmicfish_pylib.fisher_plot_analysis.</code><code class="descname">CosmicFish_FisherAnalysis</code><span class="sig-paren">(</span><em>fisher_list=None</em>, <em>fisher_path=None</em>, <em>search_fisher_guess=False</em>, <em>with_derived=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot_analysis.html#CosmicFish_FisherAnalysis"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class takes care of handeling a set of Fisher matrices with plotting in mind.
+This class is meant to hold a list of Fisher matrices and have defined on this list
+a set of vectorized operations.
+For now no caching is implemented.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fisher_list</strong> &#8211; list of Fisher matrices <a class="reference internal" href="cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix" title="cosmicfish_pylib.fisher_matrix.fisher_matrix"><code class="xref py py-class docutils literal"><span class="pre">cosmicfish_pylib.fisher_matrix.fisher_matrix</span></code></a></li>
+<li><strong>fisher_name_list</strong> &#8211; list of names of the Fisher matrices. The names are used as the unique 
+identifier of the Fisher matrix. No double name is enforced.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>CosmicFish_FisherAnalysis class constructor</strong>. The constructor builds the Fisher matrices list.
+If all the arguments of the constructor are None then the Fisher list will be created and will be empty.
+If this is initialized with fisher_list then this will constitute the base Fisher set.
+if this is initialized with fisher_path then the code will search the desired path for Fisher matrices.
+If initialized with both fisher_list and fisher_path then both will be added.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fisher_list</strong> (<a class="reference internal" href="cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix" title="cosmicfish_pylib.fisher_matrix.fisher_matrix"><code class="xref py py-class docutils literal"><span class="pre">cosmicfish_pylib.fisher_matrix.fisher_matrix</span></code></a> or <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <a class="reference internal" href="cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix" title="cosmicfish_pylib.fisher_matrix.fisher_matrix"><code class="xref py py-class docutils literal"><span class="pre">cosmicfish_pylib.fisher_matrix.fisher_matrix</span></code></a>) &#8211; Fisher matrix or list of Fisher matrices.</li>
+<li><strong>fisher_path</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code> or <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; path or list of paths to search for Fisher matrices.</li>
+<li><strong>search_fisher_guess</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">bool</span></code></a>) &#8211; wether to guess the Fisher matrix name or not. 
+Guessing assumes that the Fisher matrices have &#8216;fisher_matrix&#8217; and &#8216;.dat&#8217; in the name as happens
+with Fisher matrices produced with CosmicFish.</li>
+<li><strong>with_derived</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">bool</span></code></a>) &#8211; wether to search for derived Fisher matrices to add to the base Fisher that are found.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.add_fisher_matrix">
+<code class="descname">add_fisher_matrix</code><span class="sig-paren">(</span><em>fisher</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot_analysis.html#CosmicFish_FisherAnalysis.add_fisher_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.add_fisher_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a set of Fisher matrices to the already existing set.
+Rejects Fisher matrices if the name is double i.e. the name is the unique 
+identifier of the Fisher matrix.
+Checks wether the elements that are passed are really Fisher matrices.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fisher_list</strong> (<a class="reference internal" href="cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix" title="cosmicfish_pylib.fisher_matrix.fisher_matrix"><code class="xref py py-class docutils literal"><span class="pre">cosmicfish_pylib.fisher_matrix.fisher_matrix</span></code></a> or <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <a class="reference internal" href="cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix" title="cosmicfish_pylib.fisher_matrix.fisher_matrix"><code class="xref py py-class docutils literal"><span class="pre">cosmicfish_pylib.fisher_matrix.fisher_matrix</span></code></a>) &#8211; Fisher matrix or list of Fisher matrices.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.compute_ellipse">
+<code class="descname">compute_ellipse</code><span class="sig-paren">(</span><em>params1=None</em>, <em>params2=None</em>, <em>confidence_level=0.68</em>, <em>names=None</em>, <em>num_points=100</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot_analysis.html#CosmicFish_FisherAnalysis.compute_ellipse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.compute_ellipse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that computes the (2D) ellipses for a given parameters combination.
+Returns a dictionary with all the meaningul information about the ellipses.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>params1</strong> (a <code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; name of the first parameter or list of names of parameters.</li>
+<li><strong>params2</strong> &#8211; name of the second parameter or list of names of parameters.</li>
+<li><strong>confidence_level</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">float</span></code></a>) &#8211; (optional) Confidence Level of the bounds. Default 68%.</li>
+<li><strong>names</strong> (a <code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; names of the Fisher matrices.</li>
+<li><strong>num_points</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">int</span></code></a>) &#8211; number of (x,y) points.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a dictionary mapping name and parameters to a tuple of: [x, y, [fiducial_x, fiducial_y, coeff_a, coeff_b, theta_0]]</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">dict</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.compute_gaussian">
+<code class="descname">compute_gaussian</code><span class="sig-paren">(</span><em>params=None</em>, <em>confidence_level=0.68</em>, <em>names=None</em>, <em>num_points=100</em>, <em>normalized=False</em>, <em>nice_bounds=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot_analysis.html#CosmicFish_FisherAnalysis.compute_gaussian"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.compute_gaussian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that computes the (1D) gaussian distribution of a given parameter.
+Returns a dictionary with all the meaningul information about the gaussian.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>params</strong> (a <code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; name of the parameter or list of names of parameters.</li>
+<li><strong>confidence_level</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">float</span></code></a>) &#8211; (optional) Confidence Level of the bounds. Default 68%.</li>
+<li><strong>names</strong> (a <code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; names of the Fisher matrices.</li>
+<li><strong>num_points</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">int</span></code></a>) &#8211; number of (x,y) points.</li>
+<li><strong>normalized</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">bool</span></code></a>) &#8211; wether the distribution is normalized or not.</li>
+<li><strong>nice_bounds</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">bool</span></code></a>) &#8211; wether the x range is properly rounded to be nice or not.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a dictionary mapping name and parameter to a tuple of: [x, y, [fiducial,sigma]]</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">dict</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.compute_plot_range">
+<code class="descname">compute_plot_range</code><span class="sig-paren">(</span><em>params=None</em>, <em>confidence_level=0.68</em>, <em>names=None</em>, <em>nice=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot_analysis.html#CosmicFish_FisherAnalysis.compute_plot_range"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.compute_plot_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that computes a meaningfull plot range for the plots involving the specified parameters
+and the specified Fisher names.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>params</strong> (a <code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; name of the parameter or list of names of parameters.</li>
+<li><strong>confidence_level</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">float</span></code></a>) &#8211; (optional) Confidence Level of the bounds. Default 68%.</li>
+<li><strong>names</strong> (a <code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; names of the Fisher matrices.</li>
+<li><strong>nice</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">bool</span></code></a>) &#8211; wether the number is properly rounded to be nice.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a dictionary of name and bounds</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">dict</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.delete_fisher_matrix">
+<code class="descname">delete_fisher_matrix</code><span class="sig-paren">(</span><em>names=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot_analysis.html#CosmicFish_FisherAnalysis.delete_fisher_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.delete_fisher_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete the fisher matrix or the fisher matrices in names from the Fisher list.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>names</strong> (a <code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; names of the Fisher matrices to delete.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.get_fisher_list">
+<code class="descname">get_fisher_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot_analysis.html#CosmicFish_FisherAnalysis.get_fisher_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.get_fisher_list" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the list fisher matrices.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.get_fisher_matrix">
+<code class="descname">get_fisher_matrix</code><span class="sig-paren">(</span><em>names=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot_analysis.html#CosmicFish_FisherAnalysis.get_fisher_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.get_fisher_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the list of Fisher matrices corresponding to the given names.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>names</strong> (a <code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; names of the Fisher matrices.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list containing the desired Fisher matrices. Notice if the name is not found
+in the list no error is risen and and the entrance is just ignored.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <a class="reference internal" href="cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix" title="cosmicfish_pylib.fisher_matrix.fisher_matrix"><code class="xref py py-class docutils literal"><span class="pre">cosmicfish_pylib.fisher_matrix.fisher_matrix</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.get_fisher_name_list">
+<code class="descname">get_fisher_name_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot_analysis.html#CosmicFish_FisherAnalysis.get_fisher_name_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.get_fisher_name_list" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the list fisher matrices names. These are the unique identifiers of the list.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.get_parameter_latex_names">
+<code class="descname">get_parameter_latex_names</code><span class="sig-paren">(</span><em>names=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot_analysis.html#CosmicFish_FisherAnalysis.get_parameter_latex_names"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.get_parameter_latex_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary mapping parameter names and latex parameter names.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>names</strong> (a <code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; names of the Fisher matrices.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a dictionary containing parameter names and the LaTeX parameter names.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">dict</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.get_parameter_list">
+<code class="descname">get_parameter_list</code><span class="sig-paren">(</span><em>names=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot_analysis.html#CosmicFish_FisherAnalysis.get_parameter_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.get_parameter_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the list of parameter names of all the matrices identified in names.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>names</strong> (a <code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; names of the Fisher matrices.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list containing the parameter names.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.marginalise">
+<code class="descname">marginalise</code><span class="sig-paren">(</span><em>params</em>, <em>names=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot_analysis.html#CosmicFish_FisherAnalysis.marginalise"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.marginalise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Marginalise all the Fisher matrices over all the parameters that are not in params.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>params</strong> (a <code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; list of names of the parameters of the output Fisher matrix,
+in the order that will appear in the output Fisher matrix. All other parameters 
+will be marginalized over.</li>
+<li><strong>names</strong> (a <code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; names of the Fisher matrices.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a new Fisher list with the reshuffled Fishers</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">a <a class="reference internal" href="#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis" title="cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis"><code class="xref py py-class docutils literal"><span class="pre">cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.reshuffle">
+<code class="descname">reshuffle</code><span class="sig-paren">(</span><em>params</em>, <em>names=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot_analysis.html#CosmicFish_FisherAnalysis.reshuffle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.reshuffle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reshuffles all the Fisher matrices.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>params</strong> (a <code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; parameters to reshuffle.</li>
+<li><strong>names</strong> (a <code class="xref py py-class docutils literal"><span class="pre">string</span></code> or a <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; names of the Fisher matrices.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a new Fisher list with the reshuffled Fishers</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">a <a class="reference internal" href="#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis" title="cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis"><code class="xref py py-class docutils literal"><span class="pre">cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.search_fisher_path">
+<code class="descname">search_fisher_path</code><span class="sig-paren">(</span><em>fisher_path</em>, <em>search_fisher_guess=False</em>, <em>with_derived=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_plot_analysis.html#CosmicFish_FisherAnalysis.search_fisher_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.search_fisher_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Searches a path for fisher matrices. 
+Will detect wether fisher_path contains directly the paths to the Fisher files or folder.
+If a list of folders is passed all the folders will be searched, first for Fisher matrices
+then for derived Fisher matrices.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fisher_path</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code> or <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; path or list of paths to search for Fisher matrices. If this contains Fisher matrices files those are imported as well.</li>
+<li><strong>search_fisher_guess</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">bool</span></code></a>) &#8211; wether to guess the Fisher matrix name or not. 
+Guessing assumes that the Fisher matrices have &#8216;fisher_matrix&#8217; and &#8216;.dat&#8217; in the name as happens
+with Fisher matrices produced with CosmicFish.</li>
+<li><strong>with_derived</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">bool</span></code></a>) &#8211; wether to search for derived Fisher matrices to add to the base Fisher that are found.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cosmicfish_pylib_utilities.html" class="btn btn-neutral float-right" title="cosmicfish_pylib.utilities" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cosmicfish_pylib_fisher_plot.html" class="btn btn-neutral" title="cosmicfish_pylib.fisher_plot" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, the CosmicFish authors.
+      Last updated on Jun 21, 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

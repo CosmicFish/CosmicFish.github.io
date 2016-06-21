@@ -1,0 +1,6 @@
+cosmicfish_pylib.utilities.mant_exp_to_num
+==========================================
+
+.. currentmodule:: cosmicfish_pylib.utilities
+
+.. autofunction:: mant_exp_to_num

@@ -1,0 +1,6 @@
+cosmicfish_pylib.utilities.print_table
+======================================
+
+.. currentmodule:: cosmicfish_pylib.utilities
+
+.. autofunction:: print_table

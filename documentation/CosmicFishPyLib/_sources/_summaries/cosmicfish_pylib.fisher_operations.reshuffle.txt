@@ -1,0 +1,6 @@
+cosmicfish_pylib.fisher_operations.reshuffle
+============================================
+
+.. currentmodule:: cosmicfish_pylib.fisher_operations
+
+.. autofunction:: reshuffle

@@ -1,0 +1,6 @@
+cosmicfish_pylib.utilities.confidence_coefficient
+=================================================
+
+.. currentmodule:: cosmicfish_pylib.utilities
+
+.. autofunction:: confidence_coefficient

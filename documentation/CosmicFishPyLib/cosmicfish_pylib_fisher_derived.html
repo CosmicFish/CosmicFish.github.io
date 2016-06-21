@@ -1,0 +1,427 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cosmicfish_pylib.fisher_derived &mdash; CosmicFish python library documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/CosmicFish_FavIcon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="CosmicFish python library documentation" href="index.html"/>
+        <link rel="next" title="cosmicfish_pylib.fisher_matrix" href="cosmicfish_pylib_fisher_matrix.html"/>
+        <link rel="prev" title="cosmicfish_pylib.colors.bash_colors" href="_summaries/cosmicfish_pylib.colors.bash_colors.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> CosmicFish
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference external" href="example.html#://">Examples and tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_apps.html">Applications</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_colors.html">cosmicfish_pylib.colors</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">cosmicfish_pylib.fisher_derived</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_fisher_matrix.html">cosmicfish_pylib.fisher_matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_fisher_operations.html">cosmicfish_pylib.fisher_operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_fisher_plot_settings.html">cosmicfish_pylib.fisher_plot_settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_fisher_plot.html">cosmicfish_pylib.fisher_plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_fisher_plot_analysis.html">cosmicfish_pylib.fisher_plot_analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_pylib_utilities.html">cosmicfish_pylib.utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicfish_todo.html">cosmicfish_pylib list of todos</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">CosmicFish</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>cosmicfish_pylib.fisher_derived</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="_sources/cosmicfish_pylib_fisher_derived.txt" rel="nofollow"> View page source</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cosmicfish-pylib-fisher-derived">
+<h1>cosmicfish_pylib.fisher_derived<a class="headerlink" href="#cosmicfish-pylib-fisher-derived" title="Permalink to this headline">¶</a></h1>
+<p>Module that contains the fisher_derived class and the operations defined on it.
+This is meant to handle efficiently and safely Jacobian matrices transforming a
+Fisher matrix for some parameters to a Fisher matrix for some other parameters.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+</tbody>
+</table>
+<span class="target" id="module-cosmicfish_pylib.fisher_derived"></span><span class="target" id="module-fisher_derived"></span><dl class="class">
+<dt id="cosmicfish_pylib.fisher_derived.fisher_derived">
+<em class="property">class </em><code class="descclassname">cosmicfish_pylib.fisher_derived.</code><code class="descname">fisher_derived</code><span class="sig-paren">(</span><em>derived_matrix=None</em>, <em>param_names=None</em>, <em>derived_param_names=None</em>, <em>param_names_latex=None</em>, <em>derived_param_names_latex=None</em>, <em>fiducial=None</em>, <em>fiducial_derived=None</em>, <em>file_name=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_derived.html#fisher_derived"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_derived.fisher_derived" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class contains the relevant code to define a matrix that
+contains the relevant information to reparametrize a Fisher matrix.
+Generally this is a rectangular matrix containing the Jacobian of the transformation
+from the original Fisher to the derived one.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>derived_matrix</strong> &#8211; Numpy array containing the Jacobian of the transformation between the Fisher matrix and the derived Fisher matrix. Passed to the constructor of by file.</li>
+<li><strong>path</strong> &#8211; Absolute path of the input Jacobian matrix. Computed at initialization if passing a file.</li>
+<li><strong>name</strong> &#8211; Name of the input Jacobian matrix. Computed at initialization if passing a file.</li>
+<li><strong>indir</strong> &#8211; Absolute path of the directory containing the input Jacobian matrix. Computed at initialization if passing a file.</li>
+<li><strong>num_params</strong> &#8211; Number of base parameters of the Jacobian matrix.</li>
+<li><strong>num_derived</strong> &#8211; Number of derived parameters.</li>
+<li><strong>param_names</strong> &#8211; Names of the base parameters. Used as the identifier of the parameters. Initialized, if possible, through a .paramnames file.</li>
+<li><strong>param_names_latex</strong> &#8211; LaTeX names of the base parameters.</li>
+<li><strong>param_fiducial</strong> &#8211; Numpy array with the values of the fiducial of the base parameters. Passed to the constructor or by file.</li>
+<li><strong>derived_param_names</strong> &#8211; Names of the derived parameters. Used as the identifier of the parameters. Initialized, if possible, through a .paramnames file.</li>
+<li><strong>derived_param_names_latex</strong> &#8211; LaTeX names of the derived parameters.</li>
+<li><strong>derived_param_fiducial</strong> &#8211; Numpy array with the values of the fiducial of the derived parameters. Passed to the constructor or by file.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>fisher_derived class constructor</strong>. The class constructor will read from file the 
+Fisher derived matrix if it is initialized with the name of a file (and the file exists). 
+Otherwise it will read the matrix and the parameter names as passed by the user.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>derived_matrix</strong> (2D <a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> or <code class="xref py py-class docutils literal"><span class="pre">numpy.array</span></code>) &#8211; array containing the input Jacobian matrix.</li>
+<li><strong>param_names</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; names of the parameters of the derived parameters. If initialized from file it will
+read them if a file file_name.paramnames is found. If it is none when itialized from
+python it will just use some defaults names (p1, p2,...).</li>
+<li><strong>derived_param_names</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; names of the derived parameters. If initialized from file it will
+read them if a file file_name.paramnames and expects them to have a * appened. 
+If it is none when itialized from python it will just use some defaults names.</li>
+<li><strong>param_names_latex</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; LaTeX names of the parameters of the Jacobian matrix also appearing
+in the Fisher matrix.</li>
+<li><strong>derived_param_names_latex</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; LaTeX names of the parameters of the Jacobian matrix that are 
+derived parameters.</li>
+<li><strong>fiducial</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <a class="reference external" href="http://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">float</span></code></a> or <code class="xref py py-class docutils literal"><span class="pre">numpy.array</span></code>) &#8211; values of the fiducial parameters of the Fisher matrix. If initialized from file it will have the value found in .paramnames.
+If not found on a file it will be zero. Passing it to the constructor overwrites the values.</li>
+<li><strong>fiducial_derived</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> of <a class="reference external" href="http://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">float</span></code></a> or <code class="xref py py-class docutils literal"><span class="pre">numpy.array</span></code>) &#8211; values of the fiducial derived parameters. If initialized from file it will have the value found in .paramnames.
+If not found on a file it will be zero. Passing it to the constructor overwrites the values.</li>
+<li><strong>file_name</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; name of the file (and path) of the input Jacobian matrix.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_derived.fisher_derived.add_derived">
+<code class="descname">add_derived</code><span class="sig-paren">(</span><em>fisher_matrix</em>, <em>preserve_input=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_derived.html#fisher_derived.add_derived"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_derived.fisher_derived.add_derived" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function computes the derived fisher_matrix given an input Fisher matrix based on the Jacobian
+contained in derived_matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>fisher_matrix</strong> (<a class="reference internal" href="cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix" title="cosmicfish_pylib.fisher_matrix.fisher_matrix"><code class="xref py py-class docutils literal"><span class="pre">cosmicfish_pylib.fisher_matrix.fisher_matrix</span></code></a>) &#8211; input Fisher matrix that will be used as a base for the derived Fisher matrix.</li>
+<li><strong>preserve_input</strong> (<a class="reference external" href="http://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">bool</span></code></a>) &#8211; wether to preserve input parameters in the output Fisher. 
+Default to false because it might lead to strage results if not used properly.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">output Fisher matrix with derived parameters.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix" title="cosmicfish_pylib.fisher_matrix.fisher_matrix"><code class="xref py py-class docutils literal"><span class="pre">cosmicfish_pylib.fisher_matrix.fisher_matrix</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_derived.fisher_derived.get_derived_matrix">
+<code class="descname">get_derived_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_derived.html#fisher_derived.get_derived_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_derived.fisher_derived.get_derived_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the derived Jacobian matrix.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_derived.fisher_derived.get_derived_param_fiducial">
+<code class="descname">get_derived_param_fiducial</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_derived.html#fisher_derived.get_derived_param_fiducial"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_derived.fisher_derived.get_derived_param_fiducial" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the derived parameter fiducial values.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_derived.fisher_derived.get_derived_param_names">
+<code class="descname">get_derived_param_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_derived.html#fisher_derived.get_derived_param_names"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_derived.fisher_derived.get_derived_param_names" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the derived parameters names.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_derived.fisher_derived.get_derived_param_names_latex">
+<code class="descname">get_derived_param_names_latex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_derived.html#fisher_derived.get_derived_param_names_latex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_derived.fisher_derived.get_derived_param_names_latex" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the LaTeX version of the derived parameters names.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_derived.fisher_derived.get_param_fiducial">
+<code class="descname">get_param_fiducial</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_derived.html#fisher_derived.get_param_fiducial"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_derived.fisher_derived.get_param_fiducial" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the base parameter fiducial values.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_derived.fisher_derived.get_param_names">
+<code class="descname">get_param_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_derived.html#fisher_derived.get_param_names"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_derived.fisher_derived.get_param_names" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the base parameter names.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_derived.fisher_derived.get_param_names_latex">
+<code class="descname">get_param_names_latex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_derived.html#fisher_derived.get_param_names_latex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_derived.fisher_derived.get_param_names_latex" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the LaTeX version of the base parameter names.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicfish_pylib.fisher_derived.fisher_derived.load_paramnames_from_file">
+<code class="descname">load_paramnames_from_file</code><span class="sig-paren">(</span><em>file_name=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cosmicfish_pylib/fisher_derived.html#fisher_derived.load_paramnames_from_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicfish_pylib.fisher_derived.fisher_derived.load_paramnames_from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the paramnames array, of a derived Fisher matrix, from a file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file_name</strong> (<code class="xref py py-class docutils literal"><span class="pre">string</span></code>) &#8211; (optional) file name and path of the parameter names file.
+If file_name is None this reads the file self.name+.paramnames.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cosmicfish_pylib_fisher_matrix.html" class="btn btn-neutral float-right" title="cosmicfish_pylib.fisher_matrix" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="_summaries/cosmicfish_pylib.colors.bash_colors.html" class="btn btn-neutral" title="cosmicfish_pylib.colors.bash_colors" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, the CosmicFish authors.
+      Last updated on Jun 21, 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

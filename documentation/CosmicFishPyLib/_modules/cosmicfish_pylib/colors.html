@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cosmicfish_pylib.colors &mdash; CosmicFish python library documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/CosmicFish_FavIcon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="CosmicFish python library documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> CosmicFish
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference external" href="example.html#://">Examples and tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_apps.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_colors.html">cosmicfish_pylib.colors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_fisher_derived.html">cosmicfish_pylib.fisher_derived</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_fisher_matrix.html">cosmicfish_pylib.fisher_matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_fisher_operations.html">cosmicfish_pylib.fisher_operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_fisher_plot_settings.html">cosmicfish_pylib.fisher_plot_settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_fisher_plot.html">cosmicfish_pylib.fisher_plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_fisher_plot_analysis.html">cosmicfish_pylib.fisher_plot_analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_utilities.html">cosmicfish_pylib.utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_todo.html">cosmicfish_pylib list of todos</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">CosmicFish</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+        <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+    <li>cosmicfish_pylib.colors</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for cosmicfish_pylib.colors</h1><div class="highlight"><pre>
+<span class="c">#----------------------------------------------------------------------------------------</span>
+<span class="c">#</span>
+<span class="c"># This file is part of CosmicFish.</span>
+<span class="c">#</span>
+<span class="c"># Copyright (C) 2015-2016 by the CosmicFish authors</span>
+<span class="c">#</span>
+<span class="c"># The CosmicFish code is free software;</span>
+<span class="c"># You can use it, redistribute it, and/or modify it under the terms</span>
+<span class="c"># of the GNU General Public License as published by the Free Software Foundation;</span>
+<span class="c"># either version 3 of the License, or (at your option) any later version.</span>
+<span class="c"># The full text of the license can be found in the file LICENSE at</span>
+<span class="c"># the top level of the CosmicFish distribution.</span>
+<span class="c">#</span>
+<span class="c">#----------------------------------------------------------------------------------------</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">.. module:: colors</span>
+<span class="sd">   :platform: Unix</span>
+<span class="sd">   :synopsis: A collection of color utilities.</span>
+
+<span class="sd">.. moduleauthor:: Marco Raveri &lt;mraveri@sissa.it&gt; for the CosmicFish code.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c"># ***************************************************************************************</span>
+
+<div class="viewcode-block" id="nice_colors"><a class="viewcode-back" href="../../cosmicfish_pylib_colors.html#cosmicfish_pylib.colors.nice_colors">[docs]</a><span class="k">def</span> <span class="nf">nice_colors</span><span class="p">(</span> <span class="n">num</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function returns a color from a colormap defined below according to the</span>
+<span class="sd">    number entered.</span>
+
+<span class="sd">    :param num: input number. Can be an integer or float. Notice </span>
+<span class="sd">        that the colormap contains only a small numbers of colors. Even if the input is a float</span>
+<span class="sd">        the output will still be one of the few colors in the colormap.</span>
+<span class="sd">    :type num: :class:`int` or :class:`float`</span>
+<span class="sd">    :return: tuple of :class:`float` containing the three RGB coordinates of the color.</span>
+<span class="sd">    :rtype: tuple</span>
+<span class="sd">        </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c"># default colormap</span>
+    <span class="n">colormap</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">),</span>
+                 <span class="mi">1</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+                 <span class="mi">2</span><span class="p">:</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+                 <span class="mi">3</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+                 <span class="mi">4</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                 <span class="mi">5</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+                 <span class="mi">6</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">),</span>
+               <span class="p">}</span>
+    <span class="n">colormap</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span><span class="p">:</span> <span class="p">(</span><span class="mf">203.0</span><span class="o">/</span><span class="mf">255.0</span><span class="p">,</span> <span class="mf">15.0</span><span class="o">/</span><span class="mf">255.0</span><span class="p">,</span> <span class="mf">40.0</span><span class="o">/</span><span class="mf">255.0</span><span class="p">),</span>
+                 <span class="mi">1</span><span class="p">:</span> <span class="p">(</span><span class="mf">255.0</span><span class="o">/</span><span class="mf">255.0</span><span class="p">,</span> <span class="mf">165.0</span><span class="o">/</span><span class="mf">255.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+                 <span class="mi">2</span><span class="p">:</span> <span class="p">(</span><span class="mf">42.0</span><span class="o">/</span><span class="mf">255.0</span><span class="p">,</span> <span class="mf">46.0</span><span class="o">/</span><span class="mf">255.0</span><span class="p">,</span> <span class="mf">139.0</span><span class="o">/</span><span class="mf">255.0</span><span class="p">),</span>
+                 <span class="mi">3</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.0</span><span class="o">/</span><span class="mf">255.0</span><span class="p">,</span> <span class="mf">153.0</span><span class="o">/</span><span class="mf">255.0</span><span class="p">,</span> <span class="mf">204.0</span><span class="o">/</span><span class="mf">255.0</span><span class="p">),</span>
+                 <span class="mi">4</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.0</span><span class="o">/</span><span class="mf">255.0</span><span class="p">,</span> <span class="mf">221.0</span><span class="o">/</span><span class="mf">255.0</span><span class="p">,</span> <span class="mf">52.0</span><span class="o">/</span><span class="mf">255.0</span><span class="p">),</span>
+                 <span class="mi">5</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+                 <span class="mi">6</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">),</span>
+               <span class="p">}</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span> <span class="nb">round</span><span class="p">(</span> <span class="n">num</span><span class="o">%</span><span class="mi">7</span> <span class="p">))</span>
+    <span class="k">return</span> <span class="n">colormap</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+
+<span class="c"># ***************************************************************************************</span>
+</div>
+<div class="viewcode-block" id="bash_colors"><a class="viewcode-back" href="../../cosmicfish_pylib_colors.html#cosmicfish_pylib.colors.bash_colors">[docs]</a><span class="k">class</span> <span class="nc">bash_colors</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class contains the necessary definitions to print to bash screen with colors.</span>
+<span class="sd">    Sometimes it can be useful and nice!</span>
+<span class="sd">    </span>
+<span class="sd">    :ivar HEADER: ANSI color for light purple.</span>
+<span class="sd">    :ivar OKBLUE: ANSI color for blue.</span>
+<span class="sd">    :ivar OKGREEN: ANSI color for green.</span>
+<span class="sd">    :ivar WARNING: ANSI color for yellow.</span>
+<span class="sd">    :ivar FAIL: ANSI color for red.</span>
+<span class="sd">    :ivar BOLD: ANSI code for bold text.</span>
+<span class="sd">    :ivar UNDERLINE: ANSI code for underlined text.</span>
+<span class="sd">    :ivar ENDC: ANSI code to restore the bash default.</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c"># -----------------------------------------------------------------------------------</span>
+    
+    <span class="n">HEADER</span>    <span class="o">=</span> <span class="s">&#39;</span><span class="se">\033</span><span class="s">[95m&#39;</span> <span class="c">#: ANSI color for light purple.</span>
+    <span class="n">OKBLUE</span>    <span class="o">=</span> <span class="s">&#39;</span><span class="se">\033</span><span class="s">[94m&#39;</span> <span class="c">#: ANSI color for blue.</span>
+    <span class="n">OKGREEN</span>   <span class="o">=</span> <span class="s">&#39;</span><span class="se">\033</span><span class="s">[92m&#39;</span> <span class="c">#: ANSI color for green.</span>
+    <span class="n">WARNING</span>   <span class="o">=</span> <span class="s">&#39;</span><span class="se">\033</span><span class="s">[93m&#39;</span> <span class="c">#: ANSI color for yellow.</span>
+    <span class="n">FAIL</span>      <span class="o">=</span> <span class="s">&#39;</span><span class="se">\033</span><span class="s">[91m&#39;</span> <span class="c">#: ANSI color for red.</span>
+    <span class="n">BOLD</span>      <span class="o">=</span> <span class="s">&#39;</span><span class="se">\033</span><span class="s">[1m&#39;</span>  <span class="c">#: ANSI code for bold text.</span>
+    <span class="n">UNDERLINE</span> <span class="o">=</span> <span class="s">&#39;</span><span class="se">\033</span><span class="s">[4m&#39;</span>  <span class="c">#: ANSI code for underlined text.</span>
+    <span class="n">ENDC</span>      <span class="o">=</span> <span class="s">&#39;</span><span class="se">\033</span><span class="s">[0m&#39;</span>  <span class="c">#: ANSI code to restore the bash default.</span>
+    
+    <span class="c"># -----------------------------------------------------------------------------------</span>
+    
+<div class="viewcode-block" id="bash_colors.__init__"><a class="viewcode-back" href="../../_summaries/cosmicfish_pylib.colors.bash_colors.html#cosmicfish_pylib.colors.bash_colors.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+    
+    <span class="c"># -----------------------------------------------------------------------------------</span>
+    </div>
+<div class="viewcode-block" id="bash_colors.header"><a class="viewcode-back" href="../../cosmicfish_pylib_colors.html#cosmicfish_pylib.colors.bash_colors.header">[docs]</a>    <span class="k">def</span> <span class="nf">header</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Function that returns a string that can be printed to bash in :class:`cosmicfish_pylib.colors.bash_colors.HEADER` color.</span>
+<span class="sd">        </span>
+<span class="sd">        :param string: input string.</span>
+<span class="sd">        :type string: string</span>
+<span class="sd">        :return: the input string with the relevant ANSI code at the beginning and at the end.</span>
+<span class="sd">        :rtype: string </span>
+<span class="sd">           </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">HEADER</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">ENDC</span>
+    
+    <span class="c"># -----------------------------------------------------------------------------------</span>
+    </div>
+<div class="viewcode-block" id="bash_colors.blue"><a class="viewcode-back" href="../../cosmicfish_pylib_colors.html#cosmicfish_pylib.colors.bash_colors.blue">[docs]</a>    <span class="k">def</span> <span class="nf">blue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">string</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Function that returns a string that can be printed to bash in :class:`cosmicfish_pylib.colors.bash_colors.OKBLUE` color.</span>
+<span class="sd">        </span>
+<span class="sd">        :param string: input string.</span>
+<span class="sd">        :type string: string</span>
+<span class="sd">        :return: the input string with the relevant ANSI code at the beginning and at the end.</span>
+<span class="sd">        :rtype: string </span>
+<span class="sd">           </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">OKBLUE</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">ENDC</span>
+    
+    <span class="c"># -----------------------------------------------------------------------------------</span>
+    </div>
+<div class="viewcode-block" id="bash_colors.green"><a class="viewcode-back" href="../../cosmicfish_pylib_colors.html#cosmicfish_pylib.colors.bash_colors.green">[docs]</a>    <span class="k">def</span> <span class="nf">green</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">string</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Function that returns a string that can be printed to bash in :class:`cosmicfish_pylib.colors.bash_colors.OKGREEN` color.</span>
+<span class="sd">        </span>
+<span class="sd">        :param string: input string.</span>
+<span class="sd">        :type string: string</span>
+<span class="sd">        :return: the input string with the relevant ANSI code at the beginning and at the end.</span>
+<span class="sd">        :rtype: string </span>
+<span class="sd">           </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">OKGREEN</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">ENDC</span>
+    
+    <span class="c"># -----------------------------------------------------------------------------------</span>
+    </div>
+<div class="viewcode-block" id="bash_colors.warning"><a class="viewcode-back" href="../../cosmicfish_pylib_colors.html#cosmicfish_pylib.colors.bash_colors.warning">[docs]</a>    <span class="k">def</span> <span class="nf">warning</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">string</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Function that returns a string that can be printed to bash in :class:`cosmicfish_pylib.colors.bash_colors.WARNING` color.</span>
+<span class="sd">        </span>
+<span class="sd">        :param string: input string.</span>
+<span class="sd">        :type string: string</span>
+<span class="sd">        :return: the input string with the relevant ANSI code at the beginning and at the end.</span>
+<span class="sd">        :rtype: string </span>
+<span class="sd">           </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">WARNING</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">ENDC</span>
+    
+    <span class="c"># -----------------------------------------------------------------------------------</span>
+    </div>
+<div class="viewcode-block" id="bash_colors.fail"><a class="viewcode-back" href="../../cosmicfish_pylib_colors.html#cosmicfish_pylib.colors.bash_colors.fail">[docs]</a>    <span class="k">def</span> <span class="nf">fail</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">string</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Function that returns a string that can be printed to bash in :class:`cosmicfish_pylib.colors.bash_colors.FAIL` color.</span>
+<span class="sd">        </span>
+<span class="sd">        :param string: input string.</span>
+<span class="sd">        :type string: string</span>
+<span class="sd">        :return: the input string with the relevant ANSI code at the beginning and at the end.</span>
+<span class="sd">        :rtype: string </span>
+<span class="sd">           </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">FAIL</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">ENDC</span>
+    
+    <span class="c"># -----------------------------------------------------------------------------------</span>
+    </div>
+<div class="viewcode-block" id="bash_colors.bold"><a class="viewcode-back" href="../../cosmicfish_pylib_colors.html#cosmicfish_pylib.colors.bash_colors.bold">[docs]</a>    <span class="k">def</span> <span class="nf">bold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">string</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Function that returns a string that can be printed to bash in :class:`cosmicfish_pylib.colors.bash_colors.BOLD` color.</span>
+<span class="sd">        </span>
+<span class="sd">        :param string: input string.</span>
+<span class="sd">        :type string: string</span>
+<span class="sd">        :return: the input string with the relevant ANSI code at the beginning and at the end.</span>
+<span class="sd">        :rtype: string </span>
+<span class="sd">           </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">BOLD</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">ENDC</span>
+    
+    <span class="c"># -----------------------------------------------------------------------------------</span>
+    </div>
+<div class="viewcode-block" id="bash_colors.underline"><a class="viewcode-back" href="../../cosmicfish_pylib_colors.html#cosmicfish_pylib.colors.bash_colors.underline">[docs]</a>    <span class="k">def</span> <span class="nf">underline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">string</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Function that returns a string that can be printed to bash in :class:`cosmicfish_pylib.colors.bash_colors.UNDERLINE` color.</span>
+<span class="sd">        </span>
+<span class="sd">        :param string: input string.</span>
+<span class="sd">        :type string: string</span>
+<span class="sd">        :return: the input string with the relevant ANSI code at the beginning and at the end.</span>
+<span class="sd">        :rtype: string</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">UNDERLINE</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">ENDC</span>
+    
+    <span class="c"># -----------------------------------------------------------------------------------</span>
+    
+<span class="c"># ***************************************************************************************</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, the CosmicFish authors.
+      Last updated on Jun 21, 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

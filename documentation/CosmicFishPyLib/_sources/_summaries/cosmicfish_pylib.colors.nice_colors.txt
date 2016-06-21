@@ -1,0 +1,6 @@
+cosmicfish_pylib.colors.nice_colors
+===================================
+
+.. currentmodule:: cosmicfish_pylib.colors
+
+.. autofunction:: nice_colors

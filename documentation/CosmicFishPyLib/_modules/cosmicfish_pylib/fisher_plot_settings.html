@@ -1,0 +1,581 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cosmicfish_pylib.fisher_plot_settings &mdash; CosmicFish python library documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/CosmicFish_FavIcon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="CosmicFish python library documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> CosmicFish
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference external" href="example.html#://">Examples and tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_apps.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_colors.html">cosmicfish_pylib.colors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_fisher_derived.html">cosmicfish_pylib.fisher_derived</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_fisher_matrix.html">cosmicfish_pylib.fisher_matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_fisher_operations.html">cosmicfish_pylib.fisher_operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_fisher_plot_settings.html">cosmicfish_pylib.fisher_plot_settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_fisher_plot.html">cosmicfish_pylib.fisher_plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_fisher_plot_analysis.html">cosmicfish_pylib.fisher_plot_analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_utilities.html">cosmicfish_pylib.utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_todo.html">cosmicfish_pylib list of todos</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">CosmicFish</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+        <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+    <li>cosmicfish_pylib.fisher_plot_settings</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for cosmicfish_pylib.fisher_plot_settings</h1><div class="highlight"><pre>
+<span class="c">#----------------------------------------------------------------------------------------</span>
+<span class="c">#</span>
+<span class="c"># This file is part of CosmicFish.</span>
+<span class="c">#</span>
+<span class="c"># Copyright (C) 2015-2016 by the CosmicFish authors</span>
+<span class="c">#</span>
+<span class="c"># The CosmicFish code is free software;</span>
+<span class="c"># You can use it, redistribute it, and/or modify it under the terms</span>
+<span class="c"># of the GNU General Public License as published by the Free Software Foundation;</span>
+<span class="c"># either version 3 of the License, or (at your option) any later version.</span>
+<span class="c"># The full text of the license can be found in the file LICENSE at</span>
+<span class="c"># the top level of the CosmicFish distribution.</span>
+<span class="c">#</span>
+<span class="c">#----------------------------------------------------------------------------------------</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">.. module:: fisher_plot_settings</span>
+<span class="sd">   :platform: Unix</span>
+<span class="sd">   :synopsis: Module that contains the class for plot settings and their default values. </span>
+<span class="sd">   </span>
+<span class="sd">.. moduleauthor:: Marco Raveri &lt;mraveri@sissa.it&gt; for the CosmicFish code.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c"># ***************************************************************************************</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+
+<span class="c"># ***************************************************************************************</span>
+
+<span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">Some global parameters </span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">paper_width</span> <span class="o">=</span> <span class="mf">21.0</span>                <span class="c">#: width of an A4 paper in cm</span>
+
+<span class="n">inch_to_cm</span>  <span class="o">=</span> <span class="mf">2.54</span>                <span class="c">#: conversion factor from inches to centimeter</span>
+<span class="n">cm_to_inch</span>  <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">inch_to_cm</span>      <span class="c">#: conversion factor from centimeter to inches </span>
+
+<span class="n">points_to_mm</span> <span class="o">=</span> <span class="mf">0.352778</span>           <span class="c">#: conversion factor from points to mm </span>
+<span class="n">mm_to_points</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">points_to_mm</span>   <span class="c">#: conversion factor from mm to points </span>
+
+<span class="n">points_width_to_mm</span> <span class="o">=</span> <span class="mf">0.18</span>
+<span class="n">points_heights_to_mm</span> <span class="o">=</span> <span class="mf">0.30</span>
+
+<span class="c"># ***************************************************************************************</span>
+
+<div class="viewcode-block" id="CosmicFish_PlotSettings"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_plot_settings.html#cosmicfish_pylib.fisher_plot_settings.CosmicFish_PlotSettings">[docs]</a><span class="k">class</span> <span class="nc">CosmicFish_PlotSettings</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class containing the plot settings for the CosmicFish plotter.</span>
+<span class="sd">    </span>
+<span class="sd">    :ivar use_nice_colors: wether to use nice_colors for the plot. Not yet implemented.</span>
+<span class="sd">    :ivar nice_colors_palette: nice_color palette to use. Default:</span>
+<span class="sd">    :ivar line_colors: list of color to use for lines. Default:</span>
+<span class="sd">    :ivar solid_colors: list of color to use for filled stuff. Default:</span>
+<span class="sd">    :ivar linestyle: list of line style to use. Default:</span>
+<span class="sd">        </span>
+<span class="sd">    :ivar D1_confidence_level: list with the confidence levels for the 1D plot. Default: [ 0.95, 0.68 ]</span>
+<span class="sd">    :ivar D1_num_points: number of points per line in the plot. Default: 100</span>
+<span class="sd">    :ivar D1_line_thickness: thickness of the line. Default: 1.0</span>
+<span class="sd">    :ivar D1_norm_prob: wether to normalize the distribution or set the maximum to one. Default: False</span>
+<span class="sd">    :ivar D1_use_nice_numbers: wether to use nice numbers when doing 1D plots. Default: True</span>
+<span class="sd">    :ivar D1_filled: wether to fill the gaussians highlighting the confidence levels. Default: True</span>
+<span class="sd">    :ivar D1_alpha: alpha used for the 1D filling. Each layer is filled with the same alpha and the superposition of the layers result in the highlihting effect. Default: 0.1</span>
+<span class="sd">    :ivar D1_ylabel_right: wether to put y labels on the right side of the plot. Default: False</span>
+<span class="sd">    :ivar D1_xlabel_up: wether to put x labels on top of the plot. Default: False</span>
+
+<span class="sd">    :ivar D1_show_x_ticks: wether to show x axis thicks in 1D plot. Default: True</span>
+<span class="sd">    :ivar D1_number_x_ticks: number of x thicks to show. Default: 3</span>
+<span class="sd">    :ivar D1_show_y_ticks: wether to show y axis thicks in 1D plot. Default: True</span>
+<span class="sd">    :ivar D1_number_y_ticks: number of y thicks to show. Default: 2</span>
+<span class="sd">    :ivar D1_show_x_ticks_labels: wether to show x axis tick label. Default: True</span>
+<span class="sd">    :ivar D1_show_y_ticks_labels: wether to show y axis tick label. Default: True</span>
+<span class="sd">    </span>
+<span class="sd">    :ivar D1_show_xaxis_label: wether to show x axis label. Default: True</span>
+<span class="sd">    :ivar D1_show_yaxis_label: wether to show y axis label. Default: True</span>
+<span class="sd">    :ivar D1_x_label_rotation: rotation of the x axis label. Default: 0</span>
+<span class="sd">    :ivar D1_y_label_rotation: rotation of the y axis label. Default: 90    </span>
+<span class="sd">    :ivar D1_prob_label: y axis label to use when P is not normalized. Default: u&#39;$P/P_{\\rm max}$&#39; </span>
+<span class="sd">    :ivar D1_norm_prob_label: y axis label to use when P is normalized. Default: u&#39;$P$&#39;  </span>
+<span class="sd">    :ivar D1_main_fontsize: main fontsize for the 1D plot. Default: 10.0   </span>
+<span class="sd">    :ivar D1_secondary_fontsize: secondary fontsize for the 1D plot. Default:</span>
+<span class="sd">    :ivar D1_show_best_fit: show a vertical line on the fiducial. NOT YET IMPLEMENTED. Default: False</span>
+
+<span class="sd">    :ivar D2_confidence_levels: list with confidence levels for the 2D plot. Default: [ 0.95, 0.68 ]      </span>
+<span class="sd">    :ivar D2_num_points: number of points per line in the plot. Default: 100 </span>
+<span class="sd">    :ivar D2_line_thickness: thickness of the lines. Default: 1.0 </span>
+<span class="sd">    :ivar D2_use_nice_numbers: wether to use nice numbers when doing 2D plots. Default: True</span>
+<span class="sd">    :ivar D2_filled: wether to fill the contours highlighting the confidence levels. Default: True</span>
+<span class="sd">    :ivar D2_alphas: alpha for the filling of the confidence regions. Default: [ 0.40, 0.85 ]      </span>
+<span class="sd">    :ivar D2_ylabel_right: wether to put y labels on the right side of the plot. Default: False</span>
+<span class="sd">    :ivar D2_xlabel_up: wether to put x labels on top of the plot. Default: False</span>
+
+<span class="sd">    :ivar D2_show_x_ticks: wether to show x axis thicks in 1D plot. Default: True</span>
+<span class="sd">    :ivar D2_number_x_ticks: number of x thicks to show. Default: 3</span>
+<span class="sd">    :ivar D2_show_y_ticks: wether to show y axis thicks in 1D plot. Default: True</span>
+<span class="sd">    :ivar D2_number_y_ticks: number of y thicks to show. Default: 3</span>
+<span class="sd">    :ivar D2_show_x_ticks_labels: wether to show x axis tick label. Default: True</span>
+<span class="sd">    :ivar D2_show_y_ticks_labels: wether to show y axis tick label. Default: True</span>
+
+<span class="sd">    :ivar D2_show_xaxis_label: wether to show x axis label. Default: True</span>
+<span class="sd">    :ivar D2_show_yaxis_label: wether to show y axis label. Default: True</span>
+<span class="sd">    :ivar D2_x_label_rotation: rotation of the x axis label. Default: 0</span>
+<span class="sd">    :ivar D2_y_label_rotation: rotation of the y axis label. Default: 90 </span>
+<span class="sd">    :ivar D2_main_fontsize: main fontsize. Default: 10.0</span>
+<span class="sd">    :ivar D2_secondary_fontsize: secondary fontsize. Default: 9.0</span>
+<span class="sd">    :ivar D2_show_best_fit: show a vertical line on the fiducial. NOT YET IMPLEMENTED. Default: False</span>
+<span class="sd">        </span>
+<span class="sd">    :ivar num_plots_per_line: number of plots per line. Used in all plots but triangulars. Default: 3</span>
+<span class="sd">    :ivar figure_width: width of the image in cm. Default: paper_width</span>
+<span class="sd">    :ivar figure_height: height of the image in cm. Default: paper_width</span>
+<span class="sd">    :ivar tight_layout: wether to use tight_layout at the end of plotting. Default: False</span>
+<span class="sd">    :ivar subplot_x_size: x size of the subplot in cm. Default: 5.0 cm</span>
+<span class="sd">    :ivar subplot_y_size: y size of the subplot in cm. Default: 5.0 cm</span>
+<span class="sd">    :ivar use_fixed_figure_width: wether to use a fixed size for the figure width. If true the width of the subplots is determined automatically, if false is determined by subplot_x_size. Default: False</span>
+<span class="sd">    :ivar use_fixed_figure_height: wether to use a fixed size for the figure height. If true the height of the subplots is determined automatically, if false is determined by subplot_y_size. Default: False</span>
+
+<span class="sd">    :ivar do_legend: wether to put the legend or not. Default: True</span>
+<span class="sd">    :ivar legend_filled: wether to use a legend with filled patches. Default: True</span>
+<span class="sd">    :ivar legend_fontsize: font size to be used in the legend. Default: 10.0     </span>
+<span class="sd">    :ivar legend_frame: wether to put the frame on the legend. Default: True</span>
+<span class="sd">    :ivar legend_fancybox: wether to use a fancy box for the legend. Default: False</span>
+<span class="sd">    :ivar legend_shadow: wether to put the shadow below the legend. Default: False</span>
+<span class="sd">    :ivar legend_markerfirst: wether to put the marker first and the text after. Default: True</span>
+<span class="sd">    :ivar legend_ncol: number of columns of the legend. Default: 1</span>
+<span class="sd">    :ivar legend_loc: location of the legend, relative to the global figure if legend_takes_place_plot is False or relative to the legend sub plot if legend_takes_place_plot is True. Default: &#39;lower center&#39;</span>
+<span class="sd">    :ivar legend_takes_place_plot: wether the legend should take the place of an additional subplot in 1D and 2D plots. Default: False</span>
+<span class="sd">    :ivar legend_takes_place_plot_tri: wether the legend should take the place of an additional subplot in a triangular plot. Default: True</span>
+<span class="sd">    </span>
+<span class="sd">    :ivar title_fontsize: fontsize of the title of the plot. Default: 10.0  </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c"># -----------------------------------------------------------------------------------</span>
+    
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">dictionary</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        **CosmicFish_PlotSettings class constructor**. The constructor initializes the plot </span>
+<span class="sd">        settings to the default values.</span>
+<span class="sd">        By default everything (font sizes, ecc..) is chosen so that every plot looks good to us...</span>
+<span class="sd">        The settings can be initialized to default by passing nothing.</span>
+<span class="sd">        </span>
+<span class="sd">        :param dictionary: dictionary containing the users settings. Settings that are not passed</span>
+<span class="sd">            are initialized to their default values. If a setting is not in __accepted_settings__ it</span>
+<span class="sd">            will simply be ignored.</span>
+<span class="sd">        :type dictionary: :class:`dict`</span>
+<span class="sd">        :param kwargs: keyword arguments containing settings. Settings that are not passed in this way</span>
+<span class="sd">            are either initialized to default or by dictionary. If a setting is not in __accepted_settings__ it</span>
+<span class="sd">            will simply be ignored. Notice that keyword arguments have higher priority with respect to </span>
+<span class="sd">            dictionary settings.</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="c"># colors:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">use_nice_colors</span>     <span class="o">=</span> <span class="bp">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nice_colors_palette</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">line_colors</span>         <span class="o">=</span> <span class="p">[</span><span class="s">&#39;#006FED&#39;</span><span class="p">,</span> <span class="s">&#39;#E03424&#39;</span><span class="p">,</span> <span class="s">&#39;black&#39;</span><span class="p">,</span> <span class="s">&#39;#009966&#39;</span><span class="p">,</span> <span class="s">&#39;#000866&#39;</span><span class="p">,</span> <span class="s">&#39;#336600&#39;</span><span class="p">,</span> <span class="s">&#39;#006633&#39;</span><span class="p">,</span> <span class="s">&#39;m&#39;</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">]</span>  
+        <span class="bp">self</span><span class="o">.</span><span class="n">solid_colors</span>        <span class="o">=</span> <span class="p">[</span><span class="s">&#39;#006FED&#39;</span><span class="p">,</span> <span class="s">&#39;#E03424&#39;</span><span class="p">,</span> <span class="s">&#39;gray&#39;</span><span class="p">,</span> <span class="s">&#39;#009966&#39;</span><span class="p">,</span> <span class="s">&#39;#000866&#39;</span><span class="p">,</span> <span class="s">&#39;#336600&#39;</span><span class="p">,</span> <span class="s">&#39;#006633&#39;</span><span class="p">,</span> <span class="s">&#39;m&#39;</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">]</span>  
+        <span class="bp">self</span><span class="o">.</span><span class="n">linestyle</span>           <span class="o">=</span> <span class="p">[</span><span class="s">&#39;-&#39;</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">]</span> 
+        
+        <span class="c"># options for 1D plots:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">D1_confidence_level</span>     <span class="o">=</span> <span class="p">[</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.68</span> <span class="p">]</span>      
+        <span class="bp">self</span><span class="o">.</span><span class="n">D1_num_points</span>           <span class="o">=</span> <span class="mi">100</span>                 
+        <span class="bp">self</span><span class="o">.</span><span class="n">D1_line_thickness</span>       <span class="o">=</span> <span class="mf">1.0</span>                 
+        <span class="bp">self</span><span class="o">.</span><span class="n">D1_norm_prob</span>            <span class="o">=</span> <span class="bp">False</span>               
+        <span class="bp">self</span><span class="o">.</span><span class="n">D1_use_nice_numbers</span>     <span class="o">=</span> <span class="bp">True</span>                
+        <span class="bp">self</span><span class="o">.</span><span class="n">D1_filled</span>               <span class="o">=</span> <span class="bp">True</span>                
+        <span class="bp">self</span><span class="o">.</span><span class="n">D1_alpha</span>                <span class="o">=</span> <span class="mf">0.1</span>                 
+        <span class="bp">self</span><span class="o">.</span><span class="n">D1_ylabel_right</span>         <span class="o">=</span> <span class="bp">False</span>               
+        <span class="bp">self</span><span class="o">.</span><span class="n">D1_xlabel_up</span>            <span class="o">=</span> <span class="bp">False</span>               
+        <span class="c"># - thicks</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">D1_show_x_ticks</span>         <span class="o">=</span> <span class="bp">True</span>                
+        <span class="bp">self</span><span class="o">.</span><span class="n">D1_number_x_ticks</span>       <span class="o">=</span> <span class="mi">3</span>                   
+        <span class="bp">self</span><span class="o">.</span><span class="n">D1_show_y_ticks</span>         <span class="o">=</span> <span class="bp">True</span>                
+        <span class="bp">self</span><span class="o">.</span><span class="n">D1_number_y_ticks</span>       <span class="o">=</span> <span class="mi">2</span>                   
+        <span class="bp">self</span><span class="o">.</span><span class="n">D1_show_x_ticks_labels</span>  <span class="o">=</span> <span class="bp">True</span>                
+        <span class="bp">self</span><span class="o">.</span><span class="n">D1_show_y_ticks_labels</span>  <span class="o">=</span> <span class="bp">True</span>                
+        <span class="c"># - labels</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">D1_show_xaxis_label</span>     <span class="o">=</span> <span class="bp">True</span>                
+        <span class="bp">self</span><span class="o">.</span><span class="n">D1_show_yaxis_label</span>     <span class="o">=</span> <span class="bp">True</span>                
+        <span class="bp">self</span><span class="o">.</span><span class="n">D1_x_label_rotation</span>     <span class="o">=</span> <span class="mi">0</span>                   
+        <span class="bp">self</span><span class="o">.</span><span class="n">D1_y_label_rotation</span>     <span class="o">=</span> <span class="mi">90</span>                  
+        <span class="bp">self</span><span class="o">.</span><span class="n">D1_prob_label</span>           <span class="o">=</span> <span class="s">u&#39;$P/P_{</span><span class="se">\\</span><span class="s">rm max}$&#39;</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">D1_norm_prob_label</span>      <span class="o">=</span> <span class="s">u&#39;$P$&#39;</span>              
+        <span class="bp">self</span><span class="o">.</span><span class="n">D1_main_fontsize</span>        <span class="o">=</span> <span class="mf">10.0</span>                
+        <span class="bp">self</span><span class="o">.</span><span class="n">D1_secondary_fontsize</span>   <span class="o">=</span> <span class="mf">9.0</span>                 
+        <span class="bp">self</span><span class="o">.</span><span class="n">D1_show_best_fit</span>        <span class="o">=</span> <span class="bp">False</span>               
+    
+        <span class="c"># options for 2D plots:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">D2_confidence_levels</span>    <span class="o">=</span> <span class="p">[</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.68</span> <span class="p">]</span>      
+        <span class="bp">self</span><span class="o">.</span><span class="n">D2_num_points</span>           <span class="o">=</span> <span class="mi">100</span>                 
+        <span class="bp">self</span><span class="o">.</span><span class="n">D2_line_thickness</span>       <span class="o">=</span> <span class="mf">1.0</span>                 
+        <span class="bp">self</span><span class="o">.</span><span class="n">D2_use_nice_numbers</span>     <span class="o">=</span> <span class="bp">True</span>                
+        <span class="bp">self</span><span class="o">.</span><span class="n">D2_filled</span>               <span class="o">=</span> <span class="bp">True</span>                
+        <span class="bp">self</span><span class="o">.</span><span class="n">D2_alphas</span>               <span class="o">=</span> <span class="p">[</span> <span class="mf">0.40</span><span class="p">,</span> <span class="mf">0.85</span> <span class="p">]</span>      
+        <span class="bp">self</span><span class="o">.</span><span class="n">D2_ylabel_right</span>         <span class="o">=</span> <span class="bp">False</span>               
+        <span class="bp">self</span><span class="o">.</span><span class="n">D2_xlabel_up</span>            <span class="o">=</span> <span class="bp">False</span>               
+        <span class="c"># - thicks</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">D2_show_x_ticks</span>         <span class="o">=</span> <span class="bp">True</span>                
+        <span class="bp">self</span><span class="o">.</span><span class="n">D2_number_x_ticks</span>       <span class="o">=</span> <span class="mi">3</span>                   
+        <span class="bp">self</span><span class="o">.</span><span class="n">D2_show_y_ticks</span>         <span class="o">=</span> <span class="bp">True</span>                
+        <span class="bp">self</span><span class="o">.</span><span class="n">D2_number_y_ticks</span>       <span class="o">=</span> <span class="mi">3</span>                   
+        <span class="bp">self</span><span class="o">.</span><span class="n">D2_show_x_ticks_labels</span>  <span class="o">=</span> <span class="bp">True</span>                
+        <span class="bp">self</span><span class="o">.</span><span class="n">D2_show_y_ticks_labels</span>  <span class="o">=</span> <span class="bp">True</span>                
+        <span class="c"># - labels</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">D2_show_xaxis_label</span>     <span class="o">=</span> <span class="bp">True</span>               
+        <span class="bp">self</span><span class="o">.</span><span class="n">D2_show_yaxis_label</span>     <span class="o">=</span> <span class="bp">True</span>                
+        <span class="bp">self</span><span class="o">.</span><span class="n">D2_x_label_rotation</span>     <span class="o">=</span> <span class="mi">0</span>                   
+        <span class="bp">self</span><span class="o">.</span><span class="n">D2_y_label_rotation</span>     <span class="o">=</span> <span class="mi">90</span>                  
+        <span class="bp">self</span><span class="o">.</span><span class="n">D2_main_fontsize</span>        <span class="o">=</span> <span class="mf">10.0</span>                
+        <span class="bp">self</span><span class="o">.</span><span class="n">D2_secondary_fontsize</span>   <span class="o">=</span> <span class="mf">9.0</span>                 
+        <span class="bp">self</span><span class="o">.</span><span class="n">D2_show_best_fit</span>        <span class="o">=</span> <span class="bp">False</span>               
+        
+        <span class="c"># options for the global figure:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_plots_per_line</span>      <span class="o">=</span> <span class="mi">3</span>                   
+        <span class="bp">self</span><span class="o">.</span><span class="n">figure_width</span>            <span class="o">=</span> <span class="n">paper_width</span>         
+        <span class="bp">self</span><span class="o">.</span><span class="n">figure_height</span>           <span class="o">=</span> <span class="n">paper_width</span>         
+        <span class="bp">self</span><span class="o">.</span><span class="n">tight_layout</span>            <span class="o">=</span> <span class="bp">False</span>               
+        <span class="bp">self</span><span class="o">.</span><span class="n">subplot_x_size</span>          <span class="o">=</span> <span class="mf">5.0</span>                 
+        <span class="bp">self</span><span class="o">.</span><span class="n">subplot_y_size</span>          <span class="o">=</span> <span class="mf">5.0</span>                 
+        <span class="bp">self</span><span class="o">.</span><span class="n">use_fixed_figure_width</span>  <span class="o">=</span> <span class="bp">False</span>               
+        <span class="bp">self</span><span class="o">.</span><span class="n">use_fixed_figure_height</span> <span class="o">=</span> <span class="bp">False</span>               
+        
+        <span class="c"># options for the legend:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">do_legend</span>               <span class="o">=</span> <span class="bp">True</span>                
+        <span class="bp">self</span><span class="o">.</span><span class="n">legend_filled</span>           <span class="o">=</span> <span class="bp">True</span>                
+        <span class="bp">self</span><span class="o">.</span><span class="n">legend_fontsize</span>         <span class="o">=</span> <span class="mf">10.0</span>                
+        <span class="bp">self</span><span class="o">.</span><span class="n">legend_frame</span>            <span class="o">=</span> <span class="bp">True</span>                
+        <span class="bp">self</span><span class="o">.</span><span class="n">legend_fancybox</span>         <span class="o">=</span> <span class="bp">False</span>               
+        <span class="bp">self</span><span class="o">.</span><span class="n">legend_shadow</span>           <span class="o">=</span> <span class="bp">False</span>               
+        <span class="bp">self</span><span class="o">.</span><span class="n">legend_markerfirst</span>      <span class="o">=</span> <span class="bp">True</span>                
+        <span class="bp">self</span><span class="o">.</span><span class="n">legend_ncol</span>             <span class="o">=</span> <span class="mi">1</span>                   
+        <span class="bp">self</span><span class="o">.</span><span class="n">legend_loc</span>              <span class="o">=</span> <span class="s">&#39;lower center&#39;</span>      
+        <span class="bp">self</span><span class="o">.</span><span class="n">legend_takes_place_plot</span> <span class="o">=</span> <span class="bp">False</span>               
+        <span class="bp">self</span><span class="o">.</span><span class="n">legend_takes_place_plot_tri</span> <span class="o">=</span> <span class="bp">True</span>
+        
+        <span class="c"># options for the title:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title_fontsize</span>          <span class="o">=</span> <span class="mf">10.0</span>                
+
+        <span class="c"># matplotlib relevant options:</span>
+        <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s">&#39;savefig.transparent&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s">&#39;figure.autolayout&#39;</span><span class="p">]</span>   <span class="o">=</span> <span class="bp">False</span>
+        <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s">&#39;xtick.major.pad&#39;</span><span class="p">]</span>     <span class="o">=</span> <span class="mf">4.0</span>
+        <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s">&#39;ytick.major.pad&#39;</span><span class="p">]</span>     <span class="o">=</span> <span class="mf">4.0</span>
+        <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s">&#39;axes.labelpad&#39;</span><span class="p">]</span>       <span class="o">=</span> <span class="mf">5.0</span>
+        <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s">&#39;savefig.dpi&#39;</span><span class="p">]</span>         <span class="o">=</span> <span class="mi">300</span>
+        <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s">&#39;savefig.pad_inches&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="mf">0.0</span>
+        
+        <span class="c"># replace settings with those passed from dictionary:</span>
+        <span class="k">if</span> <span class="n">dictionary</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dictionary</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Invalid input. Dictionary shall be a dictionary of settings.&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">temp</span> <span class="o">=</span> <span class="p">[</span> <span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">__accepted_settings__</span> <span class="p">]</span>
+                <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">temp</span><span class="p">:</span>
+                    <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+        <span class="c"># now parse kwargs. Esplicit kwarg takes precedence wrt dictionary:</span>
+        <span class="k">if</span> <span class="n">kwargs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="p">[</span> <span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">__accepted_settings__</span> <span class="p">]</span>
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">temp</span><span class="p">:</span>
+                <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+            
+    <span class="c"># -----------------------------------------------------------------------------------</span>
+    
+<div class="viewcode-block" id="CosmicFish_PlotSettings.update"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_plot_settings.html#cosmicfish_pylib.fisher_plot_settings.CosmicFish_PlotSettings.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dictionary</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Update settings. Works very similarly to the class constructor with the difference</span>
+<span class="sd">        being that settings that are not passed are not initialized to default.</span>
+<span class="sd">        </span>
+<span class="sd">        :param dictionary: dictionary containing the users settings. Settings that are not passed</span>
+<span class="sd">            are not changed. If a setting is not in __accepted_settings__ it</span>
+<span class="sd">            will simply be ignored.</span>
+<span class="sd">        :type dictionary: :class:`dict`</span>
+<span class="sd">        :param kwargs: keyword arguments containing settings. Settings that are not passed are not changed.</span>
+<span class="sd">            If a setting is not in __accepted_settings__ it will simply be ignored. </span>
+<span class="sd">            Notice that keyword arguments have higher priority with respect to </span>
+<span class="sd">            dictionary settings.</span>
+<span class="sd">            </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># replace settings with those passed from dictionary:</span>
+        <span class="k">if</span> <span class="n">dictionary</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dictionary</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Invalid input. Dictionary shall be a dictionary of settings.&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">temp</span> <span class="o">=</span> <span class="p">[</span> <span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">__accepted_settings__</span> <span class="p">]</span>
+                <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">temp</span><span class="p">:</span>
+                    <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+        <span class="c"># now parse kwargs. Esplicit kwarg takes precedence wrt dictionary:</span>
+        <span class="k">if</span> <span class="n">kwargs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="p">[</span> <span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">__accepted_settings__</span> <span class="p">]</span>
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">temp</span><span class="p">:</span>
+                <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+        
+    <span class="c"># -----------------------------------------------------------------------------------</span>
+
+<span class="c"># ***************************************************************************************</span>
+</div></div>
+<span class="n">__accepted_settings__</span><span class="o">=</span><span class="p">[</span> 
+    <span class="s">&#39;use_nice_colors&#39;</span><span class="p">,</span>
+    <span class="s">&#39;nice_colors_palette&#39;</span><span class="p">,</span> 
+    <span class="s">&#39;line_colors&#39;</span><span class="p">,</span>    
+    <span class="s">&#39;solid_colors&#39;</span><span class="p">,</span>
+    <span class="s">&#39;linestyle&#39;</span><span class="p">,</span>  
+    <span class="s">&#39;D1_confidence_level&#39;</span><span class="p">,</span>      
+    <span class="s">&#39;D1_num_points&#39;</span><span class="p">,</span>       
+    <span class="s">&#39;D1_line_thickness&#39;</span><span class="p">,</span>    
+    <span class="s">&#39;D1_norm_prob&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D1_use_nice_numbers&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D1_filled&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D1_alpha&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D1_ylabel_right&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D1_xlabel_up&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D1_show_x_ticks&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D1_number_x_ticks&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D1_show_y_ticks&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D1_number_y_ticks&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D1_show_x_ticks_labels&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D1_show_y_ticks_labels&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D1_show_xaxis_label&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D1_show_yaxis_label&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D1_x_label_rotation&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D1_y_label_rotation&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D1_prob_label&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D1_norm_prob_label&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D1_main_fontsize&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D1_secondary_fontsize&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D1_show_best_fit&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D2_confidence_levels&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D2_num_points&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D2_line_thickness&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D2_use_nice_numbers&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D2_filled&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D2_alphas&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D2_ylabel_right&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D2_xlabel_up&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D2_show_x_ticks&#39;</span><span class="p">,</span>      
+    <span class="s">&#39;D2_number_x_ticks&#39;</span><span class="p">,</span>     
+    <span class="s">&#39;D2_show_y_ticks&#39;</span><span class="p">,</span>       
+    <span class="s">&#39;D2_number_y_ticks&#39;</span><span class="p">,</span>      
+    <span class="s">&#39;D2_show_x_ticks_labels&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D2_show_y_ticks_labels&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D2_show_xaxis_label&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D2_show_yaxis_label&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D2_x_label_rotation&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D2_y_label_rotation&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D2_main_fontsize&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D2_secondary_fontsize&#39;</span><span class="p">,</span>
+    <span class="s">&#39;D2_show_best_fit&#39;</span><span class="p">,</span>
+    <span class="s">&#39;num_plots_per_line&#39;</span><span class="p">,</span>    
+    <span class="s">&#39;figure_width&#39;</span><span class="p">,</span>
+    <span class="s">&#39;figure_height&#39;</span><span class="p">,</span>
+    <span class="s">&#39;tight_layout&#39;</span><span class="p">,</span>
+    <span class="s">&#39;subplot_x_size&#39;</span><span class="p">,</span>
+    <span class="s">&#39;subplot_y_size&#39;</span><span class="p">,</span>
+    <span class="s">&#39;use_fixed_figure_width&#39;</span><span class="p">,</span>
+    <span class="s">&#39;use_fixed_figure_height&#39;</span><span class="p">,</span>
+    <span class="s">&#39;do_legend&#39;</span><span class="p">,</span>        
+    <span class="s">&#39;legend_filled&#39;</span><span class="p">,</span>
+    <span class="s">&#39;legend_fontsize&#39;</span><span class="p">,</span>
+    <span class="s">&#39;legend_frame&#39;</span><span class="p">,</span>     
+    <span class="s">&#39;legend_fancybox&#39;</span><span class="p">,</span>       
+    <span class="s">&#39;legend_shadow&#39;</span><span class="p">,</span>
+    <span class="s">&#39;legend_markerfirst&#39;</span><span class="p">,</span>
+    <span class="s">&#39;legend_ncol&#39;</span><span class="p">,</span>
+    <span class="s">&#39;legend_loc&#39;</span><span class="p">,</span>
+    <span class="s">&#39;legend_takes_place_plot&#39;</span><span class="p">,</span>
+    <span class="s">&#39;legend_takes_place_plot_tri&#39;</span><span class="p">,</span>
+    <span class="s">&#39;title_fontsize&#39;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+<span class="c"># ***************************************************************************************</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, the CosmicFish authors.
+      Last updated on Jun 21, 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

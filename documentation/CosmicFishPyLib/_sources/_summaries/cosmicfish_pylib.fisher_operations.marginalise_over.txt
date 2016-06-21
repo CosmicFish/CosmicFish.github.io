@@ -1,0 +1,6 @@
+cosmicfish_pylib.fisher_operations.marginalise_over
+===================================================
+
+.. currentmodule:: cosmicfish_pylib.fisher_operations
+
+.. autofunction:: marginalise_over

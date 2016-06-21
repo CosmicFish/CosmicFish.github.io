@@ -1,0 +1,827 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cosmicfish_pylib.fisher_plot_analysis &mdash; CosmicFish python library documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/CosmicFish_FavIcon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="CosmicFish python library documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> CosmicFish
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference external" href="example.html#://">Examples and tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_apps.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_colors.html">cosmicfish_pylib.colors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_fisher_derived.html">cosmicfish_pylib.fisher_derived</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_fisher_matrix.html">cosmicfish_pylib.fisher_matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_fisher_operations.html">cosmicfish_pylib.fisher_operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_fisher_plot_settings.html">cosmicfish_pylib.fisher_plot_settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_fisher_plot.html">cosmicfish_pylib.fisher_plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_fisher_plot_analysis.html">cosmicfish_pylib.fisher_plot_analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_utilities.html">cosmicfish_pylib.utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_todo.html">cosmicfish_pylib list of todos</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">CosmicFish</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+        <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+    <li>cosmicfish_pylib.fisher_plot_analysis</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for cosmicfish_pylib.fisher_plot_analysis</h1><div class="highlight"><pre>
+<span class="c">#----------------------------------------------------------------------------------------</span>
+<span class="c">#</span>
+<span class="c"># This file is part of CosmicFish.</span>
+<span class="c">#</span>
+<span class="c"># Copyright (C) 2015-2016 by the CosmicFish authors</span>
+<span class="c">#</span>
+<span class="c"># The CosmicFish code is free software;</span>
+<span class="c"># You can use it, redistribute it, and/or modify it under the terms</span>
+<span class="c"># of the GNU General Public License as published by the Free Software Foundation;</span>
+<span class="c"># either version 3 of the License, or (at your option) any later version.</span>
+<span class="c"># The full text of the license can be found in the file LICENSE at</span>
+<span class="c"># the top level of the CosmicFish distribution.</span>
+<span class="c">#</span>
+<span class="c">#----------------------------------------------------------------------------------------</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">.. module:: fisher_plot_analysis</span>
+<span class="sd">   :platform: Unix</span>
+<span class="sd">   :synopsis: Module that contains a set of tools to perform the analysis of a set of Fisher matrices. </span>
+<span class="sd">   </span>
+<span class="sd">.. moduleauthor:: Marco Raveri &lt;mraveri@sissa.it&gt; for the CosmicFish code.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c"># ***************************************************************************************</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">utilities</span>         <span class="kn">as</span> <span class="nn">fu</span>
+<span class="kn">import</span> <span class="nn">fisher_matrix</span>     <span class="kn">as</span> <span class="nn">fm</span>
+<span class="kn">import</span> <span class="nn">fisher_derived</span>    <span class="kn">as</span> <span class="nn">fd</span>
+<span class="kn">import</span> <span class="nn">fisher_operations</span> <span class="kn">as</span> <span class="nn">fo</span>
+<span class="kn">from</span> <span class="nn">__builtin__</span> <span class="kn">import</span> <span class="nb">dict</span>
+
+<span class="kn">import</span> <span class="nn">__init__</span> <span class="kn">as</span> <span class="nn">CosmicFishPyLib</span>
+
+<span class="c"># ***************************************************************************************</span>
+
+<div class="viewcode-block" id="CosmicFish_FisherAnalysis"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_plot_analysis.html#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis">[docs]</a><span class="k">class</span> <span class="nc">CosmicFish_FisherAnalysis</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class takes care of handeling a set of Fisher matrices with plotting in mind.</span>
+<span class="sd">    This class is meant to hold a list of Fisher matrices and have defined on this list</span>
+<span class="sd">    a set of vectorized operations.</span>
+<span class="sd">    For now no caching is implemented.</span>
+<span class="sd">    </span>
+<span class="sd">    :ivar fisher_list: list of Fisher matrices :class:`cosmicfish_pylib.fisher_matrix.fisher_matrix`</span>
+<span class="sd">    :ivar fisher_name_list: list of names of the Fisher matrices. The names are used as the unique </span>
+<span class="sd">        identifier of the Fisher matrix. No double name is enforced.</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c"># -----------------------------------------------------------------------------------</span>
+    
+    <span class="c"># class getters:</span>
+    
+<div class="viewcode-block" id="CosmicFish_FisherAnalysis.get_fisher_list"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_plot_analysis.html#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.get_fisher_list">[docs]</a>    <span class="k">def</span> <span class="nf">get_fisher_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; :returns: the list fisher matrices. &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_list</span>
+    </div>
+<div class="viewcode-block" id="CosmicFish_FisherAnalysis.get_fisher_name_list"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_plot_analysis.html#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.get_fisher_name_list">[docs]</a>    <span class="k">def</span> <span class="nf">get_fisher_name_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; :returns: the list fisher matrices names. These are the unique identifiers of the list.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_name_list</span>
+        
+    <span class="c"># -----------------------------------------------------------------------------------</span>
+</div>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">fisher_list</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">fisher_path</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">search_fisher_guess</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">with_derived</span><span class="o">=</span><span class="bp">True</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        **CosmicFish_FisherAnalysis class constructor**. The constructor builds the Fisher matrices list.</span>
+<span class="sd">        If all the arguments of the constructor are None then the Fisher list will be created and will be empty.</span>
+<span class="sd">        If this is initialized with fisher_list then this will constitute the base Fisher set.</span>
+<span class="sd">        if this is initialized with fisher_path then the code will search the desired path for Fisher matrices.</span>
+<span class="sd">        If initialized with both fisher_list and fisher_path then both will be added.</span>
+
+<span class="sd">        :param fisher_list: Fisher matrix or list of Fisher matrices.</span>
+<span class="sd">        :type fisher_list: :class:`cosmicfish_pylib.fisher_matrix.fisher_matrix` or :class:`list` of :class:`cosmicfish_pylib.fisher_matrix.fisher_matrix`</span>
+<span class="sd">        :param fisher_path: path or list of paths to search for Fisher matrices.</span>
+<span class="sd">        :type fisher_path: :class:`string` or :class:`list` of :class:`string`</span>
+<span class="sd">        :param search_fisher_guess: wether to guess the Fisher matrix name or not. </span>
+<span class="sd">            Guessing assumes that the Fisher matrices have &#39;fisher_matrix&#39; and &#39;.dat&#39; in the name as happens</span>
+<span class="sd">            with Fisher matrices produced with CosmicFish.</span>
+<span class="sd">        :type search_fisher_guess: :class:`bool`</span>
+<span class="sd">        :param with_derived: wether to search for derived Fisher matrices to add to the base Fisher that are found.</span>
+<span class="sd">        :type with_derived: :class:`bool`</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># create class instances:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fisher_list</span>      <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fisher_name_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c"># check wether we have to do something:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span> <span class="n">fisher_list</span><span class="o">==</span><span class="bp">None</span> <span class="ow">and</span> <span class="n">fisher_path</span><span class="o">==</span><span class="bp">None</span> <span class="p">):</span>
+            <span class="c"># do the initialization from fisher_list:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">fisher_list</span><span class="o">==</span><span class="bp">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">add_fisher_matrix</span><span class="p">(</span><span class="n">fisher_list</span><span class="p">)</span>
+            <span class="c"># do the initialization from path:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">fisher_path</span><span class="o">==</span><span class="bp">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">search_fisher_path</span><span class="p">(</span> <span class="n">fisher_path</span><span class="o">=</span><span class="n">fisher_path</span><span class="p">,</span> <span class="n">search_fisher_guess</span><span class="o">=</span><span class="n">search_fisher_guess</span><span class="p">,</span> <span class="n">with_derived</span><span class="o">=</span><span class="n">with_derived</span> <span class="p">)</span>
+        
+    <span class="c"># -----------------------------------------------------------------------------------</span>
+
+    <span class="k">def</span> <span class="nf">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        CosmicFish_FisherAnalysis class destructor. </span>
+<span class="sd">        Makes sure everything is gone when called.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fisher_list</span><span class="p">[:]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fisher_name_list</span><span class="p">[:]</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="c"># -----------------------------------------------------------------------------------</span>
+
+<div class="viewcode-block" id="CosmicFish_FisherAnalysis.search_fisher_path"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_plot_analysis.html#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.search_fisher_path">[docs]</a>    <span class="k">def</span> <span class="nf">search_fisher_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fisher_path</span><span class="p">,</span> <span class="n">search_fisher_guess</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">with_derived</span><span class="o">=</span><span class="bp">True</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Searches a path for fisher matrices. </span>
+<span class="sd">        Will detect wether fisher_path contains directly the paths to the Fisher files or folder.</span>
+<span class="sd">        If a list of folders is passed all the folders will be searched, first for Fisher matrices</span>
+<span class="sd">        then for derived Fisher matrices.</span>
+
+<span class="sd">        :param fisher_path: path or list of paths to search for Fisher matrices. If this contains Fisher matrices files those are imported as well.</span>
+<span class="sd">        :type fisher_path: :class:`string` or :class:`list` of :class:`string`</span>
+<span class="sd">        :param search_fisher_guess: wether to guess the Fisher matrix name or not. </span>
+<span class="sd">            Guessing assumes that the Fisher matrices have &#39;fisher_matrix&#39; and &#39;.dat&#39; in the name as happens</span>
+<span class="sd">            with Fisher matrices produced with CosmicFish.</span>
+<span class="sd">        :type search_fisher_guess: :class:`bool`</span>
+<span class="sd">        :param with_derived: wether to search for derived Fisher matrices to add to the base Fisher that are found.</span>
+<span class="sd">        :type with_derived: :class:`bool`</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">fisher_path</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span> <span class="n">fu</span><span class="o">.</span><span class="n">make_list</span><span class="p">(</span><span class="n">fisher_path</span><span class="p">)</span> <span class="p">)</span>
+        <span class="c"># explore all paths:</span>
+        <span class="n">fisher_files</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">derived_fisher_files</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">fisher_path</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+                <span class="n">fisher_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+                <span class="n">derived_fisher_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="n">search_fisher_guess</span><span class="p">:</span>
+                <span class="c"># search for all files with fisher_matrix in the name and fisher_matrix_derived in the name</span>
+                <span class="c"># this is the standard cosmicfish output and should be safe if you are using cosmicfish.</span>
+                <span class="c"># get the file list:</span>
+                <span class="n">files</span> <span class="o">=</span> <span class="p">[</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="p">)]</span>
+                <span class="c"># filter the list by guessing the names to get Fisher matrices:</span>
+                <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+                    <span class="n">f_temp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="s">&#39;fisher_matrix&#39;</span> <span class="ow">in</span> <span class="n">f_temp</span> <span class="ow">and</span> <span class="s">&#39;.dat&#39;</span> <span class="ow">in</span> <span class="n">f_temp</span> <span class="ow">and</span> <span class="s">&#39;_derived&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">f_temp</span><span class="p">:</span>
+                        <span class="n">fisher_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">f</span> <span class="p">)</span>
+                <span class="c"># filter the list by guessing the names to get derived Fisher matrices:</span>
+                <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+                    <span class="n">f_temp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="s">&#39;fisher_matrix&#39;</span> <span class="ow">in</span> <span class="n">f_temp</span> <span class="ow">and</span> <span class="s">&#39;_derived&#39;</span> <span class="ow">in</span> <span class="n">f_temp</span> <span class="ow">and</span> <span class="s">&#39;.dat&#39;</span> <span class="ow">in</span> <span class="n">f_temp</span><span class="p">:</span>
+                        <span class="n">derived_fisher_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">f</span> <span class="p">)</span>  
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c"># search for all the files and try to import them as fisher matrices then as derived fishers</span>
+                <span class="c"># get the file list:</span>
+                <span class="n">files</span> <span class="o">=</span> <span class="p">[</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="p">)]</span>
+                <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+                    <span class="n">fisher_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">f</span> <span class="p">)</span>
+                    <span class="n">derived_fisher_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">f</span> <span class="p">)</span> 
+                    
+        <span class="c"># import fisher matrices:</span>
+        <span class="k">for</span> <span class="nb">file</span> <span class="ow">in</span> <span class="n">fisher_files</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">CosmicFishPyLib</span><span class="o">.</span><span class="n">__feedback__</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span> <span class="k">print</span> <span class="s">&#39;Trying to import: &#39;</span><span class="o">+</span><span class="nb">file</span><span class="o">+</span><span class="s">&#39; as a Fisher matrix: &#39;</span><span class="p">,</span>
+            <span class="k">try</span><span class="p">:</span>    
+                <span class="bp">self</span><span class="o">.</span><span class="n">fisher_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">fm</span><span class="o">.</span><span class="n">fisher_matrix</span><span class="p">(</span> <span class="n">file_name</span> <span class="o">=</span> <span class="nb">file</span> <span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fisher_name_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="p">)</span>
+                <span class="k">if</span> <span class="n">CosmicFishPyLib</span><span class="o">.</span><span class="n">__feedback__</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span> <span class="k">print</span> <span class="s">&#39;SUCCESS&#39;</span>
+                <span class="k">if</span> <span class="n">CosmicFishPyLib</span><span class="o">.</span><span class="n">__feedback__</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="k">print</span> <span class="s">&#39;Imported as a Fisher matrix: &#39;</span><span class="o">+</span><span class="nb">file</span>
+                <span class="c"># remove from the derived fishers if necessary:</span>
+                <span class="n">derived_fisher_files</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">CosmicFishPyLib</span><span class="o">.</span><span class="n">__feedback__</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span> <span class="k">print</span> <span class="s">&#39;FAIL&#39;</span>
+        <span class="c"># import derived fisher matrices:</span>
+        <span class="k">if</span> <span class="n">with_derived</span><span class="p">:</span>
+            <span class="k">for</span> <span class="nb">file</span> <span class="ow">in</span> <span class="n">derived_fisher_files</span><span class="p">:</span>
+                <span class="c"># get the derived matrix:</span>
+                <span class="k">if</span> <span class="n">CosmicFishPyLib</span><span class="o">.</span><span class="n">__feedback__</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span> <span class="k">print</span> <span class="s">&#39;Trying to import: &#39;</span><span class="o">+</span><span class="nb">file</span><span class="o">+</span><span class="s">&#39; as a derived Fisher matrix: &#39;</span><span class="p">,</span>
+                <span class="k">try</span><span class="p">:</span>    
+                    <span class="n">fisher_derived</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">fisher_derived</span><span class="p">(</span> <span class="n">file_name</span> <span class="o">=</span> <span class="nb">file</span> <span class="p">)</span>
+                    <span class="k">if</span> <span class="n">CosmicFishPyLib</span><span class="o">.</span><span class="n">__feedback__</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span> <span class="k">print</span> <span class="s">&#39;SUCCESS&#39;</span>
+                <span class="k">except</span><span class="p">:</span> 
+                    <span class="n">fisher_derived</span> <span class="o">=</span> <span class="bp">None</span>
+                    <span class="k">if</span> <span class="n">CosmicFishPyLib</span><span class="o">.</span><span class="n">__feedback__</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span> <span class="k">print</span> <span class="s">&#39;FAIL&#39;</span>
+                <span class="c"># add derived to the fisher matrix when possible:</span>
+                <span class="k">if</span> <span class="n">fisher_derived</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_name_list</span><span class="p">)</span> <span class="p">):</span>
+                        <span class="k">if</span> <span class="n">CosmicFishPyLib</span><span class="o">.</span><span class="n">__feedback__</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span> <span class="k">print</span> <span class="s">&#39;Trying to add derived from: &#39;</span><span class="o">+</span><span class="n">fisher_derived</span><span class="o">.</span><span class="n">name</span><span class="o">+</span><span class="s">&#39; to the Fisher matrix: &#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">fisher_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                        <span class="k">try</span><span class="p">:</span> 
+                            <span class="bp">self</span><span class="o">.</span><span class="n">fisher_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">fisher_derived</span><span class="o">.</span><span class="n">add_derived</span><span class="p">(</span> <span class="n">fisher_matrix</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fisher_list</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">preserve_input</span><span class="o">=</span><span class="bp">True</span> <span class="p">)</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">fisher_name_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> 
+                            <span class="k">if</span> <span class="n">CosmicFishPyLib</span><span class="o">.</span><span class="n">__feedback__</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span> <span class="k">print</span> <span class="s">&#39;SUCCESS&#39;</span>
+                            <span class="k">if</span> <span class="n">CosmicFishPyLib</span><span class="o">.</span><span class="n">__feedback__</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="k">print</span> <span class="s">&#39;Added derived parameters from: &#39;</span><span class="o">+</span><span class="n">fisher_derived</span><span class="o">.</span><span class="n">name</span><span class="o">+</span><span class="s">&#39; to Fisher matrix: &#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">fisher_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>
+                        <span class="k">except</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="n">CosmicFishPyLib</span><span class="o">.</span><span class="n">__feedback__</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span> <span class="k">print</span> <span class="s">&#39;FAIL&#39;</span>
+                
+    <span class="c"># -----------------------------------------------------------------------------------</span>
+    </div>
+<div class="viewcode-block" id="CosmicFish_FisherAnalysis.add_fisher_matrix"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_plot_analysis.html#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.add_fisher_matrix">[docs]</a>    <span class="k">def</span> <span class="nf">add_fisher_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fisher</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add a set of Fisher matrices to the already existing set.</span>
+<span class="sd">        Rejects Fisher matrices if the name is double i.e. the name is the unique </span>
+<span class="sd">        identifier of the Fisher matrix.</span>
+<span class="sd">        Checks wether the elements that are passed are really Fisher matrices.</span>
+
+<span class="sd">        :param fisher_list: Fisher matrix or list of Fisher matrices.</span>
+<span class="sd">        :type fisher_list: :class:`cosmicfish_pylib.fisher_matrix.fisher_matrix` or :class:`list` of :class:`cosmicfish_pylib.fisher_matrix.fisher_matrix`</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">fisher_in</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">fu</span><span class="o">.</span><span class="n">make_list</span><span class="p">(</span><span class="n">fisher</span><span class="p">))</span>
+        <span class="c">#</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fisher_in</span><span class="p">:</span>
+            <span class="c"># check wether all the input elements are Fisher matrices:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">i</span><span class="p">,</span> <span class="n">fm</span><span class="o">.</span><span class="n">fisher_matrix</span> <span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;The input element is not a Fisher matrix of type fisher_matrix.&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c"># get the name of the Fisher matrix:</span>
+                <span class="n">name_temp</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+                <span class="c"># check wether it is already an element of the list:</span>
+                <span class="k">if</span> <span class="n">name_temp</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_name_list</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;A Fisher matrix with name &#39;</span><span class="o">+</span><span class="n">name_temp</span><span class="o">+</span><span class="s">&#39; already exists.&#39;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c"># add it to the Fisher list:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">fisher_name_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name_temp</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">fisher_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">)</span>
+        
+    <span class="c"># -----------------------------------------------------------------------------------</span>
+    </div>
+<div class="viewcode-block" id="CosmicFish_FisherAnalysis.get_fisher_matrix"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_plot_analysis.html#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.get_fisher_matrix">[docs]</a>    <span class="k">def</span> <span class="nf">get_fisher_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the list of Fisher matrices corresponding to the given names.</span>
+
+<span class="sd">        :param names: names of the Fisher matrices.</span>
+<span class="sd">        :type names: a :class:`string` or a :class:`list` of :class:`string`</span>
+<span class="sd">        :returns: a list containing the desired Fisher matrices. Notice if the name is not found</span>
+<span class="sd">            in the list no error is risen and and the entrance is just ignored.</span>
+<span class="sd">        :rtype: a :class:`list` of :class:`cosmicfish_pylib.fisher_matrix.fisher_matrix` </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># process names:</span>
+        <span class="k">if</span> <span class="n">names</span><span class="o">==</span><span class="bp">None</span><span class="p">:</span>
+            <span class="n">names_temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_name_list</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">names_temp</span> <span class="o">=</span> <span class="p">[</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fu</span><span class="o">.</span><span class="n">make_list</span><span class="p">(</span><span class="n">names</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_name_list</span> <span class="p">]</span>
+        <span class="c"># get the fishers:</span>
+        <span class="n">fisher_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names_temp</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">fish</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_list</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">fish</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
+                    <span class="n">fisher_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fish</span><span class="p">)</span>
+            
+        <span class="k">return</span> <span class="n">fisher_list</span>
+    
+    <span class="c"># -----------------------------------------------------------------------------------</span>
+    </div>
+<div class="viewcode-block" id="CosmicFish_FisherAnalysis.delete_fisher_matrix"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_plot_analysis.html#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.delete_fisher_matrix">[docs]</a>    <span class="k">def</span> <span class="nf">delete_fisher_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Delete the fisher matrix or the fisher matrices in names from the Fisher list.</span>
+
+<span class="sd">        :param names: names of the Fisher matrices to delete.</span>
+<span class="sd">        :type names: a :class:`string` or a :class:`list` of :class:`string`</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># process names:</span>
+        <span class="k">if</span> <span class="n">names</span><span class="o">==</span><span class="bp">None</span><span class="p">:</span>
+            <span class="n">names_temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_name_list</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">names_temp</span> <span class="o">=</span> <span class="p">[</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fu</span><span class="o">.</span><span class="n">make_list</span><span class="p">(</span><span class="n">names</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_name_list</span> <span class="p">]</span>
+        <span class="c"># get names to delete:</span>
+        <span class="n">names_to_delete</span> <span class="o">=</span> <span class="p">[</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">names_temp</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_name_list</span> <span class="p">]</span>
+        <span class="c"># get indeces to delete:</span>
+        <span class="n">indexes_to_delete</span> <span class="o">=</span> <span class="p">[</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fisher_name_list</span><span class="p">)</span> <span class="k">if</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">names_to_delete</span> <span class="p">]</span>
+        <span class="c"># delete them. We have to use this way because fisher_matrix might not have a delete method and we do not want to move in memory the arrays.</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">indexes_to_delete</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fisher_name_list</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">indexes_to_delete</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">i</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fisher_list</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">indexes_to_delete</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">i</span><span class="p">)</span>
+        
+    <span class="c"># -----------------------------------------------------------------------------------</span>
+    </div>
+<div class="viewcode-block" id="CosmicFish_FisherAnalysis.get_parameter_list"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_plot_analysis.html#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.get_parameter_list">[docs]</a>    <span class="k">def</span> <span class="nf">get_parameter_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the list of parameter names of all the matrices identified in names.</span>
+<span class="sd">        </span>
+<span class="sd">        :param names: names of the Fisher matrices.</span>
+<span class="sd">        :type names: a :class:`string` or a :class:`list` of :class:`string`</span>
+<span class="sd">        :returns: a list containing the parameter names. </span>
+<span class="sd">        :rtype: a :class:`list` of :class:`string`</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># process names:</span>
+        <span class="k">if</span> <span class="n">names</span><span class="o">==</span><span class="bp">None</span><span class="p">:</span>
+            <span class="n">names_temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_name_list</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">names_temp</span> <span class="o">=</span> <span class="p">[</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fu</span><span class="o">.</span><span class="n">make_list</span><span class="p">(</span><span class="n">names</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_name_list</span> <span class="p">]</span>
+        <span class="c"># get the parameter names:</span>
+        <span class="n">parameter_names</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fisher_matrix</span><span class="p">(</span><span class="n">names_temp</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">i</span><span class="o">.</span><span class="n">param_names</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">j</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">parameter_names</span><span class="p">:</span> <span class="n">parameter_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">parameter_names</span>
+    
+    <span class="c"># -----------------------------------------------------------------------------------</span>
+    </div>
+<div class="viewcode-block" id="CosmicFish_FisherAnalysis.reshuffle"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_plot_analysis.html#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.reshuffle">[docs]</a>    <span class="k">def</span> <span class="nf">reshuffle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reshuffles all the Fisher matrices. </span>
+<span class="sd">        </span>
+<span class="sd">        :param params: parameters to reshuffle.</span>
+<span class="sd">        :type params: a :class:`string` or a :class:`list` of :class:`string`</span>
+<span class="sd">        :param names: names of the Fisher matrices.</span>
+<span class="sd">        :type names: a :class:`string` or a :class:`list` of :class:`string`</span>
+<span class="sd">        :returns: a new Fisher list with the reshuffled Fishers</span>
+<span class="sd">        :rtype: a :class:`cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis`</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># process names:</span>
+        <span class="k">if</span> <span class="n">names</span><span class="o">==</span><span class="bp">None</span><span class="p">:</span>
+            <span class="n">names_temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_name_list</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">names_temp</span> <span class="o">=</span> <span class="p">[</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fu</span><span class="o">.</span><span class="n">make_list</span><span class="p">(</span><span class="n">names</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_name_list</span> <span class="p">]</span>
+        <span class="c"># create the empty Fisher list:</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">CosmicFish_FisherAnalysis</span><span class="p">()</span>
+        <span class="c"># get the parameter names:</span>
+        <span class="k">for</span> <span class="n">fish</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fisher_matrix</span><span class="p">(</span><span class="n">names_temp</span><span class="p">):</span>
+            <span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span> <span class="n">par</span> <span class="k">for</span> <span class="n">par</span> <span class="ow">in</span> <span class="n">params</span> <span class="k">if</span> <span class="n">par</span> <span class="ow">in</span> <span class="n">fish</span><span class="o">.</span><span class="n">get_param_names</span><span class="p">()</span> <span class="p">]</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="k">continue</span> <span class="c"># skip the element if it has no parameters</span>
+            <span class="n">temp</span><span class="o">.</span><span class="n">add_fisher_matrix</span><span class="p">(</span> <span class="n">fisher</span> <span class="o">=</span> <span class="n">fo</span><span class="o">.</span><span class="n">reshuffle</span><span class="p">(</span> <span class="n">fish</span><span class="p">,</span> <span class="n">parameters</span> <span class="p">)</span> <span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">temp</span>
+    
+    <span class="c"># -----------------------------------------------------------------------------------</span>
+    </div>
+<div class="viewcode-block" id="CosmicFish_FisherAnalysis.marginalise"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_plot_analysis.html#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.marginalise">[docs]</a>    <span class="k">def</span> <span class="nf">marginalise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Marginalise all the Fisher matrices over all the parameters that are not in params. </span>
+<span class="sd">        </span>
+<span class="sd">        :param params: list of names of the parameters of the output Fisher matrix,</span>
+<span class="sd">            in the order that will appear in the output Fisher matrix. All other parameters </span>
+<span class="sd">            will be marginalized over.</span>
+<span class="sd">        :type params: a :class:`string` or a :class:`list` of :class:`string`</span>
+<span class="sd">        :param names: names of the Fisher matrices.</span>
+<span class="sd">        :type names: a :class:`string` or a :class:`list` of :class:`string`</span>
+<span class="sd">        :returns: a new Fisher list with the reshuffled Fishers</span>
+<span class="sd">        :rtype: a :class:`cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis`</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># process names:</span>
+        <span class="k">if</span> <span class="n">names</span><span class="o">==</span><span class="bp">None</span><span class="p">:</span>
+            <span class="n">names_temp</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_name_list</span> <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">names_temp</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span> <span class="p">[</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fu</span><span class="o">.</span><span class="n">make_list</span><span class="p">(</span><span class="n">names</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_name_list</span> <span class="p">]</span> <span class="p">)</span>
+        
+        <span class="c"># create the empty Fisher list:</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">CosmicFish_FisherAnalysis</span><span class="p">()</span>
+        <span class="c"># get the parameter names:</span>
+        <span class="k">for</span> <span class="n">fish</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fisher_matrix</span><span class="p">(</span><span class="n">names_temp</span><span class="p">):</span>
+            <span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span> <span class="n">par</span> <span class="k">for</span> <span class="n">par</span> <span class="ow">in</span> <span class="n">params</span> <span class="k">if</span> <span class="n">par</span> <span class="ow">in</span> <span class="n">fish</span><span class="o">.</span><span class="n">get_param_names</span><span class="p">()</span> <span class="p">]</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+                <span class="n">temp</span><span class="o">.</span><span class="n">add_fisher_matrix</span><span class="p">(</span> <span class="n">fisher</span> <span class="o">=</span> <span class="n">fo</span><span class="o">.</span><span class="n">marginalise</span><span class="p">(</span> <span class="n">fish</span><span class="p">,</span> <span class="n">parameters</span> <span class="p">)</span> <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">temp</span>
+    
+    <span class="c"># -----------------------------------------------------------------------------------</span>
+    </div>
+<div class="viewcode-block" id="CosmicFish_FisherAnalysis.get_parameter_latex_names"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_plot_analysis.html#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.get_parameter_latex_names">[docs]</a>    <span class="k">def</span> <span class="nf">get_parameter_latex_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a dictionary mapping parameter names and latex parameter names.</span>
+<span class="sd">        </span>
+<span class="sd">        :param names: names of the Fisher matrices.</span>
+<span class="sd">        :type names: a :class:`string` or a :class:`list` of :class:`string`</span>
+<span class="sd">        :returns: a dictionary containing parameter names and the LaTeX parameter names. </span>
+<span class="sd">        :rtype: :class:`dict`</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># process names:</span>
+        <span class="k">if</span> <span class="n">names</span><span class="o">==</span><span class="bp">None</span><span class="p">:</span>
+            <span class="n">names_temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_name_list</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">names_temp</span> <span class="o">=</span> <span class="p">[</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fu</span><span class="o">.</span><span class="n">make_list</span><span class="p">(</span><span class="n">names</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_name_list</span> <span class="p">]</span>
+        <span class="c"># get the parameter names:</span>
+        
+        <span class="c"># get the names in latex:</span>
+        <span class="n">latex_names</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_parameter_list</span><span class="p">(</span><span class="n">names_temp</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">fish</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fisher_matrix</span><span class="p">(</span><span class="n">names_temp</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">latex_names</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">fish</span><span class="o">.</span><span class="n">get_param_name_latex</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="k">if</span> <span class="n">latex_names</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="n">name</span><span class="p">):</span> <span class="k">continue</span>
+        
+        <span class="k">return</span> <span class="n">latex_names</span>
+    
+    <span class="c"># -----------------------------------------------------------------------------------</span>
+    </div>
+<div class="viewcode-block" id="CosmicFish_FisherAnalysis.compute_plot_range"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_plot_analysis.html#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.compute_plot_range">[docs]</a>    <span class="k">def</span> <span class="nf">compute_plot_range</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">confidence_level</span><span class="o">=</span><span class="mf">0.68</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">nice</span><span class="o">=</span><span class="bp">True</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Function that computes a meaningfull plot range for the plots involving the specified parameters</span>
+<span class="sd">        and the specified Fisher names.</span>
+
+<span class="sd">        :param params: name of the parameter or list of names of parameters.</span>
+<span class="sd">        :type params: a :class:`string` or a :class:`list` of :class:`string`</span>
+<span class="sd">        :param confidence_level: (optional) Confidence Level of the bounds. Default 68%.</span>
+<span class="sd">        :type confidence_level: :class:`float`</span>
+<span class="sd">        :param names: names of the Fisher matrices.</span>
+<span class="sd">        :type names: a :class:`string` or a :class:`list` of :class:`string`</span>
+<span class="sd">        :param nice: wether the number is properly rounded to be nice.</span>
+<span class="sd">        :type nice: :class:`bool`</span>
+<span class="sd">        :returns: a dictionary of name and bounds</span>
+<span class="sd">        :rtype: :class:`dict`</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># process names:</span>
+        <span class="k">if</span> <span class="n">names</span><span class="o">==</span><span class="bp">None</span><span class="p">:</span>
+            <span class="n">names_temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_name_list</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">names_temp</span> <span class="o">=</span> <span class="p">[</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fu</span><span class="o">.</span><span class="n">make_list</span><span class="p">(</span><span class="n">names</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_name_list</span> <span class="p">]</span>
+        <span class="c"># process parameters:</span>
+        <span class="n">total_paramnames_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_parameter_list</span><span class="p">(</span><span class="n">names_temp</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">params</span><span class="o">==</span><span class="bp">None</span><span class="p">:</span>
+            <span class="n">params_temp</span> <span class="o">=</span> <span class="n">total_paramnames_list</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">params_temp</span> <span class="o">=</span> <span class="p">[</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fu</span><span class="o">.</span><span class="n">make_list</span><span class="p">(</span><span class="n">params</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">total_paramnames_list</span> <span class="p">]</span>
+        <span class="c"># get the fishers:</span>
+        <span class="n">fisher_temp_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fisher_matrix</span><span class="p">(</span><span class="n">names_temp</span><span class="p">)</span>
+        <span class="c"># compute the confidence coefficient:</span>
+        <span class="n">confidence_coefficient</span> <span class="o">=</span> <span class="n">fu</span><span class="o">.</span><span class="n">confidence_coefficient</span><span class="p">(</span> <span class="n">confidence_level</span> <span class="p">)</span>
+        <span class="c"># get the ranges:</span>
+        <span class="nb">range</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">params_temp</span><span class="p">:</span>
+            <span class="n">lower_bound</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">upper_bound</span>  <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">fisher_temp_list</span><span class="p">:</span>
+                <span class="c"># get the index of the parameter:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">index</span> <span class="o">=</span> <span class="n">j</span><span class="o">.</span><span class="n">get_param_index</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                <span class="k">except</span><span class="p">:</span> 
+                    <span class="k">continue</span>
+                <span class="c"># get sigma and fiducial:</span>
+                <span class="n">sigma</span>    <span class="o">=</span> <span class="n">j</span><span class="o">.</span><span class="n">get_fisher_inverse</span><span class="p">()[</span><span class="n">index</span><span class="p">,</span><span class="n">index</span><span class="p">]</span>
+                <span class="n">sigma</span>    <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">sigma</span> <span class="p">)</span>
+                <span class="n">fiducial</span> <span class="o">=</span> <span class="n">j</span><span class="o">.</span><span class="n">get_fiducial</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                <span class="c"># apply a coefficient to safeguard:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">nice</span><span class="p">:</span>
+                    <span class="n">sigma</span> <span class="o">=</span> <span class="n">confidence_coefficient</span><span class="o">*</span><span class="n">sigma</span>
+                <span class="c"># store the values:</span>
+                <span class="k">if</span> <span class="n">nice</span><span class="p">:</span>
+                    <span class="n">lower_bound</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fu</span><span class="o">.</span><span class="n">significant_digits</span><span class="p">(</span> <span class="p">(</span><span class="n">fiducial</span><span class="o">-</span><span class="n">confidence_coefficient</span><span class="o">*</span><span class="n">sigma</span><span class="p">,</span> <span class="n">sigma</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="mi">2</span> <span class="p">)</span> <span class="p">)</span>
+                    <span class="n">upper_bound</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fu</span><span class="o">.</span><span class="n">significant_digits</span><span class="p">(</span> <span class="p">(</span><span class="n">fiducial</span><span class="o">+</span><span class="n">confidence_coefficient</span><span class="o">*</span><span class="n">sigma</span><span class="p">,</span> <span class="n">sigma</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="mi">0</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">lower_bound</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fiducial</span><span class="o">-</span><span class="n">sigma</span><span class="p">)</span>
+                    <span class="n">upper_bound</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fiducial</span><span class="o">+</span><span class="n">sigma</span><span class="p">)</span>
+            <span class="c"># decide what to use:</span>
+            <span class="n">upper_bound</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">upper_bound</span><span class="p">)</span>
+            <span class="n">lower_bound</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">lower_bound</span><span class="p">)</span>
+            <span class="nb">range</span><span class="o">.</span><span class="n">append</span><span class="p">([</span> <span class="nb">float</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">lower_bound</span><span class="p">))),</span> <span class="nb">float</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">upper_bound</span><span class="p">)))</span> <span class="p">])</span>
+        
+        <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">params_temp</span><span class="p">,</span><span class="nb">xrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">params_temp</span><span class="p">))):</span>
+            <span class="nb">dict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">range</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            
+        <span class="k">return</span> <span class="nb">dict</span>
+            
+    <span class="c"># -----------------------------------------------------------------------------------</span>
+    </div>
+<div class="viewcode-block" id="CosmicFish_FisherAnalysis.compute_gaussian"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_plot_analysis.html#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.compute_gaussian">[docs]</a>    <span class="k">def</span> <span class="nf">compute_gaussian</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">confidence_level</span><span class="o">=</span><span class="mf">0.68</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">num_points</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">normalized</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">nice_bounds</span><span class="o">=</span><span class="bp">True</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Function that computes the (1D) gaussian distribution of a given parameter.</span>
+<span class="sd">        Returns a dictionary with all the meaningul information about the gaussian.</span>
+
+<span class="sd">        :param params: name of the parameter or list of names of parameters.</span>
+<span class="sd">        :type params: a :class:`string` or a :class:`list` of :class:`string`</span>
+<span class="sd">        :param confidence_level: (optional) Confidence Level of the bounds. Default 68%.</span>
+<span class="sd">        :type confidence_level: :class:`float`</span>
+<span class="sd">        :param names: names of the Fisher matrices.</span>
+<span class="sd">        :type names: a :class:`string` or a :class:`list` of :class:`string`</span>
+<span class="sd">        :param num_points: number of (x,y) points. </span>
+<span class="sd">        :type num_points: :class:`int`</span>
+<span class="sd">        :param normalized: wether the distribution is normalized or not.</span>
+<span class="sd">        :type normalized: :class:`bool`</span>
+<span class="sd">        :param nice_bounds: wether the x range is properly rounded to be nice or not.</span>
+<span class="sd">        :type nice_bounds: :class:`bool`</span>
+<span class="sd">        :returns: a dictionary mapping name and parameter to a tuple of: [x, y, [fiducial,sigma]]</span>
+<span class="sd">        :rtype: :class:`dict`</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># process names:</span>
+        <span class="k">if</span> <span class="n">names</span><span class="o">==</span><span class="bp">None</span><span class="p">:</span>
+            <span class="n">names_temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_name_list</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">names_temp</span> <span class="o">=</span> <span class="p">[</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fu</span><span class="o">.</span><span class="n">make_list</span><span class="p">(</span><span class="n">names</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_name_list</span> <span class="p">]</span>
+        <span class="c"># process parameters:</span>
+        <span class="n">total_paramnames_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_parameter_list</span><span class="p">(</span><span class="n">names_temp</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">params</span><span class="o">==</span><span class="bp">None</span><span class="p">:</span>
+            <span class="n">params_temp</span> <span class="o">=</span> <span class="n">total_paramnames_list</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">params_temp</span> <span class="o">=</span> <span class="p">[</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fu</span><span class="o">.</span><span class="n">make_list</span><span class="p">(</span><span class="n">params</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">total_paramnames_list</span> <span class="p">]</span>
+        <span class="c"># get the fishers:</span>
+        <span class="n">fisher_temp_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fisher_matrix</span><span class="p">(</span><span class="n">names_temp</span><span class="p">)</span>
+        <span class="c"># compute the confidence coefficient:</span>
+        <span class="n">confidence_coefficient</span> <span class="o">=</span> <span class="n">fu</span><span class="o">.</span><span class="n">confidence_coefficient</span><span class="p">(</span> <span class="n">confidence_level</span> <span class="p">)</span>
+        <span class="c"># get the plot ranges:</span>
+        <span class="n">plot_ranges</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_plot_range</span><span class="p">(</span> <span class="n">params</span><span class="o">=</span><span class="n">params_temp</span><span class="p">,</span> <span class="n">confidence_level</span><span class="o">=</span><span class="n">confidence_level</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">names_temp</span><span class="p">,</span> <span class="n">nice</span><span class="o">=</span><span class="n">nice_bounds</span> <span class="p">)</span>
+        <span class="c"># get the distributions:</span>
+        <span class="n">gaussian_distro</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">par1</span> <span class="ow">in</span> <span class="n">params_temp</span><span class="p">:</span>
+            <span class="n">dict_names</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">mat</span><span class="p">,</span><span class="n">name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">fisher_temp_list</span><span class="p">,</span><span class="n">names_temp</span><span class="p">):</span>
+                <span class="c"># get the index of the parameter:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">index</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">get_param_index</span><span class="p">(</span><span class="n">par1</span><span class="p">)</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="n">dict_names</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">]),</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">]]</span>
+                    <span class="k">continue</span>
+                <span class="c"># get sigma and fiducial:</span>
+                <span class="n">sigma</span>    <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">mat</span><span class="o">.</span><span class="n">get_fisher_inverse</span><span class="p">()[</span><span class="n">index</span><span class="p">,</span><span class="n">index</span><span class="p">]</span> <span class="p">)</span>
+                <span class="n">fiducial</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">get_fiducial</span><span class="p">(</span><span class="n">par1</span><span class="p">)</span>
+                <span class="c"># get optimal x:</span>
+                <span class="k">if</span> <span class="n">nice_bounds</span><span class="p">:</span>
+                    <span class="n">lower_bound</span> <span class="o">=</span> <span class="n">plot_ranges</span><span class="p">[</span><span class="n">par1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">upper_bound</span> <span class="o">=</span> <span class="n">plot_ranges</span><span class="p">[</span><span class="n">par1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span> 
+                    <span class="n">lower_bound</span> <span class="o">=</span> <span class="n">fiducial</span> <span class="o">-</span><span class="n">confidence_coefficient</span><span class="o">*</span><span class="n">sigma</span>
+                    <span class="n">upper_bound</span> <span class="o">=</span> <span class="n">fiducial</span> <span class="o">+</span><span class="n">confidence_coefficient</span><span class="o">*</span><span class="n">sigma</span>
+                <span class="n">x_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span> <span class="n">lower_bound</span><span class="p">,</span> <span class="n">upper_bound</span><span class="p">,</span> <span class="n">num_points</span> <span class="p">)</span>
+                <span class="c"># get y:</span>
+                <span class="k">if</span> <span class="n">normalized</span><span class="p">:</span>
+                    <span class="n">y_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span> <span class="o">-</span><span class="p">(</span> <span class="n">x</span><span class="o">-</span><span class="n">fiducial</span> <span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span><span class="o">/</span><span class="p">(</span> <span class="n">sigma</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_points</span> <span class="p">])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">y_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span> <span class="o">-</span><span class="p">(</span> <span class="n">x</span><span class="o">-</span><span class="n">fiducial</span> <span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_points</span> <span class="p">])</span>
+                    
+                <span class="n">dict_names</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">x_points</span><span class="p">,</span> <span class="n">y_points</span><span class="p">,</span> <span class="p">[</span><span class="n">fiducial</span><span class="p">,</span><span class="n">sigma</span><span class="p">]]</span>
+            <span class="n">gaussian_distro</span><span class="p">[</span><span class="n">par1</span><span class="p">]</span> <span class="o">=</span> <span class="n">dict_names</span>
+        
+        <span class="k">return</span> <span class="n">gaussian_distro</span>
+    
+    <span class="c"># -----------------------------------------------------------------------------------</span>
+    </div>
+<div class="viewcode-block" id="CosmicFish_FisherAnalysis.compute_ellipse"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_plot_analysis.html#cosmicfish_pylib.fisher_plot_analysis.CosmicFish_FisherAnalysis.compute_ellipse">[docs]</a>    <span class="k">def</span> <span class="nf">compute_ellipse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params1</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">params2</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">confidence_level</span><span class="o">=</span><span class="mf">0.68</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">num_points</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Function that computes the (2D) ellipses for a given parameters combination.</span>
+<span class="sd">        Returns a dictionary with all the meaningul information about the ellipses.</span>
+
+<span class="sd">        :param params1: name of the first parameter or list of names of parameters.</span>
+<span class="sd">        :type params1: a :class:`string` or a :class:`list` of :class:`string`</span>
+<span class="sd">        :param params2: name of the second parameter or list of names of parameters.</span>
+<span class="sd">        :type params3: a :class:`string` or a :class:`list` of :class:`string`</span>
+<span class="sd">        :param confidence_level: (optional) Confidence Level of the bounds. Default 68%.</span>
+<span class="sd">        :type confidence_level: :class:`float`</span>
+<span class="sd">        :param names: names of the Fisher matrices.</span>
+<span class="sd">        :type names: a :class:`string` or a :class:`list` of :class:`string`</span>
+<span class="sd">        :param num_points: number of (x,y) points. </span>
+<span class="sd">        :type num_points: :class:`int`</span>
+<span class="sd">        :returns: a dictionary mapping name and parameters to a tuple of: [x, y, [fiducial_x, fiducial_y, coeff_a, coeff_b, theta_0]]</span>
+<span class="sd">        :rtype: :class:`dict`    </span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># process names:</span>
+        <span class="k">if</span> <span class="n">names</span><span class="o">==</span><span class="bp">None</span><span class="p">:</span>
+            <span class="n">names_temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_name_list</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">names_temp</span> <span class="o">=</span> <span class="p">[</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fu</span><span class="o">.</span><span class="n">make_list</span><span class="p">(</span><span class="n">names</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_name_list</span> <span class="p">]</span>
+        <span class="c"># process parameters:</span>
+        <span class="n">total_paramnames_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_parameter_list</span><span class="p">(</span><span class="n">names_temp</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">params1</span><span class="o">==</span><span class="bp">None</span><span class="p">:</span>
+            <span class="n">params_temp_1</span> <span class="o">=</span> <span class="n">total_paramnames_list</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">params_temp_1</span> <span class="o">=</span> <span class="p">[</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fu</span><span class="o">.</span><span class="n">make_list</span><span class="p">(</span><span class="n">params1</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">total_paramnames_list</span> <span class="p">]</span>
+        <span class="k">if</span> <span class="n">params2</span><span class="o">==</span><span class="bp">None</span><span class="p">:</span>
+            <span class="n">params_temp_2</span> <span class="o">=</span> <span class="n">total_paramnames_list</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">params_temp_2</span> <span class="o">=</span> <span class="p">[</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fu</span><span class="o">.</span><span class="n">make_list</span><span class="p">(</span><span class="n">params2</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">total_paramnames_list</span> <span class="p">]</span>    
+        <span class="c"># get the fishers:</span>
+        <span class="n">fisher_temp_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fisher_matrix</span><span class="p">(</span><span class="n">names_temp</span><span class="p">)</span>
+        <span class="c"># compute the confidence coefficient:</span>
+        <span class="n">confidence_coefficient</span> <span class="o">=</span> <span class="n">fu</span><span class="o">.</span><span class="n">confidence_coefficient</span><span class="p">(</span> <span class="n">confidence_level</span> <span class="p">)</span>
+        <span class="c"># get the distributions:</span>
+        <span class="n">gaussian_distro</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">par1</span> <span class="ow">in</span> <span class="n">params_temp_1</span><span class="p">:</span>
+            <span class="n">dict_names_1</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">par2</span> <span class="ow">in</span> <span class="n">params_temp_2</span><span class="p">:</span>
+                <span class="n">dict_names_2</span> <span class="o">=</span> <span class="p">{}</span>
+                <span class="k">for</span> <span class="n">mat</span><span class="p">,</span><span class="n">name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">fisher_temp_list</span><span class="p">,</span><span class="n">names_temp</span><span class="p">):</span>
+                    <span class="c"># get the index of the parameter:</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">index_1</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">get_param_index</span><span class="p">(</span><span class="n">par1</span><span class="p">)</span>
+                        <span class="n">index_2</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">get_param_index</span><span class="p">(</span><span class="n">par2</span><span class="p">)</span>
+                    <span class="k">except</span><span class="p">:</span>
+                        <span class="n">dict_names_2</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">]),</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]]</span>
+                        <span class="k">continue</span>
+                    <span class="c"># get sigmas:</span>
+                    <span class="n">sigma_x</span>  <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">get_fisher_inverse</span><span class="p">()[</span><span class="n">index_1</span><span class="p">,</span><span class="n">index_1</span><span class="p">]</span>
+                    <span class="n">sigma_y</span>  <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">get_fisher_inverse</span><span class="p">()[</span><span class="n">index_2</span><span class="p">,</span><span class="n">index_2</span><span class="p">]</span>
+                    <span class="n">sigma_xy</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">get_fisher_inverse</span><span class="p">()[</span><span class="n">index_1</span><span class="p">,</span><span class="n">index_2</span><span class="p">]</span>
+                    <span class="c"># get fiducial:</span>
+                    <span class="n">fiducial_x</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">get_fiducial</span><span class="p">(</span><span class="n">par1</span><span class="p">)</span>
+                    <span class="n">fiducial_y</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">get_fiducial</span><span class="p">(</span><span class="n">par2</span><span class="p">)</span>
+                    <span class="c"># compute the ellipse coefficients:</span>
+                    <span class="n">coeff_a</span> <span class="o">=</span> <span class="n">confidence_coefficient</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">sigma_x</span> <span class="o">+</span> <span class="n">sigma_y</span><span class="p">)</span><span class="o">/</span><span class="mf">2.0</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="p">(</span><span class="n">sigma_x</span> <span class="o">-</span> <span class="n">sigma_y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mf">4.0</span> <span class="o">+</span> <span class="n">sigma_xy</span><span class="o">**</span><span class="mi">2</span> <span class="p">))</span>
+                    <span class="n">coeff_b</span> <span class="o">=</span> <span class="n">confidence_coefficient</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">sigma_x</span> <span class="o">+</span> <span class="n">sigma_y</span><span class="p">)</span><span class="o">/</span><span class="mf">2.0</span> <span class="o">-</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="p">(</span><span class="n">sigma_x</span> <span class="o">-</span> <span class="n">sigma_y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mf">4.0</span> <span class="o">+</span> <span class="n">sigma_xy</span><span class="o">**</span><span class="mi">2</span> <span class="p">))</span>
+                    <span class="n">theta_0</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">atan2</span><span class="p">(</span> <span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">sigma_xy</span><span class="p">),</span> <span class="p">(</span><span class="n">sigma_x</span> <span class="o">-</span> <span class="n">sigma_y</span><span class="p">)</span> <span class="p">)</span><span class="o">/</span><span class="mf">2.0</span>
+                    <span class="c"># generate the ellipses</span>
+                    <span class="n">angles</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">2.0</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">num_points</span> <span class="p">)</span>
+                    <span class="n">x_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span><span class="o">+</span><span class="n">coeff_a</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta_0</span><span class="p">)</span>
+                                          <span class="o">-</span><span class="n">coeff_b</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_0</span><span class="p">)</span> <span class="o">+</span> <span class="n">fiducial_x</span> <span class="k">for</span> <span class="n">theta</span> <span class="ow">in</span> <span class="n">angles</span> <span class="p">]</span> <span class="p">)</span>
+                    <span class="n">y_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span><span class="o">+</span><span class="n">coeff_a</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_0</span><span class="p">)</span>
+                                          <span class="o">+</span><span class="n">coeff_b</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta_0</span><span class="p">)</span> <span class="o">+</span> <span class="n">fiducial_y</span> <span class="k">for</span> <span class="n">theta</span> <span class="ow">in</span> <span class="n">angles</span> <span class="p">]</span> <span class="p">)</span>
+                    <span class="c"># save the result:</span>
+                    <span class="n">dict_names_2</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">x_points</span><span class="p">,</span> <span class="n">y_points</span><span class="p">,</span> <span class="p">[</span><span class="n">fiducial_x</span><span class="p">,</span> <span class="n">fiducial_y</span><span class="p">,</span> <span class="n">coeff_a</span><span class="p">,</span> <span class="n">coeff_b</span><span class="p">,</span> <span class="n">theta_0</span><span class="p">]]</span>
+                <span class="n">dict_names_1</span><span class="p">[</span><span class="n">par2</span><span class="p">]</span> <span class="o">=</span> <span class="n">dict_names_2</span>
+            <span class="n">gaussian_distro</span><span class="p">[</span><span class="n">par1</span><span class="p">]</span> <span class="o">=</span> <span class="n">dict_names_1</span>
+
+        <span class="k">return</span> <span class="n">gaussian_distro</span>
+
+    <span class="c"># -----------------------------------------------------------------------------------</span>
+
+<span class="c"># ***************************************************************************************</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, the CosmicFish authors.
+      Last updated on Jun 21, 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

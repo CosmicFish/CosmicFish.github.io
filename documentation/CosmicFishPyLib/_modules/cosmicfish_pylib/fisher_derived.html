@@ -1,0 +1,593 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cosmicfish_pylib.fisher_derived &mdash; CosmicFish python library documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/CosmicFish_FavIcon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="CosmicFish python library documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> CosmicFish
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference external" href="example.html#://">Examples and tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_apps.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_colors.html">cosmicfish_pylib.colors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_fisher_derived.html">cosmicfish_pylib.fisher_derived</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_fisher_matrix.html">cosmicfish_pylib.fisher_matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_fisher_operations.html">cosmicfish_pylib.fisher_operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_fisher_plot_settings.html">cosmicfish_pylib.fisher_plot_settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_fisher_plot.html">cosmicfish_pylib.fisher_plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_fisher_plot_analysis.html">cosmicfish_pylib.fisher_plot_analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_utilities.html">cosmicfish_pylib.utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_todo.html">cosmicfish_pylib list of todos</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">CosmicFish</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+        <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+    <li>cosmicfish_pylib.fisher_derived</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for cosmicfish_pylib.fisher_derived</h1><div class="highlight"><pre>
+<span class="c">#----------------------------------------------------------------------------------------</span>
+<span class="c">#</span>
+<span class="c"># This file is part of CosmicFish.</span>
+<span class="c">#</span>
+<span class="c"># Copyright (C) 2015-2016 by the CosmicFish authors</span>
+<span class="c">#</span>
+<span class="c"># The CosmicFish code is free software;</span>
+<span class="c"># You can use it, redistribute it, and/or modify it under the terms</span>
+<span class="c"># of the GNU General Public License as published by the Free Software Foundation;</span>
+<span class="c"># either version 3 of the License, or (at your option) any later version.</span>
+<span class="c"># The full text of the license can be found in the file LICENSE at</span>
+<span class="c"># the top level of the CosmicFish distribution.</span>
+<span class="c">#</span>
+<span class="c">#----------------------------------------------------------------------------------------</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">.. module:: fisher_derived</span>
+<span class="sd">   :platform: Unix</span>
+<span class="sd">   :synopsis: Module that contains the fisher_derived class and the operations defined on it.</span>
+<span class="sd">              This is meant to handle efficiently and safely Jacobian matrices transforming a </span>
+<span class="sd">              Fisher matrix for some parameters to a Fisher matrix for some other parameters.</span>
+
+<span class="sd">.. moduleauthor:: Marco Raveri &lt;mraveri@sissa.it&gt; for the CosmicFish code.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c"># ***************************************************************************************</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">utilities</span> <span class="kn">as</span> <span class="nn">fu</span>
+<span class="kn">import</span> <span class="nn">fisher_matrix</span> <span class="kn">as</span> <span class="nn">fm</span>
+
+<span class="c"># ***************************************************************************************</span>
+
+<div class="viewcode-block" id="fisher_derived"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_derived.html#cosmicfish_pylib.fisher_derived.fisher_derived">[docs]</a><span class="k">class</span> <span class="nc">fisher_derived</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class contains the relevant code to define a matrix that</span>
+<span class="sd">    contains the relevant information to reparametrize a Fisher matrix.</span>
+<span class="sd">    Generally this is a rectangular matrix containing the Jacobian of the transformation</span>
+<span class="sd">    from the original Fisher to the derived one.</span>
+<span class="sd">    </span>
+<span class="sd">    :ivar derived_matrix: Numpy array containing the Jacobian of the transformation between the Fisher matrix and the derived Fisher matrix. Passed to the constructor of by file.</span>
+<span class="sd">    :ivar path: Absolute path of the input Jacobian matrix. Computed at initialization if passing a file.</span>
+<span class="sd">    :ivar name: Name of the input Jacobian matrix. Computed at initialization if passing a file.</span>
+<span class="sd">    :ivar indir: Absolute path of the directory containing the input Jacobian matrix. Computed at initialization if passing a file.</span>
+<span class="sd">    :ivar num_params: Number of base parameters of the Jacobian matrix.</span>
+<span class="sd">    :ivar num_derived: Number of derived parameters.</span>
+<span class="sd">    :ivar param_names: Names of the base parameters. Used as the identifier of the parameters. Initialized, if possible, through a .paramnames file.</span>
+<span class="sd">    :ivar param_names_latex: LaTeX names of the base parameters.</span>
+<span class="sd">    :ivar param_fiducial: Numpy array with the values of the fiducial of the base parameters. Passed to the constructor or by file.</span>
+<span class="sd">    :ivar derived_param_names: Names of the derived parameters. Used as the identifier of the parameters. Initialized, if possible, through a .paramnames file.</span>
+<span class="sd">    :ivar derived_param_names_latex: LaTeX names of the derived parameters.</span>
+<span class="sd">    :ivar derived_param_fiducial: Numpy array with the values of the fiducial of the derived parameters. Passed to the constructor or by file.</span>
+<span class="sd">              </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c"># -----------------------------------------------------------------------------------</span>
+    
+    <span class="c"># class getters:</span>
+    
+<div class="viewcode-block" id="fisher_derived.get_derived_matrix"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_derived.html#cosmicfish_pylib.fisher_derived.fisher_derived.get_derived_matrix">[docs]</a>    <span class="k">def</span> <span class="nf">get_derived_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; :returns: the derived Jacobian matrix. &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">derived_matrix</span>
+    </div>
+<div class="viewcode-block" id="fisher_derived.get_param_names"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_derived.html#cosmicfish_pylib.fisher_derived.fisher_derived.get_param_names">[docs]</a>    <span class="k">def</span> <span class="nf">get_param_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; :returns: the base parameter names. &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span>
+    </div>
+<div class="viewcode-block" id="fisher_derived.get_param_names_latex"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_derived.html#cosmicfish_pylib.fisher_derived.fisher_derived.get_param_names_latex">[docs]</a>    <span class="k">def</span> <span class="nf">get_param_names_latex</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; :returns: the LaTeX version of the base parameter names. &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names_latex</span>
+    </div>
+<div class="viewcode-block" id="fisher_derived.get_param_fiducial"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_derived.html#cosmicfish_pylib.fisher_derived.fisher_derived.get_param_fiducial">[docs]</a>    <span class="k">def</span> <span class="nf">get_param_fiducial</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; :returns: the base parameter fiducial values. &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span>
+    </div>
+<div class="viewcode-block" id="fisher_derived.get_derived_param_names"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_derived.html#cosmicfish_pylib.fisher_derived.fisher_derived.get_derived_param_names">[docs]</a>    <span class="k">def</span> <span class="nf">get_derived_param_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; :returns: the derived parameters names. &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">derived_param_names</span>
+    </div>
+<div class="viewcode-block" id="fisher_derived.get_derived_param_names_latex"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_derived.html#cosmicfish_pylib.fisher_derived.fisher_derived.get_derived_param_names_latex">[docs]</a>    <span class="k">def</span> <span class="nf">get_derived_param_names_latex</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; :returns: the LaTeX version of the derived parameters names. &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">derived_param_names_latex</span>
+    </div>
+<div class="viewcode-block" id="fisher_derived.get_derived_param_fiducial"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_derived.html#cosmicfish_pylib.fisher_derived.fisher_derived.get_derived_param_fiducial">[docs]</a>    <span class="k">def</span> <span class="nf">get_derived_param_fiducial</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; :returns: the derived parameter fiducial values. &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">derived_param_fiducial</span>
+    
+    <span class="c"># -----------------------------------------------------------------------------------</span>
+</div>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">derived_matrix</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> 
+                  <span class="n">param_names</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">derived_param_names</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> 
+                  <span class="n">param_names_latex</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">derived_param_names_latex</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> 
+                  <span class="n">fiducial</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">fiducial_derived</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="bp">None</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        **fisher_derived class constructor**. The class constructor will read from file the </span>
+<span class="sd">        Fisher derived matrix if it is initialized with the name of a file (and the file exists). </span>
+<span class="sd">        Otherwise it will read the matrix and the parameter names as passed by the user.</span>
+
+<span class="sd">        :param derived_matrix: array containing the input Jacobian matrix.</span>
+<span class="sd">        :type derived_matrix: 2D :class:`list` or :class:`numpy.array`</span>
+<span class="sd">        :param  param_names: names of the parameters of the derived parameters. If initialized from file it will</span>
+<span class="sd">            read them if a file file_name.paramnames is found. If it is none when itialized from</span>
+<span class="sd">            python it will just use some defaults names (p1, p2,...).</span>
+<span class="sd">        :type param_names: :class:`list` of :class:`string`</span>
+<span class="sd">        :param derived_param_names: names of the derived parameters. If initialized from file it will</span>
+<span class="sd">            read them if a file file_name.paramnames and expects them to have a * appened. </span>
+<span class="sd">            If it is none when itialized from python it will just use some defaults names.</span>
+<span class="sd">        :type derived_param_names: :class:`list` of :class:`string`</span>
+<span class="sd">        :param param_names_latex: LaTeX names of the parameters of the Jacobian matrix also appearing</span>
+<span class="sd">            in the Fisher matrix.</span>
+<span class="sd">        :type param_names_latex: :class:`list` of :class:`string`</span>
+<span class="sd">        :param derived_param_names_latex: LaTeX names of the parameters of the Jacobian matrix that are </span>
+<span class="sd">            derived parameters.</span>
+<span class="sd">        :type derived_param_names_latex: :class:`list` of :class:`string`</span>
+<span class="sd">        :param fiducial: values of the fiducial parameters of the Fisher matrix. If initialized from file it will have the value found in .paramnames.</span>
+<span class="sd">            If not found on a file it will be zero. Passing it to the constructor overwrites the values.</span>
+<span class="sd">        :type fiducial: :class:`list` of :class:`float` or :class:`numpy.array`</span>
+<span class="sd">        :param fiducial_derived: values of the fiducial derived parameters. If initialized from file it will have the value found in .paramnames.</span>
+<span class="sd">            If not found on a file it will be zero. Passing it to the constructor overwrites the values.</span>
+<span class="sd">        :type fiducial_derived: :class:`list` of :class:`float` or :class:`numpy.array`</span>
+<span class="sd">        :param file_name: name of the file (and path) of the input Jacobian matrix.</span>
+<span class="sd">        :type file_name: :class:`string`</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># check that the input is legal:</span>
+        <span class="k">if</span> <span class="n">derived_matrix</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">file_name</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Error in initializing the Fisher Jacobian matrix: derived_matrix and file_name are both None.&#39;</span><span class="p">)</span>
+        <span class="c"># initialize class members:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">derived_matrix</span>            <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span>                      <span class="o">=</span> <span class="s">&#39;&#39;</span>           
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span>                      <span class="o">=</span> <span class="s">&#39;&#39;</span>           
+        <span class="bp">self</span><span class="o">.</span><span class="n">indir</span>                     <span class="o">=</span> <span class="s">&#39;&#39;</span>           
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_params</span>                <span class="o">=</span> <span class="mi">0</span>            
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_derived</span>               <span class="o">=</span> <span class="mi">0</span>            
+        <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span>               <span class="o">=</span> <span class="p">[]</span>           
+        <span class="bp">self</span><span class="o">.</span><span class="n">param_names_latex</span>         <span class="o">=</span> <span class="p">[]</span>           
+        <span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span>            <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">derived_param_names</span>       <span class="o">=</span> <span class="p">[]</span>           
+        <span class="bp">self</span><span class="o">.</span><span class="n">derived_param_names_latex</span> <span class="o">=</span> <span class="p">[]</span>           
+        <span class="bp">self</span><span class="o">.</span><span class="n">derived_param_fiducial</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span> 
+        <span class="c"># initialize the Jacobian matrix:</span>
+        <span class="k">if</span> <span class="n">derived_matrix</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="c"># initialize from file:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">derived_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+            <span class="c"># get the file name and path:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">file_name</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">indir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c"># read the fisher matrix from input:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">derived_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">derived_matrix</span><span class="p">)</span>
+        <span class="c"># protection against 1D Fisher matrices</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">ndim</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">derived_matrix</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">derived_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="bp">self</span><span class="o">.</span><span class="n">derived_matrix</span><span class="p">]])</span>
+        <span class="k">elif</span> <span class="n">np</span><span class="o">.</span><span class="n">ndim</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">derived_matrix</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">derived_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">derived_matrix</span><span class="p">])</span>
+        <span class="c"># get the number of parameters:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_params</span>  <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">derived_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_derived</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">derived_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="c"># load the parameter names:</span>
+        <span class="k">if</span> <span class="n">param_names</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">derived_param_names</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">load_paramnames_from_file</span><span class="p">()</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span>               <span class="o">=</span> <span class="p">[</span> <span class="s">&#39;p&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">)</span> <span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">param_names_latex</span>         <span class="o">=</span> <span class="p">[</span> <span class="s">&#39;p&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">)</span> <span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span>            <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span><span class="mf">0.0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">]</span> <span class="p">)</span> 
+                <span class="bp">self</span><span class="o">.</span><span class="n">derived_param_names</span>       <span class="o">=</span> <span class="p">[</span> <span class="s">&#39;p&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_derived</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">)</span> <span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">derived_param_names_latex</span> <span class="o">=</span> <span class="p">[</span> <span class="s">&#39;p&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_derived</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">)</span> <span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">derived_param_fiducial</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span><span class="mf">0.0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">derived_param_names</span><span class="p">]</span> <span class="p">)</span> 
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span>                 <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">param_names</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">param_names_latex</span>           <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">param_names</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span>              <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span><span class="mf">0.0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">]</span> <span class="p">)</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">derived_param_names</span>         <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">derived_param_names</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">derived_param_names_latex</span>   <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">derived_param_names</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">derived_param_fiducial</span>      <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span><span class="mf">0.0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">derived_param_names</span><span class="p">]</span> <span class="p">)</span> 
+        <span class="c"># over write what is explicitly given:</span>
+        <span class="k">if</span> <span class="n">param_names</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span>       <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span> <span class="n">param_names</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="n">param_names_latex</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">param_names_latex</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">param_names_latex</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">fiducial</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">fiducial</span><span class="p">)</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="n">derived_param_names</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">derived_param_names</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span> <span class="n">derived_param_names</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="n">derived_param_names_latex</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">derived_param_names_latex</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span> <span class="n">derived_param_names_latex</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="n">fiducial_derived</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">derived_param_fiducial</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">fiducial_derived</span><span class="p">)</span> <span class="p">)</span>
+        <span class="c"># check the validity:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;The input param_names has not &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">)</span><span class="o">+</span><span class="s">&#39; elements.&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names_latex</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;The input param_names_latex has not &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">)</span><span class="o">+</span><span class="s">&#39; elements.&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;The input param_fiducial has not &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">)</span><span class="o">+</span><span class="s">&#39; elements.&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">derived_param_names</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_derived</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;The input derived_param_names has not &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_derived</span><span class="p">)</span><span class="o">+</span><span class="s">&#39; elements.&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">derived_param_names_latex</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_derived</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;The input derived_param_names_latex has not &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_derived</span><span class="p">)</span><span class="o">+</span><span class="s">&#39; elements.&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">derived_param_fiducial</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_derived</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;The input derived_param_fiducial has not &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_derived</span><span class="p">)</span><span class="o">+</span><span class="s">&#39; elements.&#39;</span><span class="p">)</span>
+        
+    <span class="c"># -----------------------------------------------------------------------------------       </span>
+        
+<div class="viewcode-block" id="fisher_derived.load_paramnames_from_file"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_derived.html#cosmicfish_pylib.fisher_derived.fisher_derived.load_paramnames_from_file">[docs]</a>    <span class="k">def</span> <span class="nf">load_paramnames_from_file</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="bp">None</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Loads the paramnames array, of a derived Fisher matrix, from a file</span>
+
+<span class="sd">        :param file_name: (optional) file name and path of the parameter names file.</span>
+<span class="sd">            If file_name is None this reads the file self.name+.paramnames.</span>
+<span class="sd">        :type file_name: :class:`string`</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">file_name</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">indir</span><span class="o">+</span><span class="s">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">+</span><span class="s">&#39;.paramnames&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">file_name</span>
+        <span class="c"># check wether the file exists:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;No .paramnames file found at: &#39;</span><span class="o">+</span><span class="n">name</span><span class="p">)</span>
+        <span class="c"># init:</span>
+        <span class="n">param_names</span>               <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">param_names_latex</span>         <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">param_fiducial</span>            <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">derived_param_names</span>       <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">derived_param_names_latex</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">derived_param_fiducial</span>    <span class="o">=</span> <span class="p">[]</span>
+        <span class="c"># parse:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">!=</span><span class="s">&#39;#&#39;</span> <span class="ow">and</span> <span class="n">line</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">!=</span><span class="s">&#39;#&#39;</span><span class="p">:</span>
+                    <span class="n">split_line</span> <span class="o">=</span> <span class="p">[</span> <span class="n">i</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;    &#39;</span><span class="p">)</span> <span class="p">]</span>
+                    <span class="n">split_line</span> <span class="o">=</span> <span class="p">[</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">split_line</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">is</span> <span class="ow">not</span> <span class="s">&#39;&#39;</span> <span class="p">]</span>
+                    <span class="n">temp_line</span><span class="o">=</span><span class="n">split_line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="n">temp_line</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;*&#39;</span><span class="p">:</span>
+                        <span class="n">derived_param_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp_line</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+                        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">split_line</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                            <span class="c"># latex and fiducial missing:</span>
+                            <span class="n">derived_param_names_latex</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp_line</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+                            <span class="n">derived_param_fiducial</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+                        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">split_line</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                            <span class="c"># one of the two is missing:</span>
+                            <span class="k">try</span><span class="p">:</span>
+                                <span class="n">temp</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">split_line</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+                                <span class="n">derived_param_fiducial</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+                                <span class="n">derived_param_names_latex</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp_line</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+                            <span class="k">except</span><span class="p">:</span>
+                                <span class="n">temp</span> <span class="o">=</span> <span class="mf">0.0</span>
+                                <span class="n">derived_param_fiducial</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+                                <span class="n">derived_param_names_latex</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">split_line</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+                        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">split_line</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
+                            <span class="c"># nothing is missing:</span>
+                            <span class="n">derived_param_names_latex</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">split_line</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+                            <span class="n">derived_param_fiducial</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">split_line</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()))</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">param_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp_line</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">split_line</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                            <span class="c"># latex and fiducial missing:</span>
+                            <span class="n">param_names_latex</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">split_line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+                            <span class="n">param_fiducial</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+                        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">split_line</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                            <span class="c"># one of the two is missing:</span>
+                            <span class="k">try</span><span class="p">:</span>
+                                <span class="n">temp</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">split_line</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+                                <span class="n">param_fiducial</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+                                <span class="n">param_names_latex</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">split_line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+                            <span class="k">except</span><span class="p">:</span>
+                                <span class="n">temp</span> <span class="o">=</span> <span class="mf">0.0</span>
+                                <span class="n">param_fiducial</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+                                <span class="n">param_names_latex</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">split_line</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+                        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">split_line</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
+                            <span class="c"># nothing is missing:</span>
+                            <span class="n">param_names_latex</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">split_line</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+                            <span class="n">param_fiducial</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">split_line</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()))</span>
+                        
+        <span class="c"># check the valitidy of the result:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">derived_param_names</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_derived</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Wrong number of derived parameters in the .paramnames file&#39;</span><span class="p">)</span>
+        
+        <span class="c"># save the result:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span>         <span class="o">=</span> <span class="n">param_names</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">param_names_latex</span>   <span class="o">=</span> <span class="n">param_names_latex</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span>      <span class="o">=</span> <span class="n">param_fiducial</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">derived_param_names</span>       <span class="o">=</span> <span class="n">derived_param_names</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">derived_param_names_latex</span> <span class="o">=</span> <span class="n">derived_param_names_latex</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">derived_param_fiducial</span>    <span class="o">=</span> <span class="n">derived_param_fiducial</span>
+        
+    <span class="c"># -----------------------------------------------------------------------------------       </span>
+        </div>
+<div class="viewcode-block" id="fisher_derived.add_derived"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_derived.html#cosmicfish_pylib.fisher_derived.fisher_derived.add_derived">[docs]</a>    <span class="k">def</span> <span class="nf">add_derived</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">fisher_matrix</span><span class="p">,</span> <span class="n">preserve_input</span><span class="o">=</span><span class="bp">False</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function computes the derived fisher_matrix given an input Fisher matrix based on the Jacobian</span>
+<span class="sd">        contained in derived_matrix.</span>
+
+<span class="sd">        :param fisher_matrix: input Fisher matrix that will be used as a base for the derived Fisher matrix.</span>
+<span class="sd">        :type fisher_matrix: :class:`cosmicfish_pylib.fisher_matrix.fisher_matrix`</span>
+<span class="sd">        :param preserve_input: wether to preserve input parameters in the output Fisher. </span>
+<span class="sd">                Default to false because it might lead to strage results if not used properly.</span>
+<span class="sd">        :type preserve_input: :class:`bool`        </span>
+<span class="sd">        :return: output Fisher matrix with derived parameters. </span>
+<span class="sd">        :rtype: :class:`cosmicfish_pylib.fisher_matrix.fisher_matrix`</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># check the type of the input Fisher matrix:</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">fisher_matrix</span><span class="p">,</span> <span class="n">fm</span><span class="o">.</span><span class="n">fisher_matrix</span><span class="p">)</span> <span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Error, input fisher_matrix is not a fisher_matrix&#39;</span><span class="p">)</span>
+        <span class="c"># check if the fisher matrix is compatible with the fisher_derived matrix:</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">fisher_matrix</span><span class="o">.</span><span class="n">param_names</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Error, paramnames of derived matrix and fisher matrix do not match&#39;</span><span class="p">)</span>
+        <span class="c"># check wether the two fiducials are the same:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span><span class="p">,</span> <span class="n">fisher_matrix</span><span class="o">.</span><span class="n">param_fiducial</span> <span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Error, fiducial of derived matrix and fisher matrix do not match&#39;</span><span class="p">)</span>
+        <span class="c"># create the new parameter names:</span>
+        <span class="k">if</span> <span class="n">preserve_input</span><span class="p">:</span>
+            <span class="n">temp_param_names</span> <span class="o">=</span> <span class="n">fisher_matrix</span><span class="o">.</span><span class="n">param_names</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">derived_param_names</span>
+            <span class="n">temp_param_names_latex</span> <span class="o">=</span> <span class="n">fisher_matrix</span><span class="o">.</span><span class="n">param_names_latex</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">derived_param_names_latex</span>
+            <span class="n">temp_param_fiducial</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fisher_matrix</span><span class="o">.</span><span class="n">param_fiducial</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">derived_param_fiducial</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">temp_param_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">derived_param_names</span>
+            <span class="n">temp_param_names_latex</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">derived_param_names_latex</span>
+            <span class="n">temp_param_fiducial</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">derived_param_fiducial</span>
+        <span class="c"># prepare the derived matrix to preserve the original prameters:</span>
+        <span class="k">if</span> <span class="n">preserve_input</span><span class="p">:</span>
+            <span class="n">temp_derived_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_params</span> <span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">derived_matrix</span><span class="p">)</span> <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">temp_derived_matrix</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">derived_matrix</span>
+        <span class="c"># compute the derived inverse Fisher matrix:</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="n">temp_derived_matrix</span>
+        <span class="n">AT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span> <span class="n">temp_derived_matrix</span> <span class="p">)</span>
+        <span class="n">original_fisher</span> <span class="o">=</span> <span class="n">fisher_matrix</span><span class="o">.</span><span class="n">get_fisher_inverse</span><span class="p">()</span>
+        <span class="n">fisher_new_inverse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">AT</span><span class="p">,</span> <span class="n">fisher_matrix</span><span class="o">.</span><span class="n">get_fisher_inverse</span><span class="p">()</span> <span class="p">),</span> <span class="n">A</span> <span class="p">)</span>
+        <span class="c"># get initial PCA and spectral cutoff:</span>
+        <span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>              <span class="o">=</span> <span class="n">fisher_matrix</span><span class="o">.</span><span class="n">PCA</span><span class="p">()</span>
+        <span class="n">initial_cutoff</span>     <span class="o">=</span> <span class="n">fisher_matrix</span><span class="o">.</span><span class="n">fisher_cutoff</span>
+        <span class="n">constrained_eigen</span>  <span class="o">=</span> <span class="p">[</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">w</span> <span class="k">if</span> <span class="n">i</span><span class="o">&gt;</span> <span class="mf">1.1</span><span class="o">*</span><span class="n">initial_cutoff</span> <span class="p">]</span>
+        <span class="n">initial_best_mode</span>  <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">constrained_eigen</span><span class="p">)</span>
+        <span class="n">initial_worse_mode</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">constrained_eigen</span><span class="p">)</span>
+        <span class="c"># get the new matrix spectrum:</span>
+        <span class="p">(</span><span class="n">w_new</span><span class="p">,</span> <span class="n">v_new</span><span class="p">)</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span> <span class="n">fisher_new_inverse</span> <span class="p">)</span>
+        <span class="c"># establish the cutoff. This is chosen to leave unaltered the original eigenvalues of the Fisher matrix as much as we can.</span>
+        <span class="n">spectral_width</span> <span class="o">=</span> <span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span> <span class="n">fisher_matrix</span><span class="o">.</span><span class="n">fisher_spectrum</span> <span class="p">)</span> <span class="o">-</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span> <span class="n">initial_worse_mode</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span> <span class="n">initial_best_mode</span> <span class="p">))</span> <span class="p">)</span> <span class="o">/</span><span class="mf">2.0</span>
+        <span class="n">upper_cutoff</span> <span class="o">=</span> <span class="mf">10.0</span><span class="o">**</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">initial_worse_mode</span><span class="p">)</span><span class="o">+</span><span class="n">spectral_width</span><span class="p">)</span>
+        <span class="n">lower_cutoff</span> <span class="o">=</span> <span class="mf">10.0</span><span class="o">**</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">initial_best_mode</span><span class="p">)</span><span class="o">-</span><span class="n">spectral_width</span><span class="p">)</span>
+        <span class="c"># check the cutoff:</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">w_new</span><span class="p">))</span><span class="o">&lt;</span><span class="n">lower_cutoff</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">w_new</span><span class="p">))</span><span class="o">&gt;</span><span class="n">upper_cutoff</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&#39;WARNING: in add_derived name:&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s">&#39; fisher:&#39;</span><span class="p">,</span> <span class="n">fisher_matrix</span><span class="o">.</span><span class="n">name</span>
+            <span class="k">print</span> <span class="s">&#39;** derived parameters are strongly degenerate and might alter the quality of the original Fisher matrix.&#39;</span>
+            <span class="k">print</span> <span class="s">&#39;** Try removing degenerate parameters from the Fisher matrix and the derived matrix to get rid of this warning.&#39;</span>
+        <span class="c"># apply the cutoff:</span>
+        <span class="k">if</span> <span class="n">preserve_input</span><span class="p">:</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">num_params</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_derived</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_params</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_derived</span><span class="p">),</span> <span class="nb">float</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_derived</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_derived</span><span class="p">),</span> <span class="nb">float</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">el</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">temp</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">w_new</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">lower_cutoff</span><span class="p">:</span>
+                <span class="n">temp</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span> <span class="n">lower_cutoff</span> <span class="p">)</span>
+            <span class="k">elif</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">w_new</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&gt;</span> <span class="n">upper_cutoff</span><span class="p">:</span>
+                <span class="n">temp</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span> <span class="n">upper_cutoff</span> <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">temp</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">w_new</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="c"># rebuild the Fisher matrix:</span>
+        <span class="n">fisher_new_inverse</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span> <span class="n">v_new</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">v_new</span><span class="p">)</span> <span class="p">))</span>
+        <span class="c"># return the new Fisher matrix:</span>
+        <span class="n">fisher_matrix_new</span> <span class="o">=</span> <span class="n">fm</span><span class="o">.</span><span class="n">fisher_matrix</span><span class="p">(</span> <span class="n">fisher_matrix</span><span class="o">=</span><span class="n">fisher_new_inverse</span><span class="p">,</span> <span class="n">param_names</span><span class="o">=</span><span class="n">temp_param_names</span><span class="p">,</span> <span class="n">param_names_latex</span><span class="o">=</span><span class="n">temp_param_names_latex</span><span class="p">,</span> <span class="n">fiducial</span><span class="o">=</span><span class="n">temp_param_fiducial</span> <span class="p">)</span>
+        <span class="n">fisher_matrix_new</span><span class="o">.</span><span class="n">path</span>  <span class="o">=</span> <span class="n">fisher_matrix</span><span class="o">.</span><span class="n">path</span>
+        <span class="k">if</span> <span class="n">preserve_input</span><span class="p">:</span>
+            <span class="n">fisher_matrix_new</span><span class="o">.</span><span class="n">name</span>  <span class="o">=</span> <span class="n">fisher_matrix</span><span class="o">.</span><span class="n">name</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">fisher_matrix_new</span><span class="o">.</span><span class="n">name</span>  <span class="o">=</span> <span class="n">fisher_matrix</span><span class="o">.</span><span class="n">name</span><span class="o">+</span><span class="s">&#39;_derived&#39;</span>
+        <span class="n">fisher_matrix_new</span><span class="o">.</span><span class="n">indir</span> <span class="o">=</span> <span class="n">fisher_matrix</span><span class="o">.</span><span class="n">indir</span>
+        <span class="c"># return the new Fisher matrix with the derived parameters</span>
+        <span class="k">return</span> <span class="n">fisher_matrix_new</span>
+    
+    <span class="c"># -----------------------------------------------------------------------------------</span>
+        
+<span class="c"># ***************************************************************************************    </span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, the CosmicFish authors.
+      Last updated on Jun 21, 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

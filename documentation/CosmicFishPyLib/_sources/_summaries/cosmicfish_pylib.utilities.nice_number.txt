@@ -1,0 +1,6 @@
+cosmicfish_pylib.utilities.nice_number
+======================================
+
+.. currentmodule:: cosmicfish_pylib.utilities
+
+.. autofunction:: nice_number

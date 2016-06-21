@@ -1,0 +1,16 @@
+apps.plot_tri
+=============
+
+.. automodule:: apps.plot_tri
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
