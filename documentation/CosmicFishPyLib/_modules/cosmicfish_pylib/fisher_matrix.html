@@ -86,6 +86,7 @@
                 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference external" href="example.html#://">Examples and tutorial</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://mybinder.org/repo/cosmicfish/cosmicfish">Live examples and tutorial</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_apps.html">Applications</a></li>
@@ -145,20 +146,20 @@
            <div itemprop="articleBody">
             
   <h1>Source code for cosmicfish_pylib.fisher_matrix</h1><div class="highlight"><pre>
-<span class="c">#----------------------------------------------------------------------------------------</span>
-<span class="c">#</span>
-<span class="c"># This file is part of CosmicFish.</span>
-<span class="c">#</span>
-<span class="c"># Copyright (C) 2015-2016 by the CosmicFish authors</span>
-<span class="c">#</span>
-<span class="c"># The CosmicFish code is free software;</span>
-<span class="c"># You can use it, redistribute it, and/or modify it under the terms</span>
-<span class="c"># of the GNU General Public License as published by the Free Software Foundation;</span>
-<span class="c"># either version 3 of the License, or (at your option) any later version.</span>
-<span class="c"># The full text of the license can be found in the file LICENSE at</span>
-<span class="c"># the top level of the CosmicFish distribution.</span>
-<span class="c">#</span>
-<span class="c">#----------------------------------------------------------------------------------------</span>
+<span></span><span class="c1">#----------------------------------------------------------------------------------------</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of CosmicFish.</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (C) 2015-2016 by the CosmicFish authors</span>
+<span class="c1">#</span>
+<span class="c1"># The CosmicFish code is free software;</span>
+<span class="c1"># You can use it, redistribute it, and/or modify it under the terms</span>
+<span class="c1"># of the GNU General Public License as published by the Free Software Foundation;</span>
+<span class="c1"># either version 3 of the License, or (at your option) any later version.</span>
+<span class="c1"># The full text of the license can be found in the file LICENSE at</span>
+<span class="c1"># the top level of the CosmicFish distribution.</span>
+<span class="c1">#</span>
+<span class="c1">#----------------------------------------------------------------------------------------</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">.. module:: fisher_matrix</span>
@@ -172,7 +173,7 @@
 
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="c"># ***************************************************************************************</span>
+<span class="c1"># ***************************************************************************************</span>
 
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">math</span>
@@ -180,7 +181,7 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">utilities</span> <span class="kn">as</span> <span class="nn">fu</span>
 
-<span class="c"># ***************************************************************************************</span>
+<span class="c1"># ***************************************************************************************</span>
 
 <div class="viewcode-block" id="fisher_matrix"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix">[docs]</a><span class="k">class</span> <span class="nc">fisher_matrix</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -208,42 +209,42 @@
 <span class="sd">    </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
-    <span class="c"># -----------------------------------------------------------------------------------</span>
+    <span class="c1"># -----------------------------------------------------------------------------------</span>
     
-    <span class="c"># class getters:</span>
+    <span class="c1"># class getters:</span>
     
 <div class="viewcode-block" id="fisher_matrix.get_fisher_matrix"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix.get_fisher_matrix">[docs]</a>    <span class="k">def</span> <span class="nf">get_fisher_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; :returns: the fisher matrix as a numpy array. &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_matrix</span>
-    </div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_matrix</span></div>
+    
 <div class="viewcode-block" id="fisher_matrix.get_fisher_eigenvalues"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix.get_fisher_eigenvalues">[docs]</a>    <span class="k">def</span> <span class="nf">get_fisher_eigenvalues</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; :returns: the eigenvalues of the Fisher matrix as a numpy array. &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_eigenvalues</span>
-    </div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_eigenvalues</span></div>
+    
 <div class="viewcode-block" id="fisher_matrix.get_fisher_eigenvectors"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix.get_fisher_eigenvectors">[docs]</a>    <span class="k">def</span> <span class="nf">get_fisher_eigenvectors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; :returns: the eigenvectors of the Fisher matrix. &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_eigenvectors</span>
-    </div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_eigenvectors</span></div>
+    
 <div class="viewcode-block" id="fisher_matrix.get_fisher_inverse"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix.get_fisher_inverse">[docs]</a>    <span class="k">def</span> <span class="nf">get_fisher_inverse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; :returns: the inverse of the Fisher matrix. &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_matrix_inv</span>
-    </div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_matrix_inv</span></div>
+    
 <div class="viewcode-block" id="fisher_matrix.get_param_names"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix.get_param_names">[docs]</a>    <span class="k">def</span> <span class="nf">get_param_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; :returns: the parameter names of the Fisher matrix. &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span>
-    </div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span></div>
+    
 <div class="viewcode-block" id="fisher_matrix.get_param_names_latex"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix.get_param_names_latex">[docs]</a>    <span class="k">def</span> <span class="nf">get_param_names_latex</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; :returns: the parameter names, in LaTeX format of the Fisher matrix. &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names_latex</span>
-    </div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names_latex</span></div>
+    
 <div class="viewcode-block" id="fisher_matrix.get_param_fiducial"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix.get_param_fiducial">[docs]</a>    <span class="k">def</span> <span class="nf">get_param_fiducial</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; :returns: the fiducial values of the parameters of the Fisher matrix. &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span></div>
     
-    <span class="c"># -----------------------------------------------------------------------------------</span>
+    <span class="c1"># -----------------------------------------------------------------------------------</span>
     
-    <span class="c"># advanced class getters:</span>
-    </div>
+    <span class="c1"># advanced class getters:</span>
+    
 <div class="viewcode-block" id="fisher_matrix.get_param_name"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix.get_param_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_param_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">        Returns the name of the parameter corresponding to the given number.  </span>
@@ -257,8 +258,8 @@
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names_dict</span><span class="p">[</span><span class="n">number</span><span class="p">]</span>
         <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">number</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">:</span>
-            <span class="k">return</span> <span class="p">[</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">number</span> <span class="p">]</span>
-        </div>
+            <span class="k">return</span> <span class="p">[</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">number</span> <span class="p">]</span></div>
+        
 <div class="viewcode-block" id="fisher_matrix.get_param_index"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix.get_param_index">[docs]</a>    <span class="k">def</span> <span class="nf">get_param_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">        Returns the index of a parameter as specified by his name. Notice that indices starts at 0.</span>
@@ -272,8 +273,8 @@
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">basestring</span><span class="p">):</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names_dict</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span>
         <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">:</span>
-            <span class="k">return</span> <span class="p">[</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">name</span> <span class="p">]</span>
-        </div>
+            <span class="k">return</span> <span class="p">[</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">name</span> <span class="p">]</span></div>
+        
 <div class="viewcode-block" id="fisher_matrix.get_param_number"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix.get_param_number">[docs]</a>    <span class="k">def</span> <span class="nf">get_param_number</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">        Returns the number of a parameter as specified by his name. </span>
@@ -288,8 +289,8 @@
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">basestring</span><span class="p">):</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names_dict</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
         <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">:</span>
-            <span class="k">return</span> <span class="p">[</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">name</span> <span class="p">]</span>
-        </div>
+            <span class="k">return</span> <span class="p">[</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">name</span> <span class="p">]</span></div>
+        
 <div class="viewcode-block" id="fisher_matrix.get_param_name_latex"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix.get_param_name_latex">[docs]</a>    <span class="k">def</span> <span class="nf">get_param_name_latex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">        Returns the Latex name of the parameter called name.</span>
@@ -303,8 +304,8 @@
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">basestring</span><span class="p">):</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names_latex</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">get_param_index</span><span class="p">(</span><span class="n">name</span><span class="p">)]</span>
         <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">:</span>
-            <span class="k">return</span> <span class="p">[</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names_latex</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_param_index</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="p">]</span>
-        </div>
+            <span class="k">return</span> <span class="p">[</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names_latex</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_param_index</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="p">]</span></div>
+        
 <div class="viewcode-block" id="fisher_matrix.get_fiducial"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix.get_fiducial">[docs]</a>    <span class="k">def</span> <span class="nf">get_fiducial</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">        Returns the fiducial of the parameter called name.</span>
@@ -318,10 +319,10 @@
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">basestring</span><span class="p">):</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">get_param_index</span><span class="p">(</span><span class="n">name</span><span class="p">)]</span>
         <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">:</span>
-            <span class="k">return</span> <span class="p">[</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_param_index</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="p">]</span>
+            <span class="k">return</span> <span class="p">[</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_param_index</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="p">]</span></div>
         
-    <span class="c"># -----------------------------------------------------------------------------------</span>
-</div>
+    <span class="c1"># -----------------------------------------------------------------------------------</span>
+
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">fisher_matrix</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">param_names</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">param_names_latex</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">fiducial</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="bp">None</span> <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        **fisher_matrix class constructor**. The constructor will read from file the Fisher matrix if it is initialized</span>
@@ -348,84 +349,84 @@
 <span class="sd">        :type file_name: :class:`string`</span>
 <span class="sd">        </span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c"># check that the input is legal:</span>
+        <span class="c1"># check that the input is legal:</span>
         <span class="k">if</span> <span class="n">fisher_matrix</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">file_name</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Error in initializing the Fisher matrix: fisher_matrix and file_name are both None.&#39;</span><span class="p">)</span>
-        <span class="c"># initialize all the objects:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Error in initializing the Fisher matrix: fisher_matrix and file_name are both None.&#39;</span><span class="p">)</span>
+        <span class="c1"># initialize all the objects:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fisher_cutoff</span>   <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">9</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fisher_spectrum</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>      
         <span class="bp">self</span><span class="o">.</span><span class="n">fisher_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">path</span>  <span class="o">=</span> <span class="s">&#39;&#39;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span>  <span class="o">=</span> <span class="s">&#39;&#39;</span> 
-        <span class="bp">self</span><span class="o">.</span><span class="n">indir</span> <span class="o">=</span> <span class="s">&#39;&#39;</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span>  <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span>  <span class="o">=</span> <span class="s1">&#39;&#39;</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">indir</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> 
         <span class="bp">self</span><span class="o">.</span><span class="n">num_params</span>  <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fisher_eigenvalues</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fisher_eigenvectors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[]])</span> 
         <span class="bp">self</span><span class="o">.</span><span class="n">fisher_matrix_inv</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[]])</span> 
-        <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span>         <span class="o">=</span> <span class="p">[</span><span class="s">&#39;&#39;</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">param_names_latex</span>   <span class="o">=</span> <span class="p">[</span><span class="s">&#39;&#39;</span><span class="p">]</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span>         <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">param_names_latex</span>   <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span> 
         <span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span>      <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span> 
         <span class="bp">self</span><span class="o">.</span><span class="n">param_names_dict</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="c"># initialize the Fisher matrix:</span>
+        <span class="c1"># initialize the Fisher matrix:</span>
         <span class="k">if</span> <span class="n">fisher_matrix</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="c"># initialize from file:</span>
+            <span class="c1"># initialize from file:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">fisher_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>  
-            <span class="c"># get the file name and path:</span>
+            <span class="c1"># get the file name and path:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">path</span>  <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>    
             <span class="bp">self</span><span class="o">.</span><span class="n">name</span>  <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">file_name</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span> 
             <span class="bp">self</span><span class="o">.</span><span class="n">indir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>  
         <span class="k">else</span><span class="p">:</span>
-            <span class="c"># read the fisher matrix from input:</span>
+            <span class="c1"># read the fisher matrix from input:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">fisher_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">fisher_matrix</span><span class="p">)</span>
             
-        <span class="c"># protection against 1D Fisher matrices</span>
+        <span class="c1"># protection against 1D Fisher matrices</span>
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">ndim</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fisher_matrix</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">fisher_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="bp">self</span><span class="o">.</span><span class="n">fisher_matrix</span><span class="p">]])</span>
         <span class="k">elif</span> <span class="n">np</span><span class="o">.</span><span class="n">ndim</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fisher_matrix</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">fisher_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">fisher_matrix</span><span class="p">])</span>
-        <span class="c"># check if the Fisher matrix is symetric:</span>
+        <span class="c1"># check if the Fisher matrix is symetric:</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fisher_matrix</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fisher_matrix</span><span class="p">),</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-03</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-06</span> <span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;The input Fisher matrix is not equal to its transpose&#39;</span><span class="p">)</span>
-        <span class="c"># get the number of parameters:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;The input Fisher matrix is not equal to its transpose&#39;</span><span class="p">)</span>
+        <span class="c1"># get the number of parameters:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">num_params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  
-        <span class="c"># load the parameter names:</span>
+        <span class="c1"># load the parameter names:</span>
         <span class="k">if</span> <span class="n">param_names</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">load_paramnames_from_file</span><span class="p">()</span>
             <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span>  <span class="o">=</span> <span class="p">[</span> <span class="s">&#39;p&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">)</span> <span class="p">]</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">param_names_latex</span> <span class="o">=</span> <span class="p">[</span> <span class="s">&#39;p&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">)</span> <span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span>  <span class="o">=</span> <span class="p">[</span> <span class="s1">&#39;p&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">)</span> <span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">param_names_latex</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">&#39;p&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">)</span> <span class="p">]</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span><span class="mf">0.0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">]</span> <span class="p">)</span> 
         <span class="k">else</span><span class="p">:</span> 
             <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">param_names</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">param_names_latex</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">param_names</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span><span class="mf">0.0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">]</span> <span class="p">)</span> 
-        <span class="c"># over write the fiducial if it is given:</span>
+        <span class="c1"># over write the fiducial if it is given:</span>
         <span class="k">if</span> <span class="n">param_names_latex</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">param_names_latex</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">param_names_latex</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">fiducial</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span>    <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">fiducial</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span> <span class="p">)</span>
-        <span class="c"># check the validity:</span>
+        <span class="c1"># check the validity:</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;The input param_names has not &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">)</span><span class="o">+</span><span class="s">&#39; elements.&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;The input param_names has not &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; elements.&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names_latex</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;The input param_names_latex has not &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">)</span><span class="o">+</span><span class="s">&#39; elements.&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;The input param_names_latex has not &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; elements.&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;The input param_fiducial has not &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">)</span><span class="o">+</span><span class="s">&#39; elements.&#39;</span><span class="p">)</span>
-        <span class="c"># create a dictionary of param names:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;The input param_fiducial has not &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; elements.&#39;</span><span class="p">)</span>
+        <span class="c1"># create a dictionary of param names:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">param_names_dict</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">)):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">param_names_dict</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">param_names_dict</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span>
-        <span class="c"># do PCA and store results:</span>
+        <span class="c1"># do PCA and store results:</span>
         <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fisher_eigenvalues</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">fisher_eigenvectors</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">PCA</span><span class="p">()</span>
-        <span class="c"># protect against degenerate parameters:</span>
+        <span class="c1"># protect against degenerate parameters:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">protect_degenerate</span><span class="p">()</span>
-        <span class="c"># invert the Fisher matrix and store the result:</span>
+        <span class="c1"># invert the Fisher matrix and store the result:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fisher_matrix_inv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inverse_fisher_matrix</span><span class="p">()</span>
 
-    <span class="c"># -----------------------------------------------------------------------------------</span>
+    <span class="c1"># -----------------------------------------------------------------------------------</span>
 
 <div class="viewcode-block" id="fisher_matrix.load_paramnames_from_file"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix.load_paramnames_from_file">[docs]</a>    <span class="k">def</span> <span class="nf">load_paramnames_from_file</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="bp">None</span> <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -436,28 +437,28 @@
 <span class="sd">            </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">file_name</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">indir</span><span class="o">+</span><span class="s">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">+</span><span class="s">&#39;.paramnames&#39;</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">indir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">+</span><span class="s1">&#39;.paramnames&#39;</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">name</span> <span class="o">=</span> <span class="n">file_name</span>
-        <span class="c"># check input:</span>
+        <span class="c1"># check input:</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;No .paramnames file found at: &#39;</span><span class="o">+</span><span class="n">name</span><span class="p">)</span>
-        <span class="c"># parse the param names:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;No .paramnames file found at: &#39;</span><span class="o">+</span><span class="n">name</span><span class="p">)</span>
+        <span class="c1"># parse the param names:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span>       <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">param_names_latex</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span>    <span class="o">=</span> <span class="p">[]</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">!=</span><span class="s">&#39;#&#39;</span> <span class="ow">and</span> <span class="n">line</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">!=</span><span class="s">&#39;#&#39;</span><span class="p">:</span>
-                    <span class="n">split_line</span> <span class="o">=</span> <span class="p">[</span> <span class="n">i</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;    &#39;</span><span class="p">)</span> <span class="p">]</span>
-                    <span class="n">split_line</span> <span class="o">=</span> <span class="p">[</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">split_line</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">is</span> <span class="ow">not</span> <span class="s">&#39;&#39;</span> <span class="p">]</span>
+                <span class="k">if</span> <span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">!=</span><span class="s1">&#39;#&#39;</span> <span class="ow">and</span> <span class="n">line</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">!=</span><span class="s1">&#39;#&#39;</span><span class="p">:</span>
+                    <span class="n">split_line</span> <span class="o">=</span> <span class="p">[</span> <span class="n">i</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;    &#39;</span><span class="p">)</span> <span class="p">]</span>
+                    <span class="n">split_line</span> <span class="o">=</span> <span class="p">[</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">split_line</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">is</span> <span class="ow">not</span> <span class="s1">&#39;&#39;</span> <span class="p">]</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">split_line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
                     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">split_line</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-                        <span class="c"># latex and fiducial missing:</span>
+                        <span class="c1"># latex and fiducial missing:</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">param_names_latex</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">split_line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
                     <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">split_line</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-                        <span class="c"># one of the two is missing:</span>
+                        <span class="c1"># one of the two is missing:</span>
                         <span class="k">try</span><span class="p">:</span>
                             <span class="n">temp</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">split_line</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
                             <span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
@@ -467,16 +468,16 @@
                             <span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
                             <span class="bp">self</span><span class="o">.</span><span class="n">param_names_latex</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">split_line</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
                     <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">split_line</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
-                        <span class="c"># nothing is missing:</span>
+                        <span class="c1"># nothing is missing:</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">param_names_latex</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">split_line</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">split_line</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span> <span class="p">)</span>
-        <span class="c"># check the validity of the param names:</span>
+        <span class="c1"># check the validity of the param names:</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Error in load_paramnames_from_file: wrong number of parameters in the .paramnames file&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Error in load_paramnames_from_file: wrong number of parameters in the .paramnames file&#39;</span><span class="p">)</span></div>
         
-    <span class="c"># -----------------------------------------------------------------------------------</span>
-</div>
+    <span class="c1"># -----------------------------------------------------------------------------------</span>
+
 <div class="viewcode-block" id="fisher_matrix.__add__"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix.__add__">[docs]</a>    <span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Addition operator (+). Safeguarded agains adding Fisher matrices with different parameters </span>
@@ -485,59 +486,59 @@
 <span class="sd">        Notice that if a parameter is in one of the two Fisher matrices but not in the other it will be</span>
 <span class="sd">        assumed independent from the other.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c"># get the new param names and fiducial:</span>
+        <span class="c1"># get the new param names and fiducial:</span>
         <span class="n">param_names_new</span>       <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span> <span class="p">)</span>
         <span class="n">param_names_latex_new</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names_latex</span> <span class="p">)</span>
         <span class="n">param_fiducial_new</span>    <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span> <span class="p">)</span>
-        <span class="c"># check the parameters of the other Fisher matrix:</span>
+        <span class="c1"># check the parameters of the other Fisher matrix:</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">other</span><span class="o">.</span><span class="n">param_names</span><span class="p">:</span>
-            <span class="c"># if the parameter is in common check that they have the same fiducial value:</span>
+            <span class="c1"># if the parameter is in common check that they have the same fiducial value:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names_dict</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
                 <span class="n">ind1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span>
                 <span class="n">ind2</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">param_names_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span>
                 <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span><span class="p">[</span><span class="n">ind1</span><span class="p">],</span> <span class="n">other</span><span class="o">.</span><span class="n">param_fiducial</span><span class="p">[</span><span class="n">ind2</span><span class="p">]):</span>
-                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Error in addition: parameter &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s">&#39; has different fiducials: &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span><span class="p">[</span><span class="n">ind1</span><span class="p">])</span><span class="o">+</span><span class="s">&#39; and &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">param_fiducial</span><span class="p">[</span><span class="n">ind2</span><span class="p">]))</span>
-            <span class="c"># otherwise we add them:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Error in addition: parameter &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; has different fiducials: &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span><span class="p">[</span><span class="n">ind1</span><span class="p">])</span><span class="o">+</span><span class="s1">&#39; and &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">param_fiducial</span><span class="p">[</span><span class="n">ind2</span><span class="p">]))</span>
+            <span class="c1"># otherwise we add them:</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">ind</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">param_names_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span>
                 <span class="n">param_names_new</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
                 <span class="n">param_names_latex_new</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">param_names_latex</span><span class="p">[</span><span class="n">ind</span><span class="p">])</span>
                 <span class="n">param_fiducial_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">param_fiducial_new</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">param_fiducial</span><span class="p">[</span><span class="n">ind</span><span class="p">])</span>
-        <span class="c"># initialize an empty matrix:</span>
+        <span class="c1"># initialize an empty matrix:</span>
         <span class="n">num_param_new</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">param_names_new</span><span class="p">)</span>
         <span class="n">new_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">num_param_new</span><span class="p">,</span><span class="n">num_param_new</span><span class="p">])</span>
-        <span class="c"># fill the new matrix:</span>
+        <span class="c1"># fill the new matrix:</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">num_param_new</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">num_param_new</span><span class="p">):</span>
-                <span class="c"># get the new parameters name at each entry:</span>
+                <span class="c1"># get the new parameters name at each entry:</span>
                 <span class="n">x</span> <span class="o">=</span> <span class="n">param_names_new</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
                 <span class="n">y</span> <span class="o">=</span> <span class="n">param_names_new</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-                <span class="c"># try to see if we have a corresponding entry on the first matrix:</span>
+                <span class="c1"># try to see if we have a corresponding entry on the first matrix:</span>
                 <span class="k">try</span><span class="p">:</span>
                     <span class="n">x1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names_dict</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span>
                     <span class="n">y1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names_dict</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span>
                     <span class="n">fact_1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_matrix</span><span class="p">[</span><span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">]</span>
                 <span class="k">except</span><span class="p">:</span>
                     <span class="n">fact_1</span> <span class="o">=</span> <span class="mf">0.0</span>
-                <span class="c"># try to see if we have a corresponding entry on the second matrix:</span>
+                <span class="c1"># try to see if we have a corresponding entry on the second matrix:</span>
                 <span class="k">try</span><span class="p">:</span>
                     <span class="n">x1</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">param_names_dict</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span>
                     <span class="n">y1</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">param_names_dict</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span>
                     <span class="n">fact_2</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">fisher_matrix</span><span class="p">[</span><span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">]</span>
                 <span class="k">except</span><span class="p">:</span>
                     <span class="n">fact_2</span> <span class="o">=</span> <span class="mf">0.0</span>    
-                <span class="c"># write the entrance of the new matrix:</span>
+                <span class="c1"># write the entrance of the new matrix:</span>
                 <span class="n">new_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">fact_1</span> <span class="o">+</span> <span class="n">fact_2</span>
-        <span class="c"># create the new Fisher matrix:</span>
+        <span class="c1"># create the new Fisher matrix:</span>
         <span class="n">fisher_new</span> <span class="o">=</span> <span class="n">fisher_matrix</span><span class="p">(</span> <span class="n">fisher_matrix</span><span class="o">=</span><span class="n">new_matrix</span><span class="p">,</span> <span class="n">param_names</span><span class="o">=</span><span class="n">param_names_new</span><span class="p">,</span> <span class="n">param_names_latex</span><span class="o">=</span><span class="n">param_names_latex_new</span><span class="p">,</span> <span class="n">fiducial</span><span class="o">=</span><span class="n">param_fiducial_new</span> <span class="p">)</span>
-        <span class="n">fisher_new</span><span class="o">.</span><span class="n">name</span>  <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s">&#39;_&#39;</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">name</span>
+        <span class="n">fisher_new</span><span class="o">.</span><span class="n">name</span>  <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">name</span>
         <span class="n">fisher_new</span><span class="o">.</span><span class="n">path</span>  <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span>
         <span class="n">fisher_new</span><span class="o">.</span><span class="n">indir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">indir</span>
         
-        <span class="k">return</span> <span class="n">fisher_new</span>
+        <span class="k">return</span> <span class="n">fisher_new</span></div>
 
-    <span class="c"># -----------------------------------------------------------------------------------</span>
-</div>
+    <span class="c1"># -----------------------------------------------------------------------------------</span>
+
 <div class="viewcode-block" id="fisher_matrix.__eq__"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix.__eq__">[docs]</a>    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">        Equality check operator (==). Ensures equality in all properties of the Fisher matrix.</span>
@@ -557,18 +558,18 @@
                        <span class="bp">self</span><span class="o">.</span><span class="n">param_names_latex</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">param_names_latex</span> <span class="ow">and</span> \
                        <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">param_fiducial</span> <span class="p">)</span> <span class="ow">and</span> \
                        <span class="bp">self</span><span class="o">.</span><span class="n">param_names_dict</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">param_names_dict</span> 
-        <span class="k">return</span> <span class="n">return_value</span>
+        <span class="k">return</span> <span class="n">return_value</span></div>
     
-    <span class="c"># -----------------------------------------------------------------------------------</span>
-    </div>
+    <span class="c1"># -----------------------------------------------------------------------------------</span>
+    
 <div class="viewcode-block" id="fisher_matrix.__ne__"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix.__ne__">[docs]</a>    <span class="k">def</span> <span class="nf">__ne__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">        Non-equality operator (!=). Simply implemented as the inverse of the equality operator.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">__eq__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+        <span class="k">return</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">__eq__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span></div>
     
-    <span class="c"># -----------------------------------------------------------------------------------</span>
-</div>
+    <span class="c1"># -----------------------------------------------------------------------------------</span>
+
 <div class="viewcode-block" id="fisher_matrix.inverse_fisher_matrix"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix.inverse_fisher_matrix">[docs]</a>    <span class="k">def</span> <span class="nf">inverse_fisher_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Invert the Fisher matrix.</span>
@@ -577,10 +578,10 @@
 <span class="sd">        :rtype: :class:`numpy.array`</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_matrix</span> <span class="p">)</span> <span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_matrix</span> <span class="p">)</span> <span class="p">)</span></div>
 
-    <span class="c"># -----------------------------------------------------------------------------------</span>
-</div>
+    <span class="c1"># -----------------------------------------------------------------------------------</span>
+
 <div class="viewcode-block" id="fisher_matrix.PCA"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix.PCA">[docs]</a>    <span class="k">def</span> <span class="nf">PCA</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        This function performs the principal component analysis of the Fisher matrix returning its eigenvalues and its eigenvectors.</span>
@@ -591,10 +592,10 @@
 <span class="sd">        </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">w</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_matrix</span> <span class="p">)</span>
-        <span class="k">return</span> <span class="p">(</span> <span class="n">w</span><span class="p">,</span> <span class="n">v</span> <span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span> <span class="n">w</span><span class="p">,</span> <span class="n">v</span> <span class="p">)</span></div>
 
-    <span class="c"># -----------------------------------------------------------------------------------</span>
-</div>
+    <span class="c1"># -----------------------------------------------------------------------------------</span>
+
 <div class="viewcode-block" id="fisher_matrix.determinant"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix.determinant">[docs]</a>    <span class="k">def</span> <span class="nf">determinant</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        This function returns the determinant of the Fisher matrix.</span>
@@ -602,10 +603,10 @@
 <span class="sd">        :return: a :class:`float` with the determinant of the Fisher matrix.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_matrix</span> <span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_matrix</span> <span class="p">)</span></div>
 
-    <span class="c"># -----------------------------------------------------------------------------------</span>
-</div>
+    <span class="c1"># -----------------------------------------------------------------------------------</span>
+
 <div class="viewcode-block" id="fisher_matrix.protect_degenerate"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix.protect_degenerate">[docs]</a>    <span class="k">def</span> <span class="nf">protect_degenerate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Protects the Fisher matrix against degeneracies. Modifies the spectrum to ensure that</span>
@@ -617,15 +618,15 @@
 <span class="sd">        :type cache: bool</span>
 <span class="sd">        </span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c"># check cache:</span>
+        <span class="c1"># check cache:</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">cache</span><span class="p">:</span>
             <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fisher_eigenvalues</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">fisher_eigenvectors</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">PCA</span><span class="p">()</span>
-        <span class="c"># get the eigenvalues and eigenvactors:</span>
+        <span class="c1"># get the eigenvalues and eigenvactors:</span>
         <span class="n">fisher_eigenvectors</span>    <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_eigenvectors</span>
         <span class="n">fisher_eigenvectors_m1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_eigenvectors</span> <span class="p">)</span> <span class="p">)</span>
-        <span class="c"># </span>
+        <span class="c1"># </span>
         <span class="n">redo_PCA</span> <span class="o">=</span> <span class="bp">False</span>
-        <span class="c"># sometime the cutoff has to be adjusted if the condition number is too large:</span>
+        <span class="c1"># sometime the cutoff has to be adjusted if the condition number is too large:</span>
         <span class="n">minimum_spectrum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_eigenvalues</span> <span class="p">)</span> <span class="p">)</span>
         <span class="n">maximum_spectrum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_eigenvalues</span> <span class="p">)</span> <span class="p">)</span>
         
@@ -636,28 +637,28 @@
             
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">condition_number</span><span class="p">)</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_spectrum</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">fisher_cutoff</span> <span class="o">=</span> <span class="n">maximum_spectrum</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">fisher_spectrum</span>
-        <span class="c"># cycle through the eigenvalues</span>
+        <span class="c1"># cycle through the eigenvalues</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fisher_eigenvalues</span><span class="p">)</span> <span class="p">):</span>
-            <span class="c"># detect very small eigenvalues            </span>
+            <span class="c1"># detect very small eigenvalues            </span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_eigenvalues</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_cutoff</span><span class="p">:</span>
-                <span class="c"># tell the code to redo PCA:</span>
+                <span class="c1"># tell the code to redo PCA:</span>
                 <span class="n">redo_PCA</span> <span class="o">=</span> <span class="bp">True</span>
-                <span class="c"># define the perturbation to the eigenvalue</span>
+                <span class="c1"># define the perturbation to the eigenvalue</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">fisher_eigenvalues</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_cutoff</span>
-        <span class="c"># modify the Fisher matrix if necessary:</span>
+        <span class="c1"># modify the Fisher matrix if necessary:</span>
         <span class="k">if</span> <span class="n">redo_PCA</span><span class="p">:</span>
-            <span class="c"># create a zero matrix:</span>
+            <span class="c1"># create a zero matrix:</span>
             <span class="n">temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fisher_eigenvalues</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fisher_eigenvalues</span><span class="p">)),</span> <span class="nb">float</span><span class="p">)</span>
-            <span class="c"># write:</span>
+            <span class="c1"># write:</span>
             <span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">eigh</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_eigenvalues</span> <span class="p">):</span>
                 <span class="n">temp</span><span class="p">[</span><span class="n">ind</span><span class="p">,</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="n">eigh</span>
-            <span class="c"># get the Fisher:</span>
+            <span class="c1"># get the Fisher:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">fisher_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span> <span class="n">fisher_eigenvectors</span><span class="p">,</span> <span class="n">temp</span> <span class="p">),</span> <span class="n">fisher_eigenvectors_m1</span> <span class="p">)</span>
-            <span class="c"># redo PCA:</span>
-            <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fisher_eigenvalues</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">fisher_eigenvectors</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">PCA</span><span class="p">()</span>
+            <span class="c1"># redo PCA:</span>
+            <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fisher_eigenvalues</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">fisher_eigenvectors</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">PCA</span><span class="p">()</span></div>
                     
-    <span class="c"># -----------------------------------------------------------------------------------</span>
-</div>
+    <span class="c1"># -----------------------------------------------------------------------------------</span>
+
 <div class="viewcode-block" id="fisher_matrix.get_confidence_bounds"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix.get_confidence_bounds">[docs]</a>    <span class="k">def</span> <span class="nf">get_confidence_bounds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">confidence_level</span><span class="o">=</span><span class="mf">0.68</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="bp">False</span> <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Computes the marginal 1D confidence bounds on the Fisher parameters</span>
@@ -668,23 +669,23 @@
 <span class="sd">        :type cache: bool</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c"># check input:</span>
+        <span class="c1"># check input:</span>
         <span class="k">if</span> <span class="n">confidence_level</span><span class="o">&lt;</span><span class="mf">0.0</span> <span class="ow">or</span> <span class="n">confidence_level</span><span class="o">&gt;</span><span class="mf">1.0</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Invalid confidence level. Legal input is between 0 and 1.&#39;</span><span class="p">)</span>
-        <span class="c"># invert the Fisher matrix:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Invalid confidence level. Legal input is between 0 and 1.&#39;</span><span class="p">)</span>
+        <span class="c1"># invert the Fisher matrix:</span>
         <span class="k">if</span> <span class="n">cache</span><span class="p">:</span>
             <span class="n">fisher_matrix_inv_temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_matrix_inv</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">fisher_matrix_inv_temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inverse_fisher_matrix</span><span class="p">()</span>
-        <span class="c"># compute the coefficient that correspond to the desired confidence level:</span>
+        <span class="c1"># compute the coefficient that correspond to the desired confidence level:</span>
         <span class="n">coefficient</span> <span class="o">=</span> <span class="n">fu</span><span class="o">.</span><span class="n">confidence_coefficient</span><span class="p">(</span> <span class="n">confidence_level</span> <span class="p">)</span>
-        <span class="c"># compute the result:</span>
-        <span class="k">return</span> <span class="n">coefficient</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">diagonal</span><span class="p">(</span> <span class="n">fisher_matrix_inv_temp</span> <span class="p">)</span> <span class="p">)</span>
+        <span class="c1"># compute the result:</span>
+        <span class="k">return</span> <span class="n">coefficient</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">diagonal</span><span class="p">(</span> <span class="n">fisher_matrix_inv_temp</span> <span class="p">)</span> <span class="p">)</span></div>
 
-    <span class="c"># -----------------------------------------------------------------------------------</span>
+    <span class="c1"># -----------------------------------------------------------------------------------</span>
         
-    <span class="c"># class setters:</span>
-    </div>
+    <span class="c1"># class setters:</span>
+    
 <div class="viewcode-block" id="fisher_matrix.set_fisher_matrix"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix.set_fisher_matrix">[docs]</a>    <span class="k">def</span> <span class="nf">set_fisher_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fisher_matrix</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Function sets a new fisher matrix substituting the old one. Notice that </span>
@@ -694,36 +695,36 @@
 <span class="sd">        :type fisher_matrix: :class:`numpy.array`</span>
 <span class="sd">        </span>
 <span class="sd">        &quot;&quot;&quot;</span> 
-        <span class="c"># initialize the Fisher matrix:</span>
+        <span class="c1"># initialize the Fisher matrix:</span>
         <span class="n">temp_fisher_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">fisher_matrix</span><span class="p">)</span>
-        <span class="c"># protection against 1D Fisher matrices</span>
+        <span class="c1"># protection against 1D Fisher matrices</span>
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">ndim</span><span class="p">(</span><span class="n">temp_fisher_matrix</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">temp_fisher_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">temp_fisher_matrix</span><span class="p">]])</span>
         <span class="k">elif</span> <span class="n">np</span><span class="o">.</span><span class="n">ndim</span><span class="p">(</span><span class="n">temp_fisher_matrix</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">temp_fisher_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">temp_fisher_matrix</span><span class="p">])</span>
-        <span class="c"># check if the Fisher matrix is symetric:</span>
+        <span class="c1"># check if the Fisher matrix is symetric:</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">temp_fisher_matrix</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">temp_fisher_matrix</span><span class="p">)):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;The input Fisher matrix is not equal to its transpose&#39;</span><span class="p">)</span>
-        <span class="c"># accept the fisher matrix and start doing computations:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;The input Fisher matrix is not equal to its transpose&#39;</span><span class="p">)</span>
+        <span class="c1"># accept the fisher matrix and start doing computations:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fisher_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">temp_fisher_matrix</span><span class="p">)</span>
-        <span class="c"># get the number of parameters:</span>
+        <span class="c1"># get the number of parameters:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">num_params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fisher_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  
-        <span class="c"># load the parameter names:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span>       <span class="o">=</span> <span class="p">[</span> <span class="s">&#39;p&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">)</span> <span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">param_names_latex</span> <span class="o">=</span> <span class="p">[</span> <span class="s">&#39;p&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">)</span> <span class="p">]</span>
+        <span class="c1"># load the parameter names:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span>       <span class="o">=</span> <span class="p">[</span> <span class="s1">&#39;p&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">)</span> <span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">param_names_latex</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">&#39;p&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">)</span> <span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span><span class="mf">0.0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">]</span> <span class="p">)</span> 
-        <span class="c"># re-create a dictionary of param names:</span>
+        <span class="c1"># re-create a dictionary of param names:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">param_names_dict</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">)):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">param_names_dict</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">param_names_dict</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span>
-        <span class="c"># do PCA and store results:</span>
+        <span class="c1"># do PCA and store results:</span>
         <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fisher_eigenvalues</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">fisher_eigenvectors</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">PCA</span><span class="p">()</span>
-        <span class="c"># protect against degenerate parameters:</span>
+        <span class="c1"># protect against degenerate parameters:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">protect_degenerate</span><span class="p">(</span> <span class="p">)</span>
-        <span class="c"># invert the Fisher matrix and store the result:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">fisher_matrix_inv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inverse_fisher_matrix</span><span class="p">()</span>
-    </div>
+        <span class="c1"># invert the Fisher matrix and store the result:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fisher_matrix_inv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inverse_fisher_matrix</span><span class="p">()</span></div>
+    
 <div class="viewcode-block" id="fisher_matrix.set_param_names"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix.set_param_names">[docs]</a>    <span class="k">def</span> <span class="nf">set_param_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param_names</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Function sets a new list of param names substituting the old one. Notice that </span>
@@ -733,19 +734,19 @@
 <span class="sd">        :type param_names: :class:`list` of :class:`string`</span>
 <span class="sd">        </span>
 <span class="sd">        &quot;&quot;&quot;</span> 
-        <span class="c"># check the input:</span>
+        <span class="c1"># check the input:</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">param_names</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;set_param_names: the input param_names has not &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">)</span><span class="o">+</span><span class="s">&#39; elements.&#39;</span><span class="p">)</span>
-        <span class="c"># accept input:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;set_param_names: the input param_names has not &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; elements.&#39;</span><span class="p">)</span>
+        <span class="c1"># accept input:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">param_names</span><span class="p">)</span>
-        <span class="c"># overwrite the latex parameter names:</span>
+        <span class="c1"># overwrite the latex parameter names:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">param_names_latex</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">param_names</span><span class="p">)</span>
-        <span class="c"># re-create a dictionary of param names:</span>
+        <span class="c1"># re-create a dictionary of param names:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">param_names_dict</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">)):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">param_names_dict</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">param_names_dict</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span>
-    </div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">param_names_dict</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span></div>
+    
 <div class="viewcode-block" id="fisher_matrix.set_param_names_latex"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix.set_param_names_latex">[docs]</a>    <span class="k">def</span> <span class="nf">set_param_names_latex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param_names_latex</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Function sets a new list of LaTeX param names substituting the old one.</span>
@@ -754,12 +755,12 @@
 <span class="sd">        :type param_names: :class:`list` of :class:`string`</span>
 <span class="sd">        </span>
 <span class="sd">        &quot;&quot;&quot;</span> 
-        <span class="c"># check the input:</span>
+        <span class="c1"># check the input:</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">param_names_latex</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;set_param_names_latex: the input param_names_latex has not &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">)</span><span class="o">+</span><span class="s">&#39; elements.&#39;</span><span class="p">)</span>
-        <span class="c"># accept input:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">param_names_latex</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">param_names_latex</span><span class="p">)</span>
-    </div>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;set_param_names_latex: the input param_names_latex has not &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; elements.&#39;</span><span class="p">)</span>
+        <span class="c1"># accept input:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">param_names_latex</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">param_names_latex</span><span class="p">)</span></div>
+    
 <div class="viewcode-block" id="fisher_matrix.set_fiducial"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_matrix.html#cosmicfish_pylib.fisher_matrix.fisher_matrix.set_fiducial">[docs]</a>    <span class="k">def</span> <span class="nf">set_fiducial</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fiducial</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Function sets a new fiducial substituting the old one.</span>
@@ -768,15 +769,15 @@
 <span class="sd">        :type param_names: :class:`list` of :class:`float`</span>
 <span class="sd">        </span>
 <span class="sd">        &quot;&quot;&quot;</span> 
-        <span class="c"># check the input:</span>
+        <span class="c1"># check the input:</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">fiducial</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;set_fiducial: the input fiducial has not &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">)</span><span class="o">+</span><span class="s">&#39; elements.&#39;</span><span class="p">)</span>
-        <span class="c"># accept input:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="n">fiducial</span> <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;set_fiducial: the input fiducial has not &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_params</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; elements.&#39;</span><span class="p">)</span>
+        <span class="c1"># accept input:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">param_fiducial</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="n">fiducial</span> <span class="p">)</span></div></div>
         
-    <span class="c"># -----------------------------------------------------------------------------------</span>
+    <span class="c1"># -----------------------------------------------------------------------------------</span>
     
-<span class="c"># ***************************************************************************************</span></div></div>
+<span class="c1"># ***************************************************************************************</span>
 </pre></div>
 
            </div>
@@ -789,7 +790,7 @@
   <div role="contentinfo">
     <p>
         &copy; Copyright 2016, the CosmicFish authors.
-      Last updated on Jun 21, 2016.
+      Last updated on Aug 19, 2016.
 
     </p>
   </div>

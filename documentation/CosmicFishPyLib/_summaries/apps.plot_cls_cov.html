@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>apps.full_analysis &mdash; CosmicFish python library documentation</title>
+  <title>apps.plot_cls_cov &mdash; CosmicFish python library documentation</title>
   
 
   
@@ -34,8 +34,8 @@
   
     <link rel="top" title="CosmicFish python library documentation" href="../index.html"/>
         <link rel="up" title="Applications" href="../cosmicfish_pylib_apps.html"/>
-        <link rel="next" title="cosmicfish_pylib.colors" href="../cosmicfish_pylib_colors.html"/>
-        <link rel="prev" title="apps.bounds" href="apps.bounds.html"/> 
+        <link rel="next" title="apps.compare_cls_cov" href="apps.compare_cls_cov.html"/>
+        <link rel="prev" title="Applications" href="../cosmicfish_pylib_apps.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -91,14 +91,14 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../cosmicfish_pylib_apps.html">Applications</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="apps.plot_cls_cov.html">apps.plot_cls_cov</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">apps.plot_cls_cov</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apps.compare_cls_cov.html">apps.compare_cls_cov</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apps.compare_SN_mocks.html">apps.compare_SN_mocks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apps.plot_1D.html">apps.plot_1D</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apps.plot_2D.html">apps.plot_2D</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apps.plot_tri.html">apps.plot_tri</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apps.bounds.html">apps.bounds</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">apps.full_analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apps.full_analysis.html">apps.full_analysis</a></li>
 </ul>
 </li>
 </ul>
@@ -144,11 +144,11 @@
       
         <li><a href="../cosmicfish_pylib_apps.html">Applications</a> &raquo;</li>
       
-    <li>apps.full_analysis</li>
+    <li>apps.plot_cls_cov</li>
     <li class="wy-breadcrumbs-aside">
       
         
-          <a href="../_sources/_summaries/apps.full_analysis.txt" rel="nofollow"> View page source</a>
+          <a href="../_sources/_summaries/apps.plot_cls_cov.txt" rel="nofollow"> View page source</a>
         
       
     </li>
@@ -158,26 +158,33 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-apps.full_analysis">
-<span id="apps-full-analysis"></span><h1>apps.full_analysis<a class="headerlink" href="#module-apps.full_analysis" title="Permalink to this headline">¶</a></h1>
-<p>Simple Python code to perform analysis of Fisher matrices (plot_1D, plot_2D, bounds...)</p>
-<p>The ouput will be a set of pdf with 1D, 2D, triangular plots and a file with bounds</p>
-<p>Invoking the help option <code class="docutils literal"><span class="pre">full_analysis.py</span> <span class="pre">-h</span></code> will result in:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">full_analysis</span><span class="o">.</span><span class="n">py</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">v</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">q</span><span class="p">]</span> <span class="n">inifile</span> <span class="p">[</span><span class="n">inifile</span> <span class="o">...</span><span class="p">]</span>
+  <div class="section" id="module-apps.plot_cls_cov">
+<span id="apps-plot-cls-cov"></span><h1>apps.plot_cls_cov<a class="headerlink" href="#module-apps.plot_cls_cov" title="Permalink to this headline">¶</a></h1>
+<p>Simple Python code to plot a set of cls covariance.</p>
+<p>The CosmicFish Cls Fisher matrix calculator outputs Cls covariance files and this Python
+script plots them.</p>
+<p>The ouput will be a pdf file with the plot.</p>
+<p>Invoking the help option <code class="docutils literal"><span class="pre">plot_cls_cov.py</span> <span class="pre">-h</span></code> will result in:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">plot_cls_cov</span><span class="o">.</span><span class="n">py</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">OUTROOT</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">l</span> <span class="n">LABELS</span> <span class="p">[</span><span class="n">LABELS</span> <span class="o">...</span><span class="p">]]</span> <span class="p">[</span><span class="o">-</span><span class="n">v</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">q</span><span class="p">]</span>
+                       <span class="n">files</span> <span class="p">[</span><span class="n">files</span> <span class="o">...</span><span class="p">]</span>
 
-<span class="n">Analysis</span> <span class="n">tool</span> <span class="k">for</span> <span class="n">plot</span> <span class="ow">and</span> <span class="n">bounds</span>
+<span class="n">Cls</span> <span class="n">covariance</span> <span class="n">plotter</span>
 
 <span class="n">positional</span> <span class="n">arguments</span><span class="p">:</span>
-  <span class="n">inifile</span>        <span class="n">file</span> <span class="k">with</span> <span class="n">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">instructions</span>
+  <span class="n">files</span>                 <span class="n">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">files</span> <span class="k">with</span> <span class="n">Cls</span> <span class="n">covariances</span>
 
 <span class="n">optional</span> <span class="n">arguments</span><span class="p">:</span>
-  <span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>     <span class="n">show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span>
-  <span class="o">-</span><span class="n">v</span><span class="p">,</span> <span class="o">--</span><span class="n">version</span>  <span class="n">show</span> <span class="n">program</span><span class="s1">&#39;s version number and exit</span>
-  <span class="o">-</span><span class="n">q</span><span class="p">,</span> <span class="o">--</span><span class="n">quiet</span>    <span class="n">decides</span> <span class="n">wether</span> <span class="n">something</span> <span class="n">gets</span> <span class="n">printed</span> <span class="n">to</span> <span class="n">screen</span> <span class="ow">or</span> <span class="ow">not</span>
+  <span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>            <span class="n">show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span>
+  <span class="o">-</span><span class="n">o</span> <span class="n">OUTROOT</span><span class="p">,</span> <span class="o">--</span><span class="n">outroot</span> <span class="n">OUTROOT</span>
+                        <span class="n">path</span> <span class="ow">and</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">output</span> <span class="n">file</span>
+  <span class="o">-</span><span class="n">l</span> <span class="n">LABELS</span> <span class="p">[</span><span class="n">LABELS</span> <span class="o">...</span><span class="p">],</span> <span class="o">--</span><span class="n">label</span> <span class="n">LABELS</span> <span class="p">[</span><span class="n">LABELS</span> <span class="o">...</span><span class="p">]</span>
+                        <span class="nb">set</span> <span class="n">the</span> <span class="n">labels</span> <span class="k">for</span> <span class="n">the</span> <span class="n">legend</span><span class="o">.</span> <span class="n">If</span> <span class="n">empty</span> <span class="n">will</span> <span class="n">use</span> <span class="n">the</span>
+                        <span class="n">file</span> <span class="n">names</span><span class="o">.</span>
+  <span class="o">-</span><span class="n">v</span><span class="p">,</span> <span class="o">--</span><span class="n">version</span>         <span class="n">show</span> <span class="n">program</span><span class="s1">&#39;s version number and exit</span>
+  <span class="o">-</span><span class="n">q</span><span class="p">,</span> <span class="o">--</span><span class="n">quiet</span>           <span class="n">decides</span> <span class="n">wether</span> <span class="n">something</span> <span class="n">gets</span> <span class="n">printed</span> <span class="n">to</span> <span class="n">screen</span> <span class="ow">or</span> <span class="ow">not</span>
 </pre></div>
 </div>
-<p>Developed by Matteo Martinelli (<a class="reference external" href="mailto:m&#46;martinelli&#37;&#52;&#48;thphys&#46;uni-heidelberg&#46;de">m<span>&#46;</span>martinelli<span>&#64;</span>thphys<span>&#46;</span>uni-heidelberg<span>&#46;</span>de</a>)
-and Marco Raveri (<a class="reference external" href="mailto:mraveri&#37;&#52;&#48;sissa&#46;it">mraveri<span>&#64;</span>sissa<span>&#46;</span>it</a>) for the CosmicFish code.</p>
+<p>Developed by Marco Raveri (<a class="reference external" href="mailto:mraveri&#37;&#52;&#48;sissa&#46;it">mraveri<span>&#64;</span>sissa<span>&#46;</span>it</a>) for the CosmicFish code.</p>
 </div>
 
 
@@ -187,10 +194,10 @@ and Marco Raveri (<a class="reference external" href="mailto:mraveri&#37;&#52;&#
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../cosmicfish_pylib_colors.html" class="btn btn-neutral float-right" title="cosmicfish_pylib.colors" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="apps.compare_cls_cov.html" class="btn btn-neutral float-right" title="apps.compare_cls_cov" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="apps.bounds.html" class="btn btn-neutral" title="apps.bounds" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../cosmicfish_pylib_apps.html" class="btn btn-neutral" title="Applications" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

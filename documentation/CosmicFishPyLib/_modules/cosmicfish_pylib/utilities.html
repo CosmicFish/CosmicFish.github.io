@@ -86,6 +86,7 @@
                 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference external" href="example.html#://">Examples and tutorial</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://mybinder.org/repo/cosmicfish/cosmicfish">Live examples and tutorial</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_apps.html">Applications</a></li>
@@ -145,20 +146,20 @@
            <div itemprop="articleBody">
             
   <h1>Source code for cosmicfish_pylib.utilities</h1><div class="highlight"><pre>
-<span class="c">#----------------------------------------------------------------------------------------</span>
-<span class="c">#</span>
-<span class="c"># This file is part of CosmicFish.</span>
-<span class="c">#</span>
-<span class="c"># Copyright (C) 2015-2016 by the CosmicFish authors</span>
-<span class="c">#</span>
-<span class="c"># The CosmicFish code is free software;</span>
-<span class="c"># You can use it, redistribute it, and/or modify it under the terms</span>
-<span class="c"># of the GNU General Public License as published by the Free Software Foundation;</span>
-<span class="c"># either version 3 of the License, or (at your option) any later version.</span>
-<span class="c"># The full text of the license can be found in the file LICENSE at</span>
-<span class="c"># the top level of the CosmicFish distribution.</span>
-<span class="c">#</span>
-<span class="c">#----------------------------------------------------------------------------------------</span>
+<span></span><span class="c1">#----------------------------------------------------------------------------------------</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of CosmicFish.</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (C) 2015-2016 by the CosmicFish authors</span>
+<span class="c1">#</span>
+<span class="c1"># The CosmicFish code is free software;</span>
+<span class="c1"># You can use it, redistribute it, and/or modify it under the terms</span>
+<span class="c1"># of the GNU General Public License as published by the Free Software Foundation;</span>
+<span class="c1"># either version 3 of the License, or (at your option) any later version.</span>
+<span class="c1"># The full text of the license can be found in the file LICENSE at</span>
+<span class="c1"># the top level of the CosmicFish distribution.</span>
+<span class="c1">#</span>
+<span class="c1">#----------------------------------------------------------------------------------------</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">.. module:: utilities</span>
@@ -168,14 +169,14 @@
 <span class="sd">.. moduleauthor:: Marco Raveri &lt;mraveri@sissa.it&gt; for the CosmicFish code.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="c"># ***************************************************************************************</span>
+<span class="c1"># ***************************************************************************************</span>
 
 <span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">scipy.special</span> <span class="kn">as</span> <span class="nn">sp</span>
 <span class="kn">import</span> <span class="nn">itertools</span> <span class="kn">as</span> <span class="nn">it</span>
 
-<span class="c"># ***************************************************************************************</span>
+<span class="c1"># ***************************************************************************************</span>
 
 <div class="viewcode-block" id="num_to_mant_exp"><a class="viewcode-back" href="../../cosmicfish_pylib_utilities.html#cosmicfish_pylib.utilities.num_to_mant_exp">[docs]</a><span class="k">def</span> <span class="nf">num_to_mant_exp</span><span class="p">(</span> <span class="n">num</span> <span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -189,14 +190,14 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">exponent</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">num</span><span class="p">)))</span>
-    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>  <span class="c"># Case of log10(0)</span>
-        <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>   <span class="c"># Convention: 0 = 0*10^0</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>  <span class="c1"># Case of log10(0)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>   <span class="c1"># Convention: 0 = 0*10^0</span>
     <span class="n">mantissa</span> <span class="o">=</span> <span class="n">num</span><span class="o">/</span><span class="mi">10</span><span class="o">**</span><span class="n">exponent</span>
 
-    <span class="k">return</span> <span class="p">(</span><span class="n">mantissa</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">exponent</span><span class="p">))</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">mantissa</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">exponent</span><span class="p">))</span></div>
 
-<span class="c"># ***************************************************************************************</span>
-</div>
+<span class="c1"># ***************************************************************************************</span>
+
 <div class="viewcode-block" id="mant_exp_to_num"><a class="viewcode-back" href="../../cosmicfish_pylib_utilities.html#cosmicfish_pylib.utilities.mant_exp_to_num">[docs]</a><span class="k">def</span> <span class="nf">mant_exp_to_num</span><span class="p">(</span> <span class="n">mant_exp</span> <span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This function returns a float built with the given (base 10) mantissa and exponent.</span>
@@ -207,10 +208,10 @@
 <span class="sd">    :rtype: :class:`float`</span>
 <span class="sd">    </span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">mant_exp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="n">mant_exp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">mant_exp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="n">mant_exp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span></div>
 
-<span class="c"># ***************************************************************************************</span>
-</div>
+<span class="c1"># ***************************************************************************************</span>
+
 <div class="viewcode-block" id="nice_number"><a class="viewcode-back" href="../../cosmicfish_pylib_utilities.html#cosmicfish_pylib.utilities.nice_number">[docs]</a><span class="k">def</span> <span class="nf">nice_number</span><span class="p">(</span> <span class="n">num</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="mi">0</span> <span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This function returns a nice number built with num. This is useful to build the axes of a plot.</span>
@@ -229,9 +230,9 @@
 <span class="sd">    :rtype: :class:`float`</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c"># extract the mantissa</span>
+    <span class="c1"># extract the mantissa</span>
     <span class="n">exponent</span> <span class="o">=</span> <span class="n">num_to_mant_exp</span><span class="p">(</span> <span class="n">num</span> <span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="c"># select the working mode</span>
+    <span class="c1"># select the working mode</span>
     <span class="k">if</span> <span class="p">(</span> <span class="n">mode</span><span class="o">==</span><span class="mi">0</span> <span class="p">):</span>
         <span class="n">mantissa</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span> <span class="n">num_to_mant_exp</span><span class="p">(</span> <span class="n">num</span> <span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
     <span class="k">elif</span> <span class="p">(</span> <span class="n">mode</span><span class="o">==</span><span class="mi">1</span> <span class="p">):</span>
@@ -239,13 +240,13 @@
     <span class="k">elif</span> <span class="p">(</span> <span class="n">mode</span><span class="o">==</span><span class="mi">2</span> <span class="p">):</span>
         <span class="n">mantissa</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span> <span class="n">num_to_mant_exp</span><span class="p">(</span> <span class="n">num</span> <span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s">&#39;Wrong worging mode for Fisher_utilities.nice_number&#39;</span> <span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;Wrong worging mode for Fisher_utilities.nice_number&#39;</span> <span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">mant_exp_to_num</span><span class="p">(</span> <span class="p">(</span> <span class="n">mantissa</span><span class="p">,</span> <span class="n">exponent</span> <span class="p">)</span> <span class="p">)</span>
-</div>
+    <span class="k">return</span> <span class="n">mant_exp_to_num</span><span class="p">(</span> <span class="p">(</span> <span class="n">mantissa</span><span class="p">,</span> <span class="n">exponent</span> <span class="p">)</span> <span class="p">)</span></div>
+
 <span class="n">v_nice_number</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">nice_number</span><span class="p">)</span>
 
-<span class="c"># ***************************************************************************************</span>
+<span class="c1"># ***************************************************************************************</span>
 
 <div class="viewcode-block" id="significant_digits"><a class="viewcode-back" href="../../cosmicfish_pylib_utilities.html#cosmicfish_pylib.utilities.significant_digits">[docs]</a><span class="k">def</span> <span class="nf">significant_digits</span><span class="p">(</span> <span class="n">num_err</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="mi">0</span> <span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -270,7 +271,7 @@
     <span class="n">error_mant_exp</span>  <span class="o">=</span> <span class="n">num_to_mant_exp</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
     
     <span class="n">temp</span> <span class="o">=</span> <span class="n">mant_exp_to_num</span><span class="p">(</span> <span class="p">(</span><span class="n">number_mant_exp</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">number_mant_exp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">error_mant_exp</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="p">)</span>
-    <span class="c"># select the working mode</span>
+    <span class="c1"># select the working mode</span>
     <span class="k">if</span> <span class="p">(</span> <span class="n">mode</span><span class="o">==</span><span class="mi">0</span> <span class="p">):</span>
         <span class="n">temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span> <span class="n">temp</span> <span class="p">)</span>
     <span class="k">elif</span> <span class="p">(</span> <span class="n">mode</span><span class="o">==</span><span class="mi">1</span> <span class="p">):</span>
@@ -278,12 +279,12 @@
     <span class="k">elif</span> <span class="p">(</span> <span class="n">mode</span><span class="o">==</span><span class="mi">2</span> <span class="p">):</span>
         <span class="n">temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span> <span class="n">temp</span> <span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Fisher_utilities.significant_digits called with mode=&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span><span class="o">+</span><span class="s">&#39; legal values are 0,1,2&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Fisher_utilities.significant_digits called with mode=&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; legal values are 0,1,2&#39;</span><span class="p">)</span>
     
-    <span class="k">return</span> <span class="n">temp</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="n">error_mant_exp</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">temp</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="n">error_mant_exp</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span></div>
 
-<span class="c"># ***************************************************************************************</span>
-</div>
+<span class="c1"># ***************************************************************************************</span>
+
 <div class="viewcode-block" id="confidence_coefficient"><a class="viewcode-back" href="../../cosmicfish_pylib_utilities.html#cosmicfish_pylib.utilities.confidence_coefficient">[docs]</a><span class="k">def</span> <span class="nf">confidence_coefficient</span><span class="p">(</span> <span class="n">confidence_level</span> <span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This function returns the number of sigmas given a confidence level.</span>
@@ -294,10 +295,10 @@
 <span class="sd">    :rtype: :class:`float`</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.</span><span class="p">)</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">erfinv</span><span class="p">(</span><span class="n">confidence_level</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.</span><span class="p">)</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">erfinv</span><span class="p">(</span><span class="n">confidence_level</span><span class="p">)</span></div>
 
-<span class="c"># ***************************************************************************************</span>
-</div>
+<span class="c1"># ***************************************************************************************</span>
+
 <div class="viewcode-block" id="print_table"><a class="viewcode-back" href="../../cosmicfish_pylib_utilities.html#cosmicfish_pylib.utilities.print_table">[docs]</a><span class="k">def</span> <span class="nf">print_table</span><span class="p">(</span><span class="n">table</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This function prints on the screen a nicely formatted table.</span>
@@ -305,18 +306,18 @@
 <span class="sd">    :param table: a 2D list that should be printed on the screen.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c"># transpose the table:</span>
+    <span class="c1"># transpose the table:</span>
     <span class="n">table</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">table</span><span class="p">))</span>
-    <span class="c"># get the column width:</span>
+    <span class="c1"># get the column width:</span>
     <span class="n">col_width</span> <span class="o">=</span> <span class="p">[</span><span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">col</span><span class="p">)</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">table</span><span class="p">)]</span>
-    <span class="c"># print it to screen:</span>
+    <span class="c1"># print it to screen:</span>
     <span class="k">print</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">table</span><span class="p">:</span>
-        <span class="k">print</span> <span class="s">&quot;| &quot;</span> <span class="o">+</span> <span class="s">&quot; | &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s">&quot;{:{}}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">col_width</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">line</span><span class="p">))</span> <span class="o">+</span> <span class="s">&quot; |&quot;</span>
-    <span class="k">print</span>
+        <span class="k">print</span> <span class="s2">&quot;| &quot;</span> <span class="o">+</span> <span class="s2">&quot; | &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;{:{}}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">col_width</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">line</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; |&quot;</span>
+    <span class="k">print</span></div>
 
-<span class="c"># ***************************************************************************************</span>
-</div>
+<span class="c1"># ***************************************************************************************</span>
+
 <div class="viewcode-block" id="make_list"><a class="viewcode-back" href="../../cosmicfish_pylib_utilities.html#cosmicfish_pylib.utilities.make_list">[docs]</a><span class="k">def</span> <span class="nf">make_list</span><span class="p">(</span> <span class="n">elements</span> <span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Checks if elements is a list. </span>
@@ -331,10 +332,10 @@
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">elements</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
         <span class="k">return</span> <span class="n">elements</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">[</span><span class="n">elements</span><span class="p">]</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">elements</span><span class="p">]</span></div>
 
-<span class="c"># ***************************************************************************************</span>
-</div>
+<span class="c1"># ***************************************************************************************</span>
+
 <div class="viewcode-block" id="grouper"><a class="viewcode-back" href="../../cosmicfish_pylib_utilities.html#cosmicfish_pylib.utilities.grouper">[docs]</a><span class="k">def</span> <span class="nf">grouper</span><span class="p">(</span> <span class="n">n</span><span class="p">,</span> <span class="n">iterable</span><span class="p">,</span> <span class="n">fillvalue</span><span class="o">=</span><span class="bp">None</span> <span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This small function regroups a list in sub lists of n elements</span>
@@ -347,10 +348,10 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="nb">iter</span><span class="p">(</span><span class="n">iterable</span><span class="p">)]</span><span class="o">*</span><span class="n">n</span>
-    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span> <span class="n">it</span><span class="o">.</span><span class="n">izip_longest</span><span class="p">(</span><span class="n">fillvalue</span><span class="o">=</span><span class="n">fillvalue</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="p">)</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span> <span class="n">it</span><span class="o">.</span><span class="n">izip_longest</span><span class="p">(</span><span class="n">fillvalue</span><span class="o">=</span><span class="n">fillvalue</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="p">)</span></div>
 
-<span class="c"># ***************************************************************************************</span>
-</div>
+<span class="c1"># ***************************************************************************************</span>
+
 <div class="viewcode-block" id="CosmicFish_write_header"><a class="viewcode-back" href="../../cosmicfish_pylib_utilities.html#cosmicfish_pylib.utilities.CosmicFish_write_header">[docs]</a><span class="k">def</span> <span class="nf">CosmicFish_write_header</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This function prints to screen the CosmicFish header. </span>
@@ -362,19 +363,19 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">print</span>
-    <span class="k">print</span> <span class="s">&quot;**************************************************************&quot;</span>
-    <span class="k">print</span> <span class="s">&quot;   _____               _     _____     __  &quot;</span>
-    <span class="k">print</span> <span class="s">&quot;  / ___/__  ___ __ _  (_)___/ __(_)__ / /  &quot;</span>
-    <span class="k">print</span> <span class="s">&quot; / /__/ _ \(_-&lt;/  &#39; \/ / __/ _// (_-&lt;/ _ \ &quot;</span>
-    <span class="k">print</span> <span class="s">&quot; \___/\___/___/_/_/_/_/\__/_/ /_/___/_//_/ Py Lib&quot;</span>
-    <span class="k">print</span> <span class="s">&quot; &quot;</span>
-    <span class="k">print</span> <span class="s">&quot;**************************************************************&quot;</span>
+    <span class="k">print</span> <span class="s2">&quot;**************************************************************&quot;</span>
+    <span class="k">print</span> <span class="s2">&quot;   _____               _     _____     __  &quot;</span>
+    <span class="k">print</span> <span class="s2">&quot;  / ___/__  ___ __ _  (_)___/ __(_)__ / /  &quot;</span>
+    <span class="k">print</span> <span class="s2">&quot; / /__/ _ \(_-&lt;/  &#39; \/ / __/ _// (_-&lt;/ _ \ &quot;</span>
+    <span class="k">print</span> <span class="s2">&quot; \___/\___/___/_/_/_/_/\__/_/ /_/___/_//_/ Py Lib&quot;</span>
+    <span class="k">print</span> <span class="s2">&quot; &quot;</span>
+    <span class="k">print</span> <span class="s2">&quot;**************************************************************&quot;</span>
     <span class="k">print</span> <span class="n">name</span>
-    <span class="k">print</span> <span class="s">&quot; This application was developed using the CosmicFish code.&quot;</span>
-    <span class="k">print</span> <span class="s">&quot;**************************************************************&quot;</span>
-    <span class="k">print</span>
+    <span class="k">print</span> <span class="s2">&quot; This application was developed using the CosmicFish code.&quot;</span>
+    <span class="k">print</span> <span class="s2">&quot;**************************************************************&quot;</span>
+    <span class="k">print</span></div>
     
-<span class="c"># ***************************************************************************************</span></div>
+<span class="c1"># ***************************************************************************************</span>
 </pre></div>
 
            </div>
@@ -387,7 +388,7 @@
   <div role="contentinfo">
     <p>
         &copy; Copyright 2016, the CosmicFish authors.
-      Last updated on Jun 21, 2016.
+      Last updated on Aug 19, 2016.
 
     </p>
   </div>

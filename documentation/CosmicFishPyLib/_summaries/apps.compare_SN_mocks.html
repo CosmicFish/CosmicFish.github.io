@@ -91,8 +91,9 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../cosmicfish_pylib_apps.html">Applications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="apps.plot_cls_cov.html">apps.plot_cls_cov</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apps.compare_cls_cov.html">apps.compare_cls_cov</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">apps.compare_SN_mocks</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">apps.compare_SN_mocks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apps.plot_1D.html">apps.plot_1D</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apps.plot_2D.html">apps.plot_2D</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apps.plot_tri.html">apps.plot_tri</a></li>
@@ -133,7 +134,7 @@
         <div class="rst-content">
           
 
-
+ 
 
 
 
@@ -164,19 +165,19 @@
 script plots them.</p>
 <p>The ouput will be a pdf file with the plot.</p>
 <p>Invoking the help option <code class="docutils literal"><span class="pre">compare_SN_mocks.py</span> <span class="pre">-h</span></code> will result in:</p>
-<div class="highlight-python"><div class="highlight"><pre>usage: compare_SN_mocks.py [-h] [-o OUTROOT] [-v] [-q] files [files ...]
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">compare_SN_mocks</span><span class="o">.</span><span class="n">py</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">OUTROOT</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">v</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">q</span><span class="p">]</span> <span class="n">files</span> <span class="p">[</span><span class="n">files</span> <span class="o">...</span><span class="p">]</span>
 
-SN mock plotter
+<span class="n">SN</span> <span class="n">mock</span> <span class="n">plotter</span>
 
-positional arguments:
-  files                 a list of files with SN mocks
+<span class="n">positional</span> <span class="n">arguments</span><span class="p">:</span>
+  <span class="n">files</span>                 <span class="n">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">files</span> <span class="k">with</span> <span class="n">SN</span> <span class="n">mocks</span>
 
-optional arguments:
-  -h, --help            show this help message and exit
-  -o OUTROOT, --outroot OUTROOT
-                        path and name of the output file
-  -v, --version         show program&#39;s version number and exit
-  -q, --quiet           decides wether something gets printed to screen or not
+<span class="n">optional</span> <span class="n">arguments</span><span class="p">:</span>
+  <span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>            <span class="n">show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span>
+  <span class="o">-</span><span class="n">o</span> <span class="n">OUTROOT</span><span class="p">,</span> <span class="o">--</span><span class="n">outroot</span> <span class="n">OUTROOT</span>
+                        <span class="n">path</span> <span class="ow">and</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">output</span> <span class="n">file</span>
+  <span class="o">-</span><span class="n">v</span><span class="p">,</span> <span class="o">--</span><span class="n">version</span>         <span class="n">show</span> <span class="n">program</span><span class="s1">&#39;s version number and exit</span>
+  <span class="o">-</span><span class="n">q</span><span class="p">,</span> <span class="o">--</span><span class="n">quiet</span>           <span class="n">decides</span> <span class="n">wether</span> <span class="n">something</span> <span class="n">gets</span> <span class="n">printed</span> <span class="n">to</span> <span class="n">screen</span> <span class="ow">or</span> <span class="ow">not</span>
 </pre></div>
 </div>
 <p>Developed by Marco Raveri (<a class="reference external" href="mailto:mraveri&#37;&#52;&#48;sissa&#46;it">mraveri<span>&#64;</span>sissa<span>&#46;</span>it</a>) for the CosmicFish code.</p>
@@ -187,6 +188,9 @@ optional arguments:
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">Rectangle</span></code>(xy,&nbsp;width,&nbsp;height[,&nbsp;angle])</td>
+<td>Draw a rectangle with lower left at <em>xy</em> = (<em>x</em>, <em>y</em>) with specified <em>width</em> and <em>height</em>.</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -211,7 +215,7 @@ optional arguments:
   <div role="contentinfo">
     <p>
         &copy; Copyright 2016, the CosmicFish authors.
-      Last updated on Jun 21, 2016.
+      Last updated on Aug 19, 2016.
 
     </p>
   </div>

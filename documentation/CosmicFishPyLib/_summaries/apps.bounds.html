@@ -91,12 +91,13 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../cosmicfish_pylib_apps.html">Applications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="apps.plot_cls_cov.html">apps.plot_cls_cov</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apps.compare_cls_cov.html">apps.compare_cls_cov</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apps.compare_SN_mocks.html">apps.compare_SN_mocks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apps.plot_1D.html">apps.plot_1D</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apps.plot_2D.html">apps.plot_2D</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apps.plot_tri.html">apps.plot_tri</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">apps.bounds</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">apps.bounds</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apps.full_analysis.html">apps.full_analysis</a></li>
 </ul>
 </li>
@@ -133,7 +134,7 @@
         <div class="rst-content">
           
 
-
+ 
 
 
 
@@ -162,37 +163,37 @@
 <p>Simple Python code to compute the narginal bounds of a set of Fisher matrices.</p>
 <p>The ouput will be printed on screen if an output root is not provided.</p>
 <p>Invoking the help option <code class="docutils literal"><span class="pre">bounds.py</span> <span class="pre">-h</span></code> will result in:</p>
-<div class="highlight-python"><div class="highlight"><pre>usage: bounds.py [-h] [-o OUTROOT] [-p PARAMS [PARAMS ...]] [-s SUM_FISH] [-e]
-             [-d] [-l] [-i INI_FILE] [-v] [-q]
-             files [files ...]
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">bounds</span><span class="o">.</span><span class="n">py</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">OUTROOT</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">p</span> <span class="n">PARAMS</span> <span class="p">[</span><span class="n">PARAMS</span> <span class="o">...</span><span class="p">]]</span> <span class="p">[</span><span class="o">-</span><span class="n">s</span> <span class="n">SUM_FISH</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">e</span><span class="p">]</span>
+             <span class="p">[</span><span class="o">-</span><span class="n">d</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">l</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">i</span> <span class="n">INI_FILE</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">v</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">q</span><span class="p">]</span>
+             <span class="n">files</span> <span class="p">[</span><span class="n">files</span> <span class="o">...</span><span class="p">]</span>
 
-confidence bounds calculator
+<span class="n">confidence</span> <span class="n">bounds</span> <span class="n">calculator</span>
 
-positional arguments:
-  files                 a list of files with Fisher matrices
+<span class="n">positional</span> <span class="n">arguments</span><span class="p">:</span>
+  <span class="n">files</span>                 <span class="n">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">files</span> <span class="k">with</span> <span class="n">Fisher</span> <span class="n">matrices</span>
 
-optional arguments:
-  -h, --help            show this help message and exit
-  -o OUTROOT, --outroot OUTROOT
-                        path and name of the output file. If this option is
-                        not present the name and path of the first Fisher
-                        matrix will be used
-  -p PARAMS [PARAMS ...], --params PARAMS [PARAMS ...]
-                        names of the parameters to plot. If this option is not
-                        present the plot will contain all parameters.
-  -s SUM_FISH, --sum SUM_FISH
-                        decides wether to sum all the input Fisher matrices.
-                        If selected the argument will be the label of the
-                        Fisher matrices combination
-  -e, --eliminate       if parameters are passed from the command line this
-                        option avoids marginalization over the others
-  -d, --derived         decides wether to look for derived parameters when
-                        importing the Fisher matrix
-  -l, --latex           decides wether output the bounds in LaTeX format
-  -i INI_FILE, --ini INI_FILE
-                        name and path of an input file with options
-  -v, --version         show program&#39;s version number and exit
-  -q, --quiet           decides wether something gets printed to screen or not
+<span class="n">optional</span> <span class="n">arguments</span><span class="p">:</span>
+  <span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>            <span class="n">show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span>
+  <span class="o">-</span><span class="n">o</span> <span class="n">OUTROOT</span><span class="p">,</span> <span class="o">--</span><span class="n">outroot</span> <span class="n">OUTROOT</span>
+                        <span class="n">path</span> <span class="ow">and</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">output</span> <span class="n">file</span><span class="o">.</span> <span class="n">If</span> <span class="n">this</span> <span class="n">option</span> <span class="ow">is</span>
+                        <span class="ow">not</span> <span class="n">present</span> <span class="n">the</span> <span class="n">name</span> <span class="ow">and</span> <span class="n">path</span> <span class="n">of</span> <span class="n">the</span> <span class="n">first</span> <span class="n">Fisher</span>
+                        <span class="n">matrix</span> <span class="n">will</span> <span class="n">be</span> <span class="n">used</span>
+  <span class="o">-</span><span class="n">p</span> <span class="n">PARAMS</span> <span class="p">[</span><span class="n">PARAMS</span> <span class="o">...</span><span class="p">],</span> <span class="o">--</span><span class="n">params</span> <span class="n">PARAMS</span> <span class="p">[</span><span class="n">PARAMS</span> <span class="o">...</span><span class="p">]</span>
+                        <span class="n">names</span> <span class="n">of</span> <span class="n">the</span> <span class="n">parameters</span> <span class="n">to</span> <span class="n">plot</span><span class="o">.</span> <span class="n">If</span> <span class="n">this</span> <span class="n">option</span> <span class="ow">is</span> <span class="ow">not</span>
+                        <span class="n">present</span> <span class="n">the</span> <span class="n">plot</span> <span class="n">will</span> <span class="n">contain</span> <span class="nb">all</span> <span class="n">parameters</span><span class="o">.</span>
+  <span class="o">-</span><span class="n">s</span> <span class="n">SUM_FISH</span><span class="p">,</span> <span class="o">--</span><span class="nb">sum</span> <span class="n">SUM_FISH</span>
+                        <span class="n">decides</span> <span class="n">wether</span> <span class="n">to</span> <span class="nb">sum</span> <span class="nb">all</span> <span class="n">the</span> <span class="nb">input</span> <span class="n">Fisher</span> <span class="n">matrices</span><span class="o">.</span>
+                        <span class="n">If</span> <span class="n">selected</span> <span class="n">the</span> <span class="n">argument</span> <span class="n">will</span> <span class="n">be</span> <span class="n">the</span> <span class="n">label</span> <span class="n">of</span> <span class="n">the</span>
+                        <span class="n">Fisher</span> <span class="n">matrices</span> <span class="n">combination</span>
+  <span class="o">-</span><span class="n">e</span><span class="p">,</span> <span class="o">--</span><span class="n">eliminate</span>       <span class="k">if</span> <span class="n">parameters</span> <span class="n">are</span> <span class="n">passed</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">command</span> <span class="n">line</span> <span class="n">this</span>
+                        <span class="n">option</span> <span class="n">avoids</span> <span class="n">marginalization</span> <span class="n">over</span> <span class="n">the</span> <span class="n">others</span>
+  <span class="o">-</span><span class="n">d</span><span class="p">,</span> <span class="o">--</span><span class="n">derived</span>         <span class="n">decides</span> <span class="n">wether</span> <span class="n">to</span> <span class="n">look</span> <span class="k">for</span> <span class="n">derived</span> <span class="n">parameters</span> <span class="n">when</span>
+                        <span class="n">importing</span> <span class="n">the</span> <span class="n">Fisher</span> <span class="n">matrix</span>
+  <span class="o">-</span><span class="n">l</span><span class="p">,</span> <span class="o">--</span><span class="n">latex</span>           <span class="n">decides</span> <span class="n">wether</span> <span class="n">output</span> <span class="n">the</span> <span class="n">bounds</span> <span class="ow">in</span> <span class="n">LaTeX</span> <span class="nb">format</span>
+  <span class="o">-</span><span class="n">i</span> <span class="n">INI_FILE</span><span class="p">,</span> <span class="o">--</span><span class="n">ini</span> <span class="n">INI_FILE</span>
+                        <span class="n">name</span> <span class="ow">and</span> <span class="n">path</span> <span class="n">of</span> <span class="n">an</span> <span class="nb">input</span> <span class="n">file</span> <span class="k">with</span> <span class="n">options</span>
+  <span class="o">-</span><span class="n">v</span><span class="p">,</span> <span class="o">--</span><span class="n">version</span>         <span class="n">show</span> <span class="n">program</span><span class="s1">&#39;s version number and exit</span>
+  <span class="o">-</span><span class="n">q</span><span class="p">,</span> <span class="o">--</span><span class="n">quiet</span>           <span class="n">decides</span> <span class="n">wether</span> <span class="n">something</span> <span class="n">gets</span> <span class="n">printed</span> <span class="n">to</span> <span class="n">screen</span> <span class="ow">or</span> <span class="ow">not</span>
 </pre></div>
 </div>
 <p>Developed by Marco Raveri (<a class="reference external" href="mailto:mraveri&#37;&#52;&#48;sissa&#46;it">mraveri<span>&#64;</span>sissa<span>&#46;</span>it</a>) 
@@ -219,7 +220,7 @@ and Matteo Martinelli (<a class="reference external" href="mailto:m&#46;martinel
   <div role="contentinfo">
     <p>
         &copy; Copyright 2016, the CosmicFish authors.
-      Last updated on Jun 21, 2016.
+      Last updated on Aug 19, 2016.
 
     </p>
   </div>

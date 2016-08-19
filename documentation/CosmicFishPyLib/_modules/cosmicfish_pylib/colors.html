@@ -86,6 +86,7 @@
                 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference external" href="example.html#://">Examples and tutorial</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://mybinder.org/repo/cosmicfish/cosmicfish">Live examples and tutorial</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_apps.html">Applications</a></li>
@@ -145,20 +146,20 @@
            <div itemprop="articleBody">
             
   <h1>Source code for cosmicfish_pylib.colors</h1><div class="highlight"><pre>
-<span class="c">#----------------------------------------------------------------------------------------</span>
-<span class="c">#</span>
-<span class="c"># This file is part of CosmicFish.</span>
-<span class="c">#</span>
-<span class="c"># Copyright (C) 2015-2016 by the CosmicFish authors</span>
-<span class="c">#</span>
-<span class="c"># The CosmicFish code is free software;</span>
-<span class="c"># You can use it, redistribute it, and/or modify it under the terms</span>
-<span class="c"># of the GNU General Public License as published by the Free Software Foundation;</span>
-<span class="c"># either version 3 of the License, or (at your option) any later version.</span>
-<span class="c"># The full text of the license can be found in the file LICENSE at</span>
-<span class="c"># the top level of the CosmicFish distribution.</span>
-<span class="c">#</span>
-<span class="c">#----------------------------------------------------------------------------------------</span>
+<span></span><span class="c1">#----------------------------------------------------------------------------------------</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of CosmicFish.</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (C) 2015-2016 by the CosmicFish authors</span>
+<span class="c1">#</span>
+<span class="c1"># The CosmicFish code is free software;</span>
+<span class="c1"># You can use it, redistribute it, and/or modify it under the terms</span>
+<span class="c1"># of the GNU General Public License as published by the Free Software Foundation;</span>
+<span class="c1"># either version 3 of the License, or (at your option) any later version.</span>
+<span class="c1"># The full text of the license can be found in the file LICENSE at</span>
+<span class="c1"># the top level of the CosmicFish distribution.</span>
+<span class="c1">#</span>
+<span class="c1">#----------------------------------------------------------------------------------------</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">.. module:: colors</span>
@@ -168,7 +169,7 @@
 <span class="sd">.. moduleauthor:: Marco Raveri &lt;mraveri@sissa.it&gt; for the CosmicFish code.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="c"># ***************************************************************************************</span>
+<span class="c1"># ***************************************************************************************</span>
 
 <div class="viewcode-block" id="nice_colors"><a class="viewcode-back" href="../../cosmicfish_pylib_colors.html#cosmicfish_pylib.colors.nice_colors">[docs]</a><span class="k">def</span> <span class="nf">nice_colors</span><span class="p">(</span> <span class="n">num</span> <span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -183,7 +184,7 @@
 <span class="sd">    :rtype: tuple</span>
 <span class="sd">        </span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c"># default colormap</span>
+    <span class="c1"># default colormap</span>
     <span class="n">colormap</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">),</span>
                  <span class="mi">1</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
                  <span class="mi">2</span><span class="p">:</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
@@ -201,10 +202,10 @@
                  <span class="mi">6</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">),</span>
                <span class="p">}</span>
     <span class="n">index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span> <span class="nb">round</span><span class="p">(</span> <span class="n">num</span><span class="o">%</span><span class="mi">7</span> <span class="p">))</span>
-    <span class="k">return</span> <span class="n">colormap</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">colormap</span><span class="p">[</span><span class="n">index</span><span class="p">]</span></div>
 
-<span class="c"># ***************************************************************************************</span>
-</div>
+<span class="c1"># ***************************************************************************************</span>
+
 <div class="viewcode-block" id="bash_colors"><a class="viewcode-back" href="../../cosmicfish_pylib_colors.html#cosmicfish_pylib.colors.bash_colors">[docs]</a><span class="k">class</span> <span class="nc">bash_colors</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This class contains the necessary definitions to print to bash screen with colors.</span>
@@ -221,24 +222,24 @@
 <span class="sd">    </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
-    <span class="c"># -----------------------------------------------------------------------------------</span>
+    <span class="c1"># -----------------------------------------------------------------------------------</span>
     
-    <span class="n">HEADER</span>    <span class="o">=</span> <span class="s">&#39;</span><span class="se">\033</span><span class="s">[95m&#39;</span> <span class="c">#: ANSI color for light purple.</span>
-    <span class="n">OKBLUE</span>    <span class="o">=</span> <span class="s">&#39;</span><span class="se">\033</span><span class="s">[94m&#39;</span> <span class="c">#: ANSI color for blue.</span>
-    <span class="n">OKGREEN</span>   <span class="o">=</span> <span class="s">&#39;</span><span class="se">\033</span><span class="s">[92m&#39;</span> <span class="c">#: ANSI color for green.</span>
-    <span class="n">WARNING</span>   <span class="o">=</span> <span class="s">&#39;</span><span class="se">\033</span><span class="s">[93m&#39;</span> <span class="c">#: ANSI color for yellow.</span>
-    <span class="n">FAIL</span>      <span class="o">=</span> <span class="s">&#39;</span><span class="se">\033</span><span class="s">[91m&#39;</span> <span class="c">#: ANSI color for red.</span>
-    <span class="n">BOLD</span>      <span class="o">=</span> <span class="s">&#39;</span><span class="se">\033</span><span class="s">[1m&#39;</span>  <span class="c">#: ANSI code for bold text.</span>
-    <span class="n">UNDERLINE</span> <span class="o">=</span> <span class="s">&#39;</span><span class="se">\033</span><span class="s">[4m&#39;</span>  <span class="c">#: ANSI code for underlined text.</span>
-    <span class="n">ENDC</span>      <span class="o">=</span> <span class="s">&#39;</span><span class="se">\033</span><span class="s">[0m&#39;</span>  <span class="c">#: ANSI code to restore the bash default.</span>
+    <span class="n">HEADER</span>    <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[95m&#39;</span> <span class="c1">#: ANSI color for light purple.</span>
+    <span class="n">OKBLUE</span>    <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[94m&#39;</span> <span class="c1">#: ANSI color for blue.</span>
+    <span class="n">OKGREEN</span>   <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[92m&#39;</span> <span class="c1">#: ANSI color for green.</span>
+    <span class="n">WARNING</span>   <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[93m&#39;</span> <span class="c1">#: ANSI color for yellow.</span>
+    <span class="n">FAIL</span>      <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[91m&#39;</span> <span class="c1">#: ANSI color for red.</span>
+    <span class="n">BOLD</span>      <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[1m&#39;</span>  <span class="c1">#: ANSI code for bold text.</span>
+    <span class="n">UNDERLINE</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[4m&#39;</span>  <span class="c1">#: ANSI code for underlined text.</span>
+    <span class="n">ENDC</span>      <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[0m&#39;</span>  <span class="c1">#: ANSI code to restore the bash default.</span>
     
-    <span class="c"># -----------------------------------------------------------------------------------</span>
+    <span class="c1"># -----------------------------------------------------------------------------------</span>
     
 <div class="viewcode-block" id="bash_colors.__init__"><a class="viewcode-back" href="../../_summaries/cosmicfish_pylib.colors.bash_colors.html#cosmicfish_pylib.colors.bash_colors.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">pass</span>
+        <span class="k">pass</span></div>
     
-    <span class="c"># -----------------------------------------------------------------------------------</span>
-    </div>
+    <span class="c1"># -----------------------------------------------------------------------------------</span>
+    
 <div class="viewcode-block" id="bash_colors.header"><a class="viewcode-back" href="../../cosmicfish_pylib_colors.html#cosmicfish_pylib.colors.bash_colors.header">[docs]</a>    <span class="k">def</span> <span class="nf">header</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">        Function that returns a string that can be printed to bash in :class:`cosmicfish_pylib.colors.bash_colors.HEADER` color.</span>
@@ -249,10 +250,10 @@
 <span class="sd">        :rtype: string </span>
 <span class="sd">           </span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">HEADER</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">ENDC</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">HEADER</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">ENDC</span></div>
     
-    <span class="c"># -----------------------------------------------------------------------------------</span>
-    </div>
+    <span class="c1"># -----------------------------------------------------------------------------------</span>
+    
 <div class="viewcode-block" id="bash_colors.blue"><a class="viewcode-back" href="../../cosmicfish_pylib_colors.html#cosmicfish_pylib.colors.bash_colors.blue">[docs]</a>    <span class="k">def</span> <span class="nf">blue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">string</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">        Function that returns a string that can be printed to bash in :class:`cosmicfish_pylib.colors.bash_colors.OKBLUE` color.</span>
@@ -263,10 +264,10 @@
 <span class="sd">        :rtype: string </span>
 <span class="sd">           </span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">OKBLUE</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">ENDC</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">OKBLUE</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">ENDC</span></div>
     
-    <span class="c"># -----------------------------------------------------------------------------------</span>
-    </div>
+    <span class="c1"># -----------------------------------------------------------------------------------</span>
+    
 <div class="viewcode-block" id="bash_colors.green"><a class="viewcode-back" href="../../cosmicfish_pylib_colors.html#cosmicfish_pylib.colors.bash_colors.green">[docs]</a>    <span class="k">def</span> <span class="nf">green</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">string</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">        Function that returns a string that can be printed to bash in :class:`cosmicfish_pylib.colors.bash_colors.OKGREEN` color.</span>
@@ -277,10 +278,10 @@
 <span class="sd">        :rtype: string </span>
 <span class="sd">           </span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">OKGREEN</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">ENDC</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">OKGREEN</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">ENDC</span></div>
     
-    <span class="c"># -----------------------------------------------------------------------------------</span>
-    </div>
+    <span class="c1"># -----------------------------------------------------------------------------------</span>
+    
 <div class="viewcode-block" id="bash_colors.warning"><a class="viewcode-back" href="../../cosmicfish_pylib_colors.html#cosmicfish_pylib.colors.bash_colors.warning">[docs]</a>    <span class="k">def</span> <span class="nf">warning</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">string</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">        Function that returns a string that can be printed to bash in :class:`cosmicfish_pylib.colors.bash_colors.WARNING` color.</span>
@@ -291,10 +292,10 @@
 <span class="sd">        :rtype: string </span>
 <span class="sd">           </span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">WARNING</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">ENDC</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">WARNING</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">ENDC</span></div>
     
-    <span class="c"># -----------------------------------------------------------------------------------</span>
-    </div>
+    <span class="c1"># -----------------------------------------------------------------------------------</span>
+    
 <div class="viewcode-block" id="bash_colors.fail"><a class="viewcode-back" href="../../cosmicfish_pylib_colors.html#cosmicfish_pylib.colors.bash_colors.fail">[docs]</a>    <span class="k">def</span> <span class="nf">fail</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">string</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">        Function that returns a string that can be printed to bash in :class:`cosmicfish_pylib.colors.bash_colors.FAIL` color.</span>
@@ -305,10 +306,10 @@
 <span class="sd">        :rtype: string </span>
 <span class="sd">           </span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">FAIL</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">ENDC</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">FAIL</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">ENDC</span></div>
     
-    <span class="c"># -----------------------------------------------------------------------------------</span>
-    </div>
+    <span class="c1"># -----------------------------------------------------------------------------------</span>
+    
 <div class="viewcode-block" id="bash_colors.bold"><a class="viewcode-back" href="../../cosmicfish_pylib_colors.html#cosmicfish_pylib.colors.bash_colors.bold">[docs]</a>    <span class="k">def</span> <span class="nf">bold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">string</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">        Function that returns a string that can be printed to bash in :class:`cosmicfish_pylib.colors.bash_colors.BOLD` color.</span>
@@ -319,10 +320,10 @@
 <span class="sd">        :rtype: string </span>
 <span class="sd">           </span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">BOLD</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">ENDC</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">BOLD</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">ENDC</span></div>
     
-    <span class="c"># -----------------------------------------------------------------------------------</span>
-    </div>
+    <span class="c1"># -----------------------------------------------------------------------------------</span>
+    
 <div class="viewcode-block" id="bash_colors.underline"><a class="viewcode-back" href="../../cosmicfish_pylib_colors.html#cosmicfish_pylib.colors.bash_colors.underline">[docs]</a>    <span class="k">def</span> <span class="nf">underline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">string</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">        Function that returns a string that can be printed to bash in :class:`cosmicfish_pylib.colors.bash_colors.UNDERLINE` color.</span>
@@ -333,11 +334,11 @@
 <span class="sd">        :rtype: string</span>
 <span class="sd">        </span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">UNDERLINE</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">ENDC</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">UNDERLINE</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">ENDC</span></div></div>
     
-    <span class="c"># -----------------------------------------------------------------------------------</span>
+    <span class="c1"># -----------------------------------------------------------------------------------</span>
     
-<span class="c"># ***************************************************************************************</span></div></div>
+<span class="c1"># ***************************************************************************************</span>
 </pre></div>
 
            </div>
@@ -350,7 +351,7 @@
   <div role="contentinfo">
     <p>
         &copy; Copyright 2016, the CosmicFish authors.
-      Last updated on Jun 21, 2016.
+      Last updated on Aug 19, 2016.
 
     </p>
   </div>

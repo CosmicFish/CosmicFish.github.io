@@ -86,6 +86,7 @@
                 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference external" href="example.html#://">Examples and tutorial</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://mybinder.org/repo/cosmicfish/cosmicfish">Live examples and tutorial</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../cosmicfish_pylib_apps.html">Applications</a></li>
@@ -145,20 +146,20 @@
            <div itemprop="articleBody">
             
   <h1>Source code for cosmicfish_pylib.fisher_plot_settings</h1><div class="highlight"><pre>
-<span class="c">#----------------------------------------------------------------------------------------</span>
-<span class="c">#</span>
-<span class="c"># This file is part of CosmicFish.</span>
-<span class="c">#</span>
-<span class="c"># Copyright (C) 2015-2016 by the CosmicFish authors</span>
-<span class="c">#</span>
-<span class="c"># The CosmicFish code is free software;</span>
-<span class="c"># You can use it, redistribute it, and/or modify it under the terms</span>
-<span class="c"># of the GNU General Public License as published by the Free Software Foundation;</span>
-<span class="c"># either version 3 of the License, or (at your option) any later version.</span>
-<span class="c"># The full text of the license can be found in the file LICENSE at</span>
-<span class="c"># the top level of the CosmicFish distribution.</span>
-<span class="c">#</span>
-<span class="c">#----------------------------------------------------------------------------------------</span>
+<span></span><span class="c1">#----------------------------------------------------------------------------------------</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of CosmicFish.</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (C) 2015-2016 by the CosmicFish authors</span>
+<span class="c1">#</span>
+<span class="c1"># The CosmicFish code is free software;</span>
+<span class="c1"># You can use it, redistribute it, and/or modify it under the terms</span>
+<span class="c1"># of the GNU General Public License as published by the Free Software Foundation;</span>
+<span class="c1"># either version 3 of the License, or (at your option) any later version.</span>
+<span class="c1"># The full text of the license can be found in the file LICENSE at</span>
+<span class="c1"># the top level of the CosmicFish distribution.</span>
+<span class="c1">#</span>
+<span class="c1">#----------------------------------------------------------------------------------------</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">.. module:: fisher_plot_settings</span>
@@ -169,28 +170,28 @@
 
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="c"># ***************************************************************************************</span>
+<span class="c1"># ***************************************************************************************</span>
 
 <span class="kn">import</span> <span class="nn">matplotlib</span>
 
-<span class="c"># ***************************************************************************************</span>
+<span class="c1"># ***************************************************************************************</span>
 
 <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">Some global parameters </span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="n">paper_width</span> <span class="o">=</span> <span class="mf">21.0</span>                <span class="c">#: width of an A4 paper in cm</span>
+<span class="n">paper_width</span> <span class="o">=</span> <span class="mf">21.0</span>                <span class="c1">#: width of an A4 paper in cm</span>
 
-<span class="n">inch_to_cm</span>  <span class="o">=</span> <span class="mf">2.54</span>                <span class="c">#: conversion factor from inches to centimeter</span>
-<span class="n">cm_to_inch</span>  <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">inch_to_cm</span>      <span class="c">#: conversion factor from centimeter to inches </span>
+<span class="n">inch_to_cm</span>  <span class="o">=</span> <span class="mf">2.54</span>                <span class="c1">#: conversion factor from inches to centimeter</span>
+<span class="n">cm_to_inch</span>  <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">inch_to_cm</span>      <span class="c1">#: conversion factor from centimeter to inches </span>
 
-<span class="n">points_to_mm</span> <span class="o">=</span> <span class="mf">0.352778</span>           <span class="c">#: conversion factor from points to mm </span>
-<span class="n">mm_to_points</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">points_to_mm</span>   <span class="c">#: conversion factor from mm to points </span>
+<span class="n">points_to_mm</span> <span class="o">=</span> <span class="mf">0.352778</span>           <span class="c1">#: conversion factor from points to mm </span>
+<span class="n">mm_to_points</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">points_to_mm</span>   <span class="c1">#: conversion factor from mm to points </span>
 
 <span class="n">points_width_to_mm</span> <span class="o">=</span> <span class="mf">0.18</span>
 <span class="n">points_heights_to_mm</span> <span class="o">=</span> <span class="mf">0.30</span>
 
-<span class="c"># ***************************************************************************************</span>
+<span class="c1"># ***************************************************************************************</span>
 
 <div class="viewcode-block" id="CosmicFish_PlotSettings"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_plot_settings.html#cosmicfish_pylib.fisher_plot_settings.CosmicFish_PlotSettings">[docs]</a><span class="k">class</span> <span class="nc">CosmicFish_PlotSettings</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -278,7 +279,7 @@
 <span class="sd">    </span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="c"># -----------------------------------------------------------------------------------</span>
+    <span class="c1"># -----------------------------------------------------------------------------------</span>
     
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">dictionary</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -298,14 +299,14 @@
 <span class="sd">        </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
-        <span class="c"># colors:</span>
+        <span class="c1"># colors:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">use_nice_colors</span>     <span class="o">=</span> <span class="bp">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nice_colors_palette</span> <span class="o">=</span> <span class="bp">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">line_colors</span>         <span class="o">=</span> <span class="p">[</span><span class="s">&#39;#006FED&#39;</span><span class="p">,</span> <span class="s">&#39;#E03424&#39;</span><span class="p">,</span> <span class="s">&#39;black&#39;</span><span class="p">,</span> <span class="s">&#39;#009966&#39;</span><span class="p">,</span> <span class="s">&#39;#000866&#39;</span><span class="p">,</span> <span class="s">&#39;#336600&#39;</span><span class="p">,</span> <span class="s">&#39;#006633&#39;</span><span class="p">,</span> <span class="s">&#39;m&#39;</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">]</span>  
-        <span class="bp">self</span><span class="o">.</span><span class="n">solid_colors</span>        <span class="o">=</span> <span class="p">[</span><span class="s">&#39;#006FED&#39;</span><span class="p">,</span> <span class="s">&#39;#E03424&#39;</span><span class="p">,</span> <span class="s">&#39;gray&#39;</span><span class="p">,</span> <span class="s">&#39;#009966&#39;</span><span class="p">,</span> <span class="s">&#39;#000866&#39;</span><span class="p">,</span> <span class="s">&#39;#336600&#39;</span><span class="p">,</span> <span class="s">&#39;#006633&#39;</span><span class="p">,</span> <span class="s">&#39;m&#39;</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">]</span>  
-        <span class="bp">self</span><span class="o">.</span><span class="n">linestyle</span>           <span class="o">=</span> <span class="p">[</span><span class="s">&#39;-&#39;</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">]</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">line_colors</span>         <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#006FED&#39;</span><span class="p">,</span> <span class="s1">&#39;#E03424&#39;</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;#009966&#39;</span><span class="p">,</span> <span class="s1">&#39;#000866&#39;</span><span class="p">,</span> <span class="s1">&#39;#336600&#39;</span><span class="p">,</span> <span class="s1">&#39;#006633&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">]</span>  
+        <span class="bp">self</span><span class="o">.</span><span class="n">solid_colors</span>        <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#006FED&#39;</span><span class="p">,</span> <span class="s1">&#39;#E03424&#39;</span><span class="p">,</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="s1">&#39;#009966&#39;</span><span class="p">,</span> <span class="s1">&#39;#000866&#39;</span><span class="p">,</span> <span class="s1">&#39;#336600&#39;</span><span class="p">,</span> <span class="s1">&#39;#006633&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">]</span>  
+        <span class="bp">self</span><span class="o">.</span><span class="n">linestyle</span>           <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">]</span> 
         
-        <span class="c"># options for 1D plots:</span>
+        <span class="c1"># options for 1D plots:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">D1_confidence_level</span>     <span class="o">=</span> <span class="p">[</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.68</span> <span class="p">]</span>      
         <span class="bp">self</span><span class="o">.</span><span class="n">D1_num_points</span>           <span class="o">=</span> <span class="mi">100</span>                 
         <span class="bp">self</span><span class="o">.</span><span class="n">D1_line_thickness</span>       <span class="o">=</span> <span class="mf">1.0</span>                 
@@ -315,25 +316,25 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">D1_alpha</span>                <span class="o">=</span> <span class="mf">0.1</span>                 
         <span class="bp">self</span><span class="o">.</span><span class="n">D1_ylabel_right</span>         <span class="o">=</span> <span class="bp">False</span>               
         <span class="bp">self</span><span class="o">.</span><span class="n">D1_xlabel_up</span>            <span class="o">=</span> <span class="bp">False</span>               
-        <span class="c"># - thicks</span>
+        <span class="c1"># - thicks</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">D1_show_x_ticks</span>         <span class="o">=</span> <span class="bp">True</span>                
         <span class="bp">self</span><span class="o">.</span><span class="n">D1_number_x_ticks</span>       <span class="o">=</span> <span class="mi">3</span>                   
         <span class="bp">self</span><span class="o">.</span><span class="n">D1_show_y_ticks</span>         <span class="o">=</span> <span class="bp">True</span>                
         <span class="bp">self</span><span class="o">.</span><span class="n">D1_number_y_ticks</span>       <span class="o">=</span> <span class="mi">2</span>                   
         <span class="bp">self</span><span class="o">.</span><span class="n">D1_show_x_ticks_labels</span>  <span class="o">=</span> <span class="bp">True</span>                
         <span class="bp">self</span><span class="o">.</span><span class="n">D1_show_y_ticks_labels</span>  <span class="o">=</span> <span class="bp">True</span>                
-        <span class="c"># - labels</span>
+        <span class="c1"># - labels</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">D1_show_xaxis_label</span>     <span class="o">=</span> <span class="bp">True</span>                
         <span class="bp">self</span><span class="o">.</span><span class="n">D1_show_yaxis_label</span>     <span class="o">=</span> <span class="bp">True</span>                
         <span class="bp">self</span><span class="o">.</span><span class="n">D1_x_label_rotation</span>     <span class="o">=</span> <span class="mi">0</span>                   
         <span class="bp">self</span><span class="o">.</span><span class="n">D1_y_label_rotation</span>     <span class="o">=</span> <span class="mi">90</span>                  
-        <span class="bp">self</span><span class="o">.</span><span class="n">D1_prob_label</span>           <span class="o">=</span> <span class="s">u&#39;$P/P_{</span><span class="se">\\</span><span class="s">rm max}$&#39;</span> 
-        <span class="bp">self</span><span class="o">.</span><span class="n">D1_norm_prob_label</span>      <span class="o">=</span> <span class="s">u&#39;$P$&#39;</span>              
+        <span class="bp">self</span><span class="o">.</span><span class="n">D1_prob_label</span>           <span class="o">=</span> <span class="s1">u&#39;$P/P_{</span><span class="se">\\</span><span class="s1">rm max}$&#39;</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">D1_norm_prob_label</span>      <span class="o">=</span> <span class="s1">u&#39;$P$&#39;</span>              
         <span class="bp">self</span><span class="o">.</span><span class="n">D1_main_fontsize</span>        <span class="o">=</span> <span class="mf">10.0</span>                
         <span class="bp">self</span><span class="o">.</span><span class="n">D1_secondary_fontsize</span>   <span class="o">=</span> <span class="mf">9.0</span>                 
         <span class="bp">self</span><span class="o">.</span><span class="n">D1_show_best_fit</span>        <span class="o">=</span> <span class="bp">False</span>               
     
-        <span class="c"># options for 2D plots:</span>
+        <span class="c1"># options for 2D plots:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">D2_confidence_levels</span>    <span class="o">=</span> <span class="p">[</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.68</span> <span class="p">]</span>      
         <span class="bp">self</span><span class="o">.</span><span class="n">D2_num_points</span>           <span class="o">=</span> <span class="mi">100</span>                 
         <span class="bp">self</span><span class="o">.</span><span class="n">D2_line_thickness</span>       <span class="o">=</span> <span class="mf">1.0</span>                 
@@ -342,14 +343,14 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">D2_alphas</span>               <span class="o">=</span> <span class="p">[</span> <span class="mf">0.40</span><span class="p">,</span> <span class="mf">0.85</span> <span class="p">]</span>      
         <span class="bp">self</span><span class="o">.</span><span class="n">D2_ylabel_right</span>         <span class="o">=</span> <span class="bp">False</span>               
         <span class="bp">self</span><span class="o">.</span><span class="n">D2_xlabel_up</span>            <span class="o">=</span> <span class="bp">False</span>               
-        <span class="c"># - thicks</span>
+        <span class="c1"># - thicks</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">D2_show_x_ticks</span>         <span class="o">=</span> <span class="bp">True</span>                
         <span class="bp">self</span><span class="o">.</span><span class="n">D2_number_x_ticks</span>       <span class="o">=</span> <span class="mi">3</span>                   
         <span class="bp">self</span><span class="o">.</span><span class="n">D2_show_y_ticks</span>         <span class="o">=</span> <span class="bp">True</span>                
         <span class="bp">self</span><span class="o">.</span><span class="n">D2_number_y_ticks</span>       <span class="o">=</span> <span class="mi">3</span>                   
         <span class="bp">self</span><span class="o">.</span><span class="n">D2_show_x_ticks_labels</span>  <span class="o">=</span> <span class="bp">True</span>                
         <span class="bp">self</span><span class="o">.</span><span class="n">D2_show_y_ticks_labels</span>  <span class="o">=</span> <span class="bp">True</span>                
-        <span class="c"># - labels</span>
+        <span class="c1"># - labels</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">D2_show_xaxis_label</span>     <span class="o">=</span> <span class="bp">True</span>               
         <span class="bp">self</span><span class="o">.</span><span class="n">D2_show_yaxis_label</span>     <span class="o">=</span> <span class="bp">True</span>                
         <span class="bp">self</span><span class="o">.</span><span class="n">D2_x_label_rotation</span>     <span class="o">=</span> <span class="mi">0</span>                   
@@ -358,7 +359,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">D2_secondary_fontsize</span>   <span class="o">=</span> <span class="mf">9.0</span>                 
         <span class="bp">self</span><span class="o">.</span><span class="n">D2_show_best_fit</span>        <span class="o">=</span> <span class="bp">False</span>               
         
-        <span class="c"># options for the global figure:</span>
+        <span class="c1"># options for the global figure:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">num_plots_per_line</span>      <span class="o">=</span> <span class="mi">3</span>                   
         <span class="bp">self</span><span class="o">.</span><span class="n">figure_width</span>            <span class="o">=</span> <span class="n">paper_width</span>         
         <span class="bp">self</span><span class="o">.</span><span class="n">figure_height</span>           <span class="o">=</span> <span class="n">paper_width</span>         
@@ -368,7 +369,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">use_fixed_figure_width</span>  <span class="o">=</span> <span class="bp">False</span>               
         <span class="bp">self</span><span class="o">.</span><span class="n">use_fixed_figure_height</span> <span class="o">=</span> <span class="bp">False</span>               
         
-        <span class="c"># options for the legend:</span>
+        <span class="c1"># options for the legend:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">do_legend</span>               <span class="o">=</span> <span class="bp">True</span>                
         <span class="bp">self</span><span class="o">.</span><span class="n">legend_filled</span>           <span class="o">=</span> <span class="bp">True</span>                
         <span class="bp">self</span><span class="o">.</span><span class="n">legend_fontsize</span>         <span class="o">=</span> <span class="mf">10.0</span>                
@@ -377,37 +378,37 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">legend_shadow</span>           <span class="o">=</span> <span class="bp">False</span>               
         <span class="bp">self</span><span class="o">.</span><span class="n">legend_markerfirst</span>      <span class="o">=</span> <span class="bp">True</span>                
         <span class="bp">self</span><span class="o">.</span><span class="n">legend_ncol</span>             <span class="o">=</span> <span class="mi">1</span>                   
-        <span class="bp">self</span><span class="o">.</span><span class="n">legend_loc</span>              <span class="o">=</span> <span class="s">&#39;lower center&#39;</span>      
+        <span class="bp">self</span><span class="o">.</span><span class="n">legend_loc</span>              <span class="o">=</span> <span class="s1">&#39;lower center&#39;</span>      
         <span class="bp">self</span><span class="o">.</span><span class="n">legend_takes_place_plot</span> <span class="o">=</span> <span class="bp">False</span>               
         <span class="bp">self</span><span class="o">.</span><span class="n">legend_takes_place_plot_tri</span> <span class="o">=</span> <span class="bp">True</span>
         
-        <span class="c"># options for the title:</span>
+        <span class="c1"># options for the title:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">title_fontsize</span>          <span class="o">=</span> <span class="mf">10.0</span>                
 
-        <span class="c"># matplotlib relevant options:</span>
-        <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s">&#39;savefig.transparent&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
-        <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s">&#39;figure.autolayout&#39;</span><span class="p">]</span>   <span class="o">=</span> <span class="bp">False</span>
-        <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s">&#39;xtick.major.pad&#39;</span><span class="p">]</span>     <span class="o">=</span> <span class="mf">4.0</span>
-        <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s">&#39;ytick.major.pad&#39;</span><span class="p">]</span>     <span class="o">=</span> <span class="mf">4.0</span>
-        <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s">&#39;axes.labelpad&#39;</span><span class="p">]</span>       <span class="o">=</span> <span class="mf">5.0</span>
-        <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s">&#39;savefig.dpi&#39;</span><span class="p">]</span>         <span class="o">=</span> <span class="mi">300</span>
-        <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s">&#39;savefig.pad_inches&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="c1"># matplotlib relevant options:</span>
+        <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;savefig.transparent&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.autolayout&#39;</span><span class="p">]</span>   <span class="o">=</span> <span class="bp">False</span>
+        <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;xtick.major.pad&#39;</span><span class="p">]</span>     <span class="o">=</span> <span class="mf">4.0</span>
+        <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;ytick.major.pad&#39;</span><span class="p">]</span>     <span class="o">=</span> <span class="mf">4.0</span>
+        <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.labelpad&#39;</span><span class="p">]</span>       <span class="o">=</span> <span class="mf">5.0</span>
+        <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;savefig.dpi&#39;</span><span class="p">]</span>         <span class="o">=</span> <span class="mi">300</span>
+        <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;savefig.pad_inches&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="mf">0.0</span>
         
-        <span class="c"># replace settings with those passed from dictionary:</span>
+        <span class="c1"># replace settings with those passed from dictionary:</span>
         <span class="k">if</span> <span class="n">dictionary</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dictionary</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Invalid input. Dictionary shall be a dictionary of settings.&#39;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Invalid input. Dictionary shall be a dictionary of settings.&#39;</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">temp</span> <span class="o">=</span> <span class="p">[</span> <span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">__accepted_settings__</span> <span class="p">]</span>
                 <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">temp</span><span class="p">:</span>
                     <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
-        <span class="c"># now parse kwargs. Esplicit kwarg takes precedence wrt dictionary:</span>
+        <span class="c1"># now parse kwargs. Esplicit kwarg takes precedence wrt dictionary:</span>
         <span class="k">if</span> <span class="n">kwargs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="n">temp</span> <span class="o">=</span> <span class="p">[</span> <span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">__accepted_settings__</span> <span class="p">]</span>
             <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">temp</span><span class="p">:</span>
                 <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
             
-    <span class="c"># -----------------------------------------------------------------------------------</span>
+    <span class="c1"># -----------------------------------------------------------------------------------</span>
     
 <div class="viewcode-block" id="CosmicFish_PlotSettings.update"><a class="viewcode-back" href="../../cosmicfish_pylib_fisher_plot_settings.html#cosmicfish_pylib.fisher_plot_settings.CosmicFish_PlotSettings.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dictionary</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -424,98 +425,98 @@
 <span class="sd">            dictionary settings.</span>
 <span class="sd">            </span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c"># replace settings with those passed from dictionary:</span>
+        <span class="c1"># replace settings with those passed from dictionary:</span>
         <span class="k">if</span> <span class="n">dictionary</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dictionary</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Invalid input. Dictionary shall be a dictionary of settings.&#39;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Invalid input. Dictionary shall be a dictionary of settings.&#39;</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">temp</span> <span class="o">=</span> <span class="p">[</span> <span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">__accepted_settings__</span> <span class="p">]</span>
                 <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">temp</span><span class="p">:</span>
                     <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
-        <span class="c"># now parse kwargs. Esplicit kwarg takes precedence wrt dictionary:</span>
+        <span class="c1"># now parse kwargs. Esplicit kwarg takes precedence wrt dictionary:</span>
         <span class="k">if</span> <span class="n">kwargs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="n">temp</span> <span class="o">=</span> <span class="p">[</span> <span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">__accepted_settings__</span> <span class="p">]</span>
             <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">temp</span><span class="p">:</span>
-                <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+                <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">key</span><span class="p">])</span></div></div>
         
-    <span class="c"># -----------------------------------------------------------------------------------</span>
+    <span class="c1"># -----------------------------------------------------------------------------------</span>
 
-<span class="c"># ***************************************************************************************</span>
-</div></div>
+<span class="c1"># ***************************************************************************************</span>
+
 <span class="n">__accepted_settings__</span><span class="o">=</span><span class="p">[</span> 
-    <span class="s">&#39;use_nice_colors&#39;</span><span class="p">,</span>
-    <span class="s">&#39;nice_colors_palette&#39;</span><span class="p">,</span> 
-    <span class="s">&#39;line_colors&#39;</span><span class="p">,</span>    
-    <span class="s">&#39;solid_colors&#39;</span><span class="p">,</span>
-    <span class="s">&#39;linestyle&#39;</span><span class="p">,</span>  
-    <span class="s">&#39;D1_confidence_level&#39;</span><span class="p">,</span>      
-    <span class="s">&#39;D1_num_points&#39;</span><span class="p">,</span>       
-    <span class="s">&#39;D1_line_thickness&#39;</span><span class="p">,</span>    
-    <span class="s">&#39;D1_norm_prob&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D1_use_nice_numbers&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D1_filled&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D1_alpha&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D1_ylabel_right&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D1_xlabel_up&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D1_show_x_ticks&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D1_number_x_ticks&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D1_show_y_ticks&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D1_number_y_ticks&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D1_show_x_ticks_labels&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D1_show_y_ticks_labels&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D1_show_xaxis_label&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D1_show_yaxis_label&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D1_x_label_rotation&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D1_y_label_rotation&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D1_prob_label&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D1_norm_prob_label&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D1_main_fontsize&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D1_secondary_fontsize&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D1_show_best_fit&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D2_confidence_levels&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D2_num_points&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D2_line_thickness&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D2_use_nice_numbers&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D2_filled&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D2_alphas&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D2_ylabel_right&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D2_xlabel_up&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D2_show_x_ticks&#39;</span><span class="p">,</span>      
-    <span class="s">&#39;D2_number_x_ticks&#39;</span><span class="p">,</span>     
-    <span class="s">&#39;D2_show_y_ticks&#39;</span><span class="p">,</span>       
-    <span class="s">&#39;D2_number_y_ticks&#39;</span><span class="p">,</span>      
-    <span class="s">&#39;D2_show_x_ticks_labels&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D2_show_y_ticks_labels&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D2_show_xaxis_label&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D2_show_yaxis_label&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D2_x_label_rotation&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D2_y_label_rotation&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D2_main_fontsize&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D2_secondary_fontsize&#39;</span><span class="p">,</span>
-    <span class="s">&#39;D2_show_best_fit&#39;</span><span class="p">,</span>
-    <span class="s">&#39;num_plots_per_line&#39;</span><span class="p">,</span>    
-    <span class="s">&#39;figure_width&#39;</span><span class="p">,</span>
-    <span class="s">&#39;figure_height&#39;</span><span class="p">,</span>
-    <span class="s">&#39;tight_layout&#39;</span><span class="p">,</span>
-    <span class="s">&#39;subplot_x_size&#39;</span><span class="p">,</span>
-    <span class="s">&#39;subplot_y_size&#39;</span><span class="p">,</span>
-    <span class="s">&#39;use_fixed_figure_width&#39;</span><span class="p">,</span>
-    <span class="s">&#39;use_fixed_figure_height&#39;</span><span class="p">,</span>
-    <span class="s">&#39;do_legend&#39;</span><span class="p">,</span>        
-    <span class="s">&#39;legend_filled&#39;</span><span class="p">,</span>
-    <span class="s">&#39;legend_fontsize&#39;</span><span class="p">,</span>
-    <span class="s">&#39;legend_frame&#39;</span><span class="p">,</span>     
-    <span class="s">&#39;legend_fancybox&#39;</span><span class="p">,</span>       
-    <span class="s">&#39;legend_shadow&#39;</span><span class="p">,</span>
-    <span class="s">&#39;legend_markerfirst&#39;</span><span class="p">,</span>
-    <span class="s">&#39;legend_ncol&#39;</span><span class="p">,</span>
-    <span class="s">&#39;legend_loc&#39;</span><span class="p">,</span>
-    <span class="s">&#39;legend_takes_place_plot&#39;</span><span class="p">,</span>
-    <span class="s">&#39;legend_takes_place_plot_tri&#39;</span><span class="p">,</span>
-    <span class="s">&#39;title_fontsize&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;use_nice_colors&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;nice_colors_palette&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;line_colors&#39;</span><span class="p">,</span>    
+    <span class="s1">&#39;solid_colors&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;linestyle&#39;</span><span class="p">,</span>  
+    <span class="s1">&#39;D1_confidence_level&#39;</span><span class="p">,</span>      
+    <span class="s1">&#39;D1_num_points&#39;</span><span class="p">,</span>       
+    <span class="s1">&#39;D1_line_thickness&#39;</span><span class="p">,</span>    
+    <span class="s1">&#39;D1_norm_prob&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D1_use_nice_numbers&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D1_filled&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D1_alpha&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D1_ylabel_right&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D1_xlabel_up&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D1_show_x_ticks&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D1_number_x_ticks&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D1_show_y_ticks&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D1_number_y_ticks&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D1_show_x_ticks_labels&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D1_show_y_ticks_labels&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D1_show_xaxis_label&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D1_show_yaxis_label&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D1_x_label_rotation&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D1_y_label_rotation&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D1_prob_label&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D1_norm_prob_label&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D1_main_fontsize&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D1_secondary_fontsize&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D1_show_best_fit&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D2_confidence_levels&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D2_num_points&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D2_line_thickness&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D2_use_nice_numbers&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D2_filled&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D2_alphas&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D2_ylabel_right&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D2_xlabel_up&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D2_show_x_ticks&#39;</span><span class="p">,</span>      
+    <span class="s1">&#39;D2_number_x_ticks&#39;</span><span class="p">,</span>     
+    <span class="s1">&#39;D2_show_y_ticks&#39;</span><span class="p">,</span>       
+    <span class="s1">&#39;D2_number_y_ticks&#39;</span><span class="p">,</span>      
+    <span class="s1">&#39;D2_show_x_ticks_labels&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D2_show_y_ticks_labels&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D2_show_xaxis_label&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D2_show_yaxis_label&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D2_x_label_rotation&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D2_y_label_rotation&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D2_main_fontsize&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D2_secondary_fontsize&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D2_show_best_fit&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;num_plots_per_line&#39;</span><span class="p">,</span>    
+    <span class="s1">&#39;figure_width&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;figure_height&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;tight_layout&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;subplot_x_size&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;subplot_y_size&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;use_fixed_figure_width&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;use_fixed_figure_height&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;do_legend&#39;</span><span class="p">,</span>        
+    <span class="s1">&#39;legend_filled&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;legend_fontsize&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;legend_frame&#39;</span><span class="p">,</span>     
+    <span class="s1">&#39;legend_fancybox&#39;</span><span class="p">,</span>       
+    <span class="s1">&#39;legend_shadow&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;legend_markerfirst&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;legend_ncol&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;legend_loc&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;legend_takes_place_plot&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;legend_takes_place_plot_tri&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;title_fontsize&#39;</span><span class="p">,</span>
     <span class="p">]</span>
 
-<span class="c"># ***************************************************************************************</span>
+<span class="c1"># ***************************************************************************************</span>
 </pre></div>
 
            </div>
@@ -528,7 +529,7 @@
   <div role="contentinfo">
     <p>
         &copy; Copyright 2016, the CosmicFish authors.
-      Last updated on Jun 21, 2016.
+      Last updated on Aug 19, 2016.
 
     </p>
   </div>
